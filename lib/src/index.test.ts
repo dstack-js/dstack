@@ -15,8 +15,9 @@ describe('Stack', () => {
   })
 
   test('node read', async () => {
-    const { data, on } = await stack.node<string>('hello')
+    const { data, on, get } = await stack.node<string>('hello')
     on((data) => expect(data).toBe('world'))
     expect(data).toBe('world')
+    expect(await get()).toBe('world')
   })
 })

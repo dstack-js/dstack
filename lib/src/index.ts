@@ -20,6 +20,7 @@ export interface Node<T = any> {
   data?: T,
   on: (listener: (data: T) => void) => void,
   path: string,
+  get: () => Promise<T>
 }
 
 export interface Stack {
@@ -41,13 +42,14 @@ export const getRootNode = async (context: StackContext): Promise<<T = any>(path
     const data = await (chain.promise as any)().then()
 
     return {
-      data: data.put as any as T,
+      data: data.put as unknown as T,
       on: (listener: (data: T) => void) => {
         chain.on((data) => listener(data))
       },
       path,
       get: async (): Promise<T> => {
-        return (chain.promise as any)().then()
+        const data = await (chain.promise as any)().then()
+        return data.put
       }
     }
   }
