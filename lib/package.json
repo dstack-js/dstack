@@ -53,5 +53,5 @@
     "start": "tsc --preserveWatchOutput --watch"
   },
   "types": "build/index.d.ts",
-  "version": "0.0.2-alpha.1+f537131"
+  "version": "0.0.2"
 }
