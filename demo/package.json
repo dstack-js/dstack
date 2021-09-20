@@ -8,5 +8,5 @@
     "build": "parcel build src/index.html",
     "start": "parcel src/index.html"
   },
-  "version": "0.0.3"
+  "version": "0.0.4"
 }
