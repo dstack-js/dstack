@@ -29,6 +29,7 @@
     "LICENSE",
     "/README.md"
   ],
+  "gitHead": "eaf9e376e297d0b9178cbde6773d2bc59b4a647c",
   "keywords": [
     "dapp",
     "decentalized",
@@ -49,6 +50,6 @@
     "start": "tsc --preserveWatchOutput --watch"
   },
   "types": "build/index.d.ts",
-  "version": "0.0.1",
-  "gitHead": "b2fdb4422fc194800d96689f99b5015a88a1e53e"
+  "version": "0.0.2-alpha.0+eaf9e37",
+  "visibility": "public"
 }
