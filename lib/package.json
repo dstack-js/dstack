@@ -49,5 +49,6 @@
     "start": "tsc --preserveWatchOutput --watch"
   },
   "types": "build/index.d.ts",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "gitHead": "b2fdb4422fc194800d96689f99b5015a88a1e53e"
 }
