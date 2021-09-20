@@ -6,7 +6,8 @@
   "scripts": {
     "version:bump": "lerna version bump",
     "start": "lerna run --ignore dstack --ignore docs --parallel --stream start",
-    "build:docs": "lerna run --scope docs --parallel --stream build"
+    "build:docs": "lerna run --scope docs --parallel --stream build",
+    "publish": "lerna publish"
   },
   "workspaces": ["docs", "demo", "lib"],
   "keywords": [
