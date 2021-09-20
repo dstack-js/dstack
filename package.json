@@ -1,6 +1,6 @@
 {
   "name": "dstack-js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": "true",
   "description": "Technology stack as a library for developing decentralized web applications",
   "scripts": {
@@ -9,7 +9,11 @@
     "build:docs": "lerna run --scope docs --parallel --stream build",
     "publish": "lerna publish"
   },
-  "workspaces": ["docs", "demo", "lib"],
+  "workspaces": [
+    "docs",
+    "demo",
+    "lib"
+  ],
   "keywords": [
     "dapp",
     "decentalized",

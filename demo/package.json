@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@dstack-js/lib": "^0.0.0"
+    "@dstack-js/lib": "^0.0.1"
   },
   "name": "@dstack-js/demo",
   "private": true,
@@ -8,5 +8,5 @@
     "build": "parcel build src/index.html",
     "start": "parcel src/index.html"
   },
-  "version": "0.0.0"
+  "version": "0.0.1"
 }
