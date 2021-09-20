@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 (module.exports = {
   title: 'DStack',
   tagline: 'Technology stack as a library for developing decentralized web applications',
-  url: 'https://dstack.dev',
+  url: 'https://dstack.netlify.app',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
