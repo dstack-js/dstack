@@ -1,0 +1,53 @@
+{
+  "author": "Mikhail Marynenko <0x77dev@protonmail.com>",
+  "dependencies": {
+    "gun": "^0.2020.1234",
+    "ipfs": "^0.58.4",
+    "libp2p": "^0.32.4",
+    "libp2p-webrtc-direct": "^0.7.0",
+    "libp2p-webrtc-star": "^0.23.0",
+    "peer-id": "^0.15.3",
+    "uuid": "^8.3.2"
+  },
+  "description": "Technology stack as a library for developing decentralized web applications",
+  "devDependencies": {
+    "@types/uuid": "^8.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-unicorn": "^35.0.0",
+    "typescript": "^4.4.2"
+  },
+  "files": [
+    "/build",
+    "/package.json",
+    "/pnpm-lock.yml",
+    "LICENSE",
+    "/README.md"
+  ],
+  "keywords": [
+    "dapp",
+    "decentalized",
+    "stack",
+    "ipfs",
+    "webtorrent",
+    "gunjs",
+    "dapps",
+    "apps"
+  ],
+  "license": "GPL-3.0",
+  "main": "build/index.js",
+  "name": "@dstack-js/lib",
+  "private": false,
+  "scripts": {
+    "build": "tsc",
+    "prepack": "tsc",
+    "start": "tsc --preserveWatchOutput --watch"
+  },
+  "types": "build/index.d.ts",
+  "version": "0.0.0"
+}
