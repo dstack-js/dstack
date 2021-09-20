@@ -5,7 +5,8 @@
   "description": "Technology stack as a library for developing decentralized web applications",
   "scripts": {
     "version:bump": "lerna version bump",
-    "start": "lerna run --ignore dstack --ignore docs --parallel --stream start"
+    "start": "lerna run --ignore dstack --ignore docs --parallel --stream start",
+    "build:docs": "lerna run --scope docs --parallel --stream build"
   },
   "workspaces": ["docs", "demo", "lib"],
   "keywords": [
