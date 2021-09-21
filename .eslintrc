@@ -23,6 +23,7 @@
   ],
   "root": true,
   "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
     "no-nested-ternary": "off",
     "space-before-function-paren": "off",
     "unicorn/better-regex": "error",
@@ -44,7 +45,7 @@
     "unicorn/no-array-for-each": "error",
     "unicorn/no-array-method-this-argument": "error",
     "unicorn/no-array-push-push": "error",
-    "unicorn/no-array-reduce": "error",
+    "unicorn/no-array-reduce": "off",
     "unicorn/no-console-spaces": "error",
     "unicorn/no-document-cookie": "error",
     "unicorn/no-for-loop": "error",

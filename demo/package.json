@@ -8,5 +8,11 @@
     "build": "parcel build src/index.html",
     "start": "parcel src/index.html"
   },
-  "version": "0.0.4"
+  "version": "0.0.4",
+  "devDependencies": {
+    "@parcel/compressor-brotli": "^2.0.0-nightly.2460",
+    "@parcel/compressor-gzip": "^2.0.0-nightly.2460",
+    "@parcel/reporter-bundle-analyzer": "^2.0.0-nightly.1694",
+    "parcel-plugin-bundle-visualiser": "^1.2.0"
+  }
 }
