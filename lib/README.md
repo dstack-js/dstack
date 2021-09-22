@@ -1,6 +1,6 @@
 # DStack
 
-Technology stack as a library for developing decentralized web applications
+<img width="16" src="https://dstack.netlify.app/img/logo.svg" /> Technology stack as a library for developing decentralized web applications
 
 [docs](https://dstack.netlify.app) | [github](https://github.com/0x77dev/dstack)
 
