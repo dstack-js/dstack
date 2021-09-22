@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 import HomepageFeatures from '../components/HomepageFeatures';
@@ -32,6 +33,9 @@ export default function Home() {
       title={siteConfig.tagline}
       description={siteConfig.tagline}>
       <HomepageHeader />
+      <Head>
+        <meta name="google-site-verification" content="7OoBzgK8xinCKmquWj2sKMWQBbKmn7AFPAFKw6lCi6g" />
+      </Head>
       <main>
         <HomepageFeatures />
       </main>
