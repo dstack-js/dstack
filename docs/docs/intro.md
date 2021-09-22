@@ -2,11 +2,11 @@
 sidebar_position: 1
 ---
 
-# Tutorial
+# Quick Look
 
 Let's discover **DStack in less than 5 minutes**.
 
-## Add `@dstack-js/lib` to your project
+## Add DStack to your project
 
 Using Yarn:
 ```shell
@@ -19,21 +19,20 @@ npm i -S @dstack-js/lib
 ```
 
 ## Basic usage
+You'll need a bootstrap/relay peers, we provide them by default, but we not guarantee availability.
 
 ### Create stack
 ```javascript
 import { createStack } from '@dstack-js/lib'
 const stack = createStack({ app: 'helloWorld' })
 ```
-
-You'll need a bootstrap/relay peers, we provide them by default, but we not guarantee availability, if you want to use your own provide them in `peers` options key
-
 If you are using default peers be sure to set unique app name
 
 ```javascript
 import { createStack } from '@dstack-js/lib'
 const stack = createStack({ app: 'helloWorld', peers: ["https://peer.example.com/dstack"] })
 ```
+If you want to use your own provide them in `peers` options key
 
 ### Store data
 ```javascript

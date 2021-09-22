@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable unicorn/prefer-module */
-const lightCodeTheme = require('prism-react-renderer/themes/github')
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require('prism-react-renderer/themes/vsLight');
+const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 
 // With JSDoc @type annotations, IDEs can provide config autocompletion
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
@@ -23,49 +21,93 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl: 'https://github.com/0x77dev/dstack/edit/main/docs/'
+          editUrl: 'https://github.com/0x77dev/dstack/edit/main/docs/',
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   // Please change this to your repo.
-        //   editUrl:
-        //     'https://github.com/0x77dev/dstack/edit/main/docs/blog/'
-        // },
+        blog: {
+          showReadingTime: true,
+          editUrl:
+            'https://github.com/0x77dev/dstack/edit/main/docs/blog/',
+        },
         theme: {
-          customCss: require.resolve('./src/css/custom.css')
-        }
-      })
-    ]
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+      }),
+    ],
   ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: true,
+        respectPrefersColorScheme: true,
+      },
       navbar: {
         title: 'DStack',
+        logo: {
+          alt: 'DStack Logo',
+          src: 'img/logo.svg',
+        },
         items: [
           {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial'
+            label: 'Tutorial',
           },
-          // { to: '/blog', label: 'Blog', position: 'left' },
+          {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/0x77dev/dstack',
             label: 'GitHub',
-            position: 'right'
-          }
-        ]
+            position: 'right',
+          },
+        ],
       },
       footer: {
         style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} DStack Contributors. Website built with Docusaurus.`
+        links: [
+          {
+            title: 'Docs',
+            items: [
+              {
+                label: 'Tutorial',
+                to: '/docs/intro',
+              },
+            ],
+          },
+          {
+            title: 'Community',
+            items: [
+              {
+                label: 'Stack Overflow',
+                href: 'https://stackoverflow.com/questions/tagged/dstack',
+              },
+              {
+                label: 'Discord',
+                href: 'https://discord.link/dstack',
+              },
+            ],
+          },
+          {
+            title: 'More',
+            items: [
+              {
+                label: 'Blog',
+                to: '/blog',
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/0x77dev/dstack',
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} <a href="https://github.com/0x77dev/dstack/graphs/contributors">DStack Contributors</a>`,
       },
       prism: {
         theme: lightCodeTheme,
-        darkTheme: darkCodeTheme
-      }
-    })
-})
+        darkTheme: darkCodeTheme,
+      },
+    }),
+});

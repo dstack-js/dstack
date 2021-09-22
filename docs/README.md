@@ -1,49 +1,33 @@
-# DStack
+# Website
 
-Technology stack as a library for developing decentralized web applications
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-## Basic usage
+### Installation
 
-### Create stack
-```javascript
-import { createStack } from '@dstack-js/lib'
-const stack = createStack({ app: 'helloWorld' })
+```
+$ yarn
 ```
 
-You'll need a bootstrap/relay peers, we provide them by default, but we not guarantee availability, if you want to use your own provide them in `peers` options key
+### Local Development
 
-If you are using default peers be sure to set unique app name
-
-```javascript
-import { createStack } from '@dstack-js/lib'
-const stack = createStack({ app: 'helloWorld', peers: ["https://peer.example.com/dstack"] })
+```
+$ yarn start
 ```
 
-### Store data
-```javascript
-await stack.node('sample.path.to.key', 'your value')
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+### Build
+
+```
+$ yarn build
 ```
 
-### Read data
-```javascript
-const {data} = await stack.node('sample.path.to.key')
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+### Deployment
+
+```
+$ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
 ```
 
-### Observe data
-```javascript
-const {on} = await stack.node('sample.path.to.key')
-
-on((data) => {
-  console.log(data)
-})
-```
-
-### Change data
-```javascript
-// Using node
-await stack.node('sample.path.to.key', 'your new data')
-
-// Using node instance
-const {set} = await stack.node('sample.path.to.key')
-await set('your new data')
-```
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
