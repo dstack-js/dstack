@@ -13,7 +13,7 @@ export interface NodeFile {
   /**
    * File content
    */
-  file: number[]
+  data: number[]
 }
 
 export interface Node<T = any> {

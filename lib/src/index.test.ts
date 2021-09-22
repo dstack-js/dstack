@@ -31,7 +31,7 @@ describe('Stack', () => {
     putFile({
       type: 'text/plain',
       size: 1,
-      file: [...Buffer.from('a')]
+      data: [...Buffer.from('a')]
     })
   })
 
@@ -42,6 +42,6 @@ describe('Stack', () => {
     expect(data).toBe('world')
     expect(await get()).toBe('world')
 
-    expect(Buffer.from((await file()).file).toString()).toBe('a')
+    expect(Buffer.from((await file()).data).toString()).toBe('a')
   })
 })
