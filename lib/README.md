@@ -2,6 +2,8 @@
 
 Technology stack as a library for developing decentralized web applications
 
+[docs](https://dstack.netlify.app) | [github](https://github.com/0x77dev/dstack)
+
 ## Basic usage
 
 ### Create stack

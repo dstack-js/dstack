@@ -25,6 +25,7 @@
     "ts-jest": "^27.0.5",
     "typescript": "^4.4.2"
   },
+  "displayName": "DStack",
   "files": [
     "/build",
     "/package.json",
@@ -33,6 +34,7 @@
     "/README.md"
   ],
   "gitHead": "f5371312370c8d2580dc17029b4050643f865da2",
+  "homepage": "https://dstack.netlify.app",
   "keywords": [
     "dapp",
     "decentalized",
@@ -50,6 +52,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": "https://github.com/0x77dev/dstack",
   "scripts": {
     "build": "tsc",
     "prepack": "tsc",

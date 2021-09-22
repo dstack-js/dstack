@@ -1,33 +1,20 @@
-# Website
+# DStack
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+## Introduction
 
-### Installation
+DStack was created to bring together some of the popular libraries for the decentralized web into a single ecosystem
 
-```
-$ yarn
-```
+## What DStack offers
 
-### Local Development
+Currently DStack provides only distributed graph database built on top of [Gun.js](https://gun.eco)
 
-```
-$ yarn start
-```
+In planned [release `v0.1.0`](https://github.com/0x77dev/dstack/milestone/1) DStack will offer distributed/hosted file sharing, user authentication, encryption and streams support
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+## DStack uses
 
-### Build
+You can build distributed web/electron/react-native applications, that will not rely on backend implementation and cannot be controlled by big corporations
 
-```
-$ yarn build
-```
+## Getting started
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+See [Tutorial](https://dstack.netlify.app/docs/intro) to get started using DStack in your dapp
 
-### Deployment
-
-```
-$ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
