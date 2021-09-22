@@ -22,7 +22,7 @@ describe('Stack', () => {
   })
 
   test('node put file', async () => {
-    const { data, on, get, putFile, file } = await stack.node<string>('hello')
+    const { data, on, get, putFile } = await stack.node<string>('hello')
 
     on((data) => expect(data).toBe('world'))
     expect(data).toBe('world')
