@@ -60,7 +60,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Documentation',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
