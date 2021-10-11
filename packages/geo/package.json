@@ -1,7 +1,7 @@
 {
   "author": "Mikhail Marynenko <0x77dev@protonmail.com>",
   "dependencies": {
-    "@dstack-js/lib": "^0.0.5",
+    "@dstack-js/lib": "^0.0.6-next.0",
     "latlon-geohash": "^2.0.0"
   },
   "description": "Geohasing addon for DStack",
@@ -34,5 +34,5 @@
     "start": "tsc --preserveWatchOutput --watch",
     "test": "jest"
   },
-  "version": "0.0.0"
+  "version": "0.0.6-next.0"
 }
