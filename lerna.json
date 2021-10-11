@@ -1,9 +1,9 @@
 {
   "npmClient": "yarn",
   "packages": [
-    "lib",
+    "packages/*",
     "docs",
     "."
   ],
-  "version": "0.0.5"
+  "version": "0.0.6-next.0"
 }
