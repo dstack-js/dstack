@@ -3798,11 +3798,6 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
-"@types/latlon-geohash@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@types/latlon-geohash/-/latlon-geohash-2.0.0.tgz#384723d354cfe40197bb0fadaf2e72f649736314"
-  integrity sha512-bwTttcqf8StBA+ABJ4gxbgA+PgueUJGxjYzuWrlFfzDbIQd2FvOcE5l/0fY+BOKqmeWYAzjBQFdnKweI8KKNpA==
-
 "@types/mdast@^3.0.0":
   version "3.0.10"
   resolved "https://registry.yarnpkg.com/@types/mdast/-/mdast-3.0.10.tgz#4724244a82a4598884cbbe9bcfd73dff927ee8af"
@@ -10444,11 +10439,6 @@ latest-version@^5.1.0:
   integrity sha512-weT+r0kTkRQdCdYCNtkMwWXQTMEswKrFBkm4ckQOMVhhqhIMI1UT2hMj+1iigIhgSZm5gTmrRXBNoGUgaTY1xA==
   dependencies:
     package-json "^6.3.0"
-
-latlon-geohash@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/latlon-geohash/-/latlon-geohash-2.0.0.tgz#2b0203ab30ef56a18600b0312b8c3a627cbd17d1"
-  integrity sha512-OKBswTwrvTdtenV+9C9euBmvgGuqyjJNAzpQCarRz1m8/pYD2nz9fKkXmLs2S3jeXaLi3Ry76twQplKKUlgS/g==
 
 lerna@^4.0.0:
   version "4.0.0"
