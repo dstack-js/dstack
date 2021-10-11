@@ -5,13 +5,13 @@
   "description": "Technology stack as a library for developing decentralized web applications",
   "scripts": {
     "version:bump": "lerna version bump",
-    "start": "lerna run --ignore dstack --ignore docs --parallel --stream start",
+    "start": "lerna run --ignore dstack-js --ignore docs --parallel --stream start --reject-cycles",
     "build:docs": "lerna run --scope docs --parallel --stream build",
     "publish": "lerna publish"
   },
   "workspaces": [
     "docs",
-    "lib"
+    "packages/*"
   ],
   "keywords": [
     "dapp",

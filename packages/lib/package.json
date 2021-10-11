@@ -1,13 +1,7 @@
 {
   "author": "Mikhail Marynenko <0x77dev@protonmail.com>",
   "dependencies": {
-    "gun": "^0.2020.1234",
-    "ipfs": "^0.58.4",
-    "libp2p": "^0.32.4",
-    "libp2p-webrtc-direct": "^0.7.0",
-    "libp2p-webrtc-star": "^0.23.0",
-    "peer-id": "^0.15.3",
-    "uuid": "^8.3.2"
+    "gun": "^0.2020.1234"
   },
   "description": "Technology stack as a library for developing decentralized web applications",
   "devDependencies": {
@@ -37,13 +31,12 @@
   "homepage": "https://dstack.netlify.app",
   "keywords": [
     "dapp",
-    "decentalized",
+    "decentralized",
     "stack",
-    "ipfs",
-    "webtorrent",
     "gunjs",
     "dapps",
-    "apps"
+    "apps",
+    "dstack"
   ],
   "license": "GPL-3.0",
   "main": "build/index.js",

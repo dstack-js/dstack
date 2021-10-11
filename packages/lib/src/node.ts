@@ -21,6 +21,7 @@ export interface Node<T = any> {
   on: (listener: (data: T) => void) => void,
   path: string,
   get: () => Promise<T>,
+  put: (data: T) => Promise<T>,
   file: () => Promise<NodeFile>,
   putFile: (file: NodeFile) => void
 }
@@ -48,11 +49,17 @@ export const getNode = async (context: StackContext): Promise<<T = any>(path: st
         const data = await (reference.promise as any)().then()
         return data.put
       },
+      put: async (data: T): Promise<T> => {
+        reference = reference.put(data)
+        return (reference.promise as any)().then()
+      },
       file: async (): Promise<NodeFile> => {
+        console.warn('file is in development')
         const data = await ((reference.get('file').promise as any)().then() as Promise<NodeFile>)
         return data
       },
       putFile: (file: NodeFile) => {
+        console.warn('putFile is in development')
         reference.get('file').put(file)
       }
     }

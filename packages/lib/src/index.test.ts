@@ -2,27 +2,24 @@
 import { createStack, Stack } from '.'
 
 describe('Stack', () => {
-  let stack: Stack
+  let s1: Stack
+  let s2: Stack
 
   beforeAll(async () => {
-    stack = await createStack({ app: 'test' })
+    s1 = await createStack({ app: 'test' })
+    s2 = await createStack({ app: 'test' })
   })
 
-  test('node write', async () => {
-    const { data, on } = await stack.node<string>('hello', 'world')
-    on((data) => expect(data).toBe('world'))
-    expect(data).toBe('world')
-  })
-
-  test('node read', async () => {
-    const { data, on, get } = await stack.node<string>('hello')
+  test('write/read', async () => {
+    const { data, on, get } = await s2.node<string>('hello')
+    await s1.node<string>('hello')
     on((data) => expect(data).toBe('world'))
     expect(data).toBe('world')
     expect(await get()).toBe('world')
   })
 
   test('node put file', async () => {
-    const { data, on, get, putFile } = await stack.node<string>('hello')
+    const { data, on, get, putFile } = await s1.node<string>('hello')
 
     on((data) => expect(data).toBe('world'))
     expect(data).toBe('world')
@@ -36,7 +33,7 @@ describe('Stack', () => {
   })
 
   test('node get file', async () => {
-    const { data, on, get, file } = await stack.node<string>('hello')
+    const { data, on, get, file } = await s1.node<string>('hello')
 
     on((data) => expect(data).toBe('world'))
     expect(data).toBe('world')
