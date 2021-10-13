@@ -24,6 +24,7 @@ export interface Node<T = any> {
   put: (data: T) => Promise<T>,
   file: () => Promise<NodeFile>,
   putFile: (file: NodeFile) => void
+  ref: IGunChainReference
 }
 
 export const getNode = async (context: StackContext): Promise<<T = any>(path: string, put?: T) => Promise<Node<T>>> => {
@@ -38,6 +39,7 @@ export const getNode = async (context: StackContext): Promise<<T = any>(path: st
     const data = await (reference.promise as any)().then()
 
     return {
+      ref: reference,
       data: data.put as unknown as T,
       on: (listener: (data: T) => void) => {
         reference.on(
