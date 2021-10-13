@@ -7,10 +7,12 @@ import 'gun/sea'
 import 'gun/lib/then.js'
 
 import { IGunChainReference } from 'gun/types/chain'
+import { IGunConstructorOptions } from 'gun/types/options'
 
 interface StackOptions {
   peers?: string[]
   app: string
+  gunOptions?: IGunConstructorOptions
 }
 
 interface StackContext {
@@ -23,13 +25,14 @@ interface Stack {
   context: StackContext
 }
 
-const createStack = async ({ peers, app }: StackOptions): Promise<Stack> => {
+const createStack = async ({ peers, app, gunOptions }: StackOptions): Promise<Stack> => {
   if (!peers) {
     peers = ['https://gun-server-0x77.herokuapp.com/gun']
   }
 
   const gun = Gun({
-    peers
+    peers,
+    ...gunOptions
   })
 
   const context = {

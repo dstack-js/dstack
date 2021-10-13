@@ -33,8 +33,5 @@ describe('Geo', () => {
     const map = await stack.node('map')
 
     const box = await encode(stack, map, 50.45, 30.52, 3)
-
-    // TODO: verify places
-    console.log(box)
   })
 })

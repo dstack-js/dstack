@@ -1,11 +1,13 @@
 {
   "name": "dstack-js",
-  "version": "0.0.6-next.0",
+  "version": "0.0.7-next.0",
   "private": "true",
   "description": "Technology stack as a library for developing decentralized web applications",
   "scripts": {
     "version:bump": "lerna version bump",
     "start": "lerna run --ignore dstack-js --ignore docs --parallel --stream start --reject-cycles",
+    "build": "lerna run --ignore dstack-js --ignore docs --stream build --reject-cycles",
+    "clean": "lerna exec --ignore dstack-js --ignore docs --parallel --stream --reject-cycles -- 'rm -Rf build/'",
     "build:docs": "lerna run --scope docs --parallel --stream build",
     "publish": "lerna publish"
   },
