@@ -62,7 +62,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
             position: 'left',
             label: 'Documentation',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/0x77dev/dstack',
             label: 'GitHub',
@@ -85,6 +85,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
           {
             title: 'Community',
             items: [
+              {
+                label: 'NPM',
+                href: 'https://www.npmjs.com/org/dstack-js',
+              },
               {
                 label: 'Stack Overflow',
                 href: 'https://stackoverflow.com/questions/tagged/dstack',
