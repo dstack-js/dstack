@@ -1,6 +1,6 @@
 {
   "name": "dstack-js",
-  "version": "0.0.7-next.0",
+  "version": "0.0.7",
   "private": "true",
   "description": "Technology stack as a library for developing decentralized web applications",
   "scripts": {
