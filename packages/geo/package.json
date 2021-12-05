@@ -27,9 +27,8 @@
   "private": false,
   "repository": "https://github.com/0x77dev/dstack",
   "scripts": {
-    "build": "tsc",
-    "prepack": "tsc",
-    "start": "tsc --preserveWatchOutput --watch",
+    "build": "rimraf build/ && tsc",
+    "prepack": "yarn build",
     "test": "jest"
   },
   "version": "0.0.7-next.0"
