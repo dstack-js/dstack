@@ -14,9 +14,9 @@ encode(stack, stack.node('some.key.to.your.map'), lat, lng, precision)
 
 ## Example
 ```javascript
-import { createStack, Stack } from '@dstack-js/lib'
+import { Stack } from '@dstack-js/lib'
 import { encode } from '@dstack-js/geo'
-const stack = await createStack({ app: 'mapExample' })
+const stack = new Stack({ app: 'mapExample' })
 
 // Set places
 const map = await stack.node('map')
