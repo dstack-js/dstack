@@ -9,7 +9,8 @@
     "build": "lerna run --ignore dstack-js --ignore docs --stream build --reject-cycles",
     "clean": "lerna exec --ignore dstack-js --ignore docs --parallel --stream --reject-cycles -- 'rm -Rf build/'",
     "build:docs": "lerna run --scope docs --parallel --stream build",
-    "publish": "lerna publish"
+    "publish": "lerna publish",
+    "prepare": "husky install"
   },
   "workspaces": [
     "docs",
@@ -26,6 +27,9 @@
   "author": "Mikhail Marynenko <0x77dev@protonmail.com>",
   "license": "GPL-3.0",
   "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@commitlint/config-lerna-scopes": "^15.0.0",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.31.0",
     "eslint": "^7.32.0",
@@ -34,6 +38,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-unicorn": "^35.0.0",
+    "husky": "^7.0.4",
     "lerna": "^4.0.0",
     "parcel": "^2.0.0-rc.0",
     "typescript": "^4.4.3"

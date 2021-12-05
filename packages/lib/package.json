@@ -1,6 +1,7 @@
 {
   "author": "Mikhail Marynenko <0x77dev@protonmail.com>",
   "dependencies": {
+    "deep-for-each": "^3.0.0",
     "gun": "^0.2020.1234"
   },
   "description": "Technology stack as a library for developing decentralized web applications",
