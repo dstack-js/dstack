@@ -1,0 +1,41 @@
+{
+  "author": "Mykhailo Marynenko <0x77dev@protonmail.com>",
+  "bin": {
+    "dstack-relay": "build/run.js"
+  },
+  "bugs": {
+    "url": "https://github.com/0x77dev/dstack/issues"
+  },
+  "dependencies": {
+    "@dstack-js/lib": "^0.0.7"
+  },
+  "description": "DStack relay",
+  "devDependencies": {
+    "@types/node": "^16.11.11",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  },
+  "homepage": "https://dstack.netlify.app",
+  "keywords": [
+    "dstack",
+    "relay",
+    "gunjs"
+  ],
+  "license": "GPL-3.0",
+  "main": "index.ts",
+  "name": "@dstack-js/relay",
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0x77dev/dstack.git"
+  },
+  "scripts": {
+    "build": "rimraf build && tsc",
+    "prepack": "yarn build",
+    "start": "yarn build && node build/run.js"
+  },
+  "version": "0.0.7"
+}

@@ -61,3 +61,17 @@ on((data) => {
   console.log(data)
 })
 ```
+
+### Get parent node
+```javascript
+const {parent} = stack.node('sample.path.to.key')
+
+parent.path === 'sample.path.to'
+```
+
+### Get next nodes
+```javascript
+const node = stack.node('sample.path.to')
+
+await node.next() -> [Node('sample.path.to.key')]
+```

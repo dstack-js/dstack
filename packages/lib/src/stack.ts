@@ -10,7 +10,7 @@ import { defaults } from './defaults'
 import { Node } from './node'
 
 export interface StackOptions {
-  app?: string
+  app: string
   gun?: IGunConstructorOptions
 }
 
@@ -18,7 +18,7 @@ export class Stack {
   private gun: IGunChainReference
 
   constructor({ app, gun }: StackOptions) {
-    if ((!app && !gun) || gun?.peers === defaults.gun.peers) {
+    if ((!app && !gun) || gun?.peers === defaults?.gun?.peers) {
       throw new Error('app must be specified when using public gun peers')
     }
 

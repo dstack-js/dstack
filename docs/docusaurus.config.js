@@ -14,6 +14,19 @@ const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
   organizationName: '0x77dev',
   projectName: 'dstack',
 
+  plugins: [
+    [
+      'docusaurus-plugin-typedoc',
+      {
+        entryPoints: ['../packages/geo', '../packages/lib'],
+        entryPointStrategy: 'packages',
+        sidebar: {
+          fullNames: true
+        },
+      },
+    ],
+  ],
+
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -38,12 +51,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      algolia: {
-        apiKey: '6407ba8e951f3066d9d6761b7959174e',
-        indexName: 'dstack',
-        appId: 'C0HURB3Q6E',
-        contextualSearch: true,
-      },
+      // algolia: {
+      //   apiKey: '6407ba8e951f3066d9d6761b7959174e',
+      //   indexName: 'dstack',
+      //   appId: 'C0HURB3Q6E',
+      //   contextualSearch: true,
+      // },
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: true,

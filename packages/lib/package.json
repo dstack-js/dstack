@@ -49,7 +49,7 @@
   },
   "repository": "https://github.com/0x77dev/dstack",
   "scripts": {
-    "build": "rimraf build/ && tsc",
+    "build": "rimraf build && tsc",
     "prepack": "yarn build",
     "test": "jest"
   },

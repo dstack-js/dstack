@@ -11,42 +11,55 @@ export class Node<T = unknown> {
     )
   }
 
+  // TODO: Recursive execution
   private encode(data: any): any {
     if (!data || typeof data !== 'object') return data
 
     return Object.keys(data).reduce<Record<string, any>>(
-      (obj, key) => {
+      (object, key) => {
         if (Array.isArray(data[key])) {
-          obj[`[]${key}`] = JSON.stringify(data[key])
+          object[`[]${key}`] = JSON.stringify(data[key])
         }
-        return obj
+        return object
       },
       {}
     )
   }
 
+  // TODO: Recursive execution
   private decode(data: any): any {
     if (!data || typeof data !== 'object') return data
 
     return Object.keys(data).reduce<Record<string, any>>(
-      (obj, key) => {
+      (object, key) => {
         if (key.startsWith('[]')) {
-          obj[key.slice(2)] = JSON.parse(data[key])
+          object[key.slice(2)] = JSON.parse(data[key])
         }
-        return obj
+        return object
       },
       {}
     )
   }
 
+  /**
+   * Get parent node
+   */
   public get parent(): Node | null {
-    const p = this.path.split('.')
-    const path = p.slice(0, p.length - 1).join('.')
-    console.log(p, path)
-    return new Node(path, this.gun)
+    const path = this.path
+      .split('.')
+      .slice(0, -1)
+      .join('.')
+
+    const node = new Node(path, this.gun)
+
+    if (node.path.length > 0) return node
+    return null
   }
 
-  public async set(value: T, anonymous = false): Promise<void> {
+  /**
+   * Set a value
+   */
+  public set(value: T): Promise<void> {
     return new Promise((resolve, reject) => {
       this.ref.put({ $data: this.encode(value) }, ({ err, ok }) => {
         if (err !== undefined) return reject(err)
@@ -55,6 +68,26 @@ export class Node<T = unknown> {
     })
   }
 
+  /**
+   * Get next nodes
+   * `await stack.node('a.b').set({hello: 'world'})`
+   * `await stack.node('a').next() -> [Node({path: 'a.b'})]`
+   */
+  public async next(): Promise<Node[]> {
+    const keys: Set<string> = new Set()
+
+    return new Promise((resolve) => {
+      this.ref.map((value, key) => {
+        if (!key.startsWith('$')) keys.add(key)
+        return {}
+      }).once(() => resolve([...keys].map(key => new Node(`${this.path}.${key}`, this.gun))))
+    })
+  }
+
+  /**
+   * Listen for node data changes
+   * @param listener handler fo new data
+   */
   public on(listener: (data: T) => void): void {
     this.ref.on((value) => {
       if (value.$data !== undefined) {
@@ -63,12 +96,16 @@ export class Node<T = unknown> {
     })
   }
 
+  /**
+   * Get data from node
+   * @param timeout timeout for data fetching, will return null after timeout
+   */
   public get(timeout?: number): Promise<T | null> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       let timeoutInstance: ReturnType<typeof setTimeout> | undefined
 
       if (timeout) {
-        timeoutInstance = setTimeout(() => reject(new Error(`get ${this.path} timeout`)), timeout)
+        timeoutInstance = setTimeout(() => resolve(null), timeout)
       }
 
       this.ref.once((value: any) => {
