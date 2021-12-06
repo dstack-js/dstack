@@ -14,5 +14,5 @@
     "dev": "vite",
     "serve": "vite preview"
   },
-  "version": "0.0.0"
+  "version": "0.0.8"
 }

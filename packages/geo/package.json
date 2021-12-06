@@ -1,7 +1,7 @@
 {
   "author": "Mikhail Marynenko <0x77dev@protonmail.com>",
   "dependencies": {
-    "@dstack-js/lib": "^0.0.7"
+    "@dstack-js/lib": "^0.0.8"
   },
   "description": "Geohasing addon for DStack",
   "devDependencies": {
@@ -32,5 +32,5 @@
     "prepack": "yarn build",
     "test": "jest"
   },
-  "version": "0.0.7"
+  "version": "0.0.8"
 }

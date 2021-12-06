@@ -7,7 +7,7 @@
     "url": "https://github.com/0x77dev/dstack/issues"
   },
   "dependencies": {
-    "@dstack-js/lib": "^0.0.7"
+    "@dstack-js/lib": "^0.0.8"
   },
   "description": "DStack relay",
   "devDependencies": {
@@ -37,5 +37,5 @@
     "prepack": "yarn build",
     "start": "yarn build && node build/run.js"
   },
-  "version": "0.0.7"
+  "version": "0.0.8"
 }
