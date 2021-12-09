@@ -1,35 +1,47 @@
-import Gun from 'gun'
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import 'gun/sea'
-
-import { IGunChainReference } from 'gun/types/chain'
-import { IGunConstructorOptions } from 'gun/types/options'
-import { defaults } from './defaults'
+import { create, IPFS, Options } from 'ipfs-core'
+import { readKey, readPrivateKey } from 'openpgp'
+import { App, AppParameters } from './app'
 import { Node } from './node'
 
 export interface StackOptions {
-  app: string
-  gun?: IGunConstructorOptions
+  ipfsOptions?: Options
 }
 
 export class Stack {
-  private gun: IGunChainReference
+  public publicKey: string
+  private privateKey?: string
 
-  constructor({ app, gun }: StackOptions) {
-    if ((!app && !gun) || gun?.peers === defaults?.gun?.peers) {
-      throw new Error('app must be specified when using public gun peers')
-    }
-
-    this.gun = Gun(gun || defaults.gun)
-
-    if (app) {
-      this.gun = this.gun.get(app)
-    }
+  constructor(
+    private app: App,
+    { publicKey, privateKey }: {publicKey: string, privateKey?: string},
+    public ipfs: IPFS
+  ) {
+    this.publicKey = publicKey
+    this.privateKey = privateKey
   }
 
-  public node<T = unknown>(path: string): Node<T> {
-    return new Node(path, this.gun)
+  public static async create(parameters: AppParameters, keys: {publicKey: string, privateKey?: string}, { ipfsOptions }: StackOptions): Promise<Stack> {
+    const ipfs = await create({
+      EXPERIMENTAL: {
+        ipnsPubsub: true,
+        sharding: true
+      },
+      ...ipfsOptions
+    })
+
+    const cid = await ipfs.dag.put(parameters)
+
+    const app: App = {
+      cid,
+      params: parameters,
+      publicKey: await readKey({ armoredKey: keys.publicKey }),
+      privateKey: keys.privateKey ? await readPrivateKey({ armoredKey: keys.privateKey }) : undefined
+    }
+
+    return new Stack(app, keys, ipfs)
+  }
+
+  public createNode(): Node {
+    return new Node(this.ipfs, this.app)
   }
 }

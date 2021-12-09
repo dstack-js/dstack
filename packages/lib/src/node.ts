@@ -1,124 +1,96 @@
-import { IGunChainReference } from 'gun/types/chain'
+import { IPFS } from 'ipfs-core'
+import { CID } from 'multiformats/cid'
+import { createCleartextMessage, readCleartextMessage, sign, verify } from 'openpgp'
+import { App } from './app'
 
-export class Node<T = unknown> {
-  public ref: IGunChainReference
+export class Node<T = Record<string, any>> {
+  // eslint-disable-next-line no-useless-constructor
+  constructor(private ipfs: IPFS, private app: App, public cid?: CID) {}
 
-  constructor(public path: string, public gun: IGunChainReference) {
-    const p = path.split('.')
-    this.ref = p.reduce<IGunChainReference>(
-      (previous, key) => previous.get(key),
-      gun
-    )
+  public async get(cid?: string): Promise<T> {
+    if (!this.cid || cid) throw new Error('no CID or CID string representation present')
+
+    if (cid) {
+      this.cid = CID.parse(cid)
+    }
+
+    const response = await this.ipfs.dag.get(this.cid)
+    const { data, signature } = response.value
+
+    console.log(signature)
+
+    const signedMessage = await readCleartextMessage({
+      cleartextMessage: signature
+    })
+
+    const signed = await verify({
+      message: signedMessage as any,
+      verificationKeys: [this.app.publicKey],
+      expectSigned: true
+    })
+
+    if (JSON.stringify(data) !== signed.data) {
+      throw new Error('signatureMismatch')
+    }
+
+    const resolved = this.resolve(data, 'decode')
+
+    return resolved as T
   }
 
-  // TODO: Recursive execution
-  private encode(data: any): any {
-    if (!data || typeof data !== 'object') return data
+  public async put(data: T, signature?: string): Promise<T> {
+    const resolved = this.resolve(data, 'encode')
 
-    return Object.keys(data).reduce<Record<string, any>>(
-      (object, key) => {
-        if (Array.isArray(data[key])) {
-          object[`[]${key}`] = JSON.stringify(data[key])
-        }
-        return object
-      },
-      {}
-    )
-  }
+    if (!signature) {
+      if (!this.app.privateKey) throw new Error('signature is missing and privateKey was not specified in app')
 
-  // TODO: Recursive execution
-  private decode(data: any): any {
-    if (!data || typeof data !== 'object') return data
-
-    return Object.keys(data).reduce<Record<string, any>>(
-      (object, key) => {
-        if (key.startsWith('[]')) {
-          object[key.slice(2)] = JSON.parse(data[key])
-        }
-        return object
-      },
-      {}
-    )
-  }
-
-  /**
-   * Get parent node
-   */
-  public get parent(): Node | null {
-    const path = this.path
-      .split('.')
-      .slice(0, -1)
-      .join('.')
-
-    const node = new Node(path, this.gun)
-
-    if (node.path.length > 0) return node
-    return null
-  }
-
-  /**
-   * Set a value
-   */
-  public set(value: T): Promise<void> {
-    return new Promise((resolve, reject) => {
-      this.ref.put({ $data: this.encode(value) }, ({ err, ok }) => {
-        if (err !== undefined) return reject(err)
-        resolve(ok)
+      signature = await sign({
+        message: await createCleartextMessage({ text: JSON.stringify(resolved) }),
+        signingKeys: [this.app.privateKey]
       })
-    })
+
+      console.log(signature)
+    }
+
+    this.cid = await this.ipfs.dag.put({ data: resolved, signature }, { pin: true })
+
+    return data
   }
 
-  /**
-   * Get next nodes
-   * `await stack.node('a.b').set({hello: 'world'})`
-   * `await stack.node('a').next() -> [Node({path: 'a.b'})]`
-   */
-  public async next(): Promise<Node[]> {
-    const keys: Set<string> = new Set()
+  private resolveValue(data: unknown, kind: 'encode' | 'decode'): unknown {
+    if (kind === 'decode' && CID.isCID(data)) {
+      return new Node(this.ipfs, this.app, data)
+    }
 
-    return new Promise((resolve) => {
-      this.ref.map((value, key) => {
-        if (!key.startsWith('$')) keys.add(key)
-        return {}
-      }).once(() => resolve([...keys].map(key => new Node(`${this.path}.${key}`, this.gun))))
-    })
+    if (kind === 'encode' && data instanceof Node && data.cid) {
+      return data.cid
+    }
+
+    return data
   }
 
-  /**
-   * Listen for node data changes
-   * @param listener handler fo new data
-   */
-  public on(listener: (data: T) => void): void {
-    this.ref.on((value) => {
-      if (value.$data !== undefined) {
-        listener(this.decode(value.$data))
-      }
-    })
-  }
-
-  /**
-   * Get data from node
-   * @param timeout timeout for data fetching, will return null after timeout
-   */
-  public get(timeout?: number): Promise<T | null> {
-    return new Promise((resolve) => {
-      let timeoutInstance: ReturnType<typeof setTimeout> | undefined
-
-      if (timeout) {
-        timeoutInstance = setTimeout(() => resolve(null), timeout)
-      }
-
-      this.ref.once((value: any) => {
-        if (!value) return resolve(null)
-
-        if (value.$data) {
-          if (timeoutInstance) {
-            clearTimeout(timeoutInstance)
+  private resolve(data: unknown, kind: 'encode' | 'decode'): unknown {
+    if (Array.isArray(data)) {
+      return data.map((v) => {
+        return this.resolveValue(v, kind)
+      })
+    } else if (data && typeof data === 'object') {
+      return Object.entries(data).reduce(
+        (data, [k, v]): any => {
+          if (v.constructor === Object) {
+            return this.resolve(v, kind)
           }
 
-          resolve(this.decode(value.$data))
-        }
-      }, timeout ? { wait: timeout } : undefined)
-    })
+          v = this.resolveValue(v, kind)
+
+          data = { ...data, [k]: v }
+
+          return data
+        },
+        data
+      )
+    }
+
+    return data
   }
 }

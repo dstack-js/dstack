@@ -1,8 +1,12 @@
 {
   "author": "Mikhail Marynenko <0x77dev@protonmail.com>",
   "dependencies": {
+    "debug": "^4.3.3",
     "deep-for-each": "^3.0.0",
-    "gun": "^0.2020.1234"
+    "gun": "^0.2020.1234",
+    "ipfs-core": "^0.12.2",
+    "multiformats": "^9.5.4",
+    "openpgp": "^5.0.1"
   },
   "description": "Technology stack as a library for developing decentralized web applications",
   "devDependencies": {
