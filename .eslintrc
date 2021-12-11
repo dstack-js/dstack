@@ -115,6 +115,7 @@
     "unicorn/require-number-to-fixed-digits-argument": "error",
     "unicorn/require-post-message-target-origin": "error",
     "unicorn/string-content": "off",
-    "unicorn/throw-new-error": "error"
+    "unicorn/throw-new-error": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   }
 }
