@@ -1,9 +1,9 @@
 import { mapSchema, getDirective, MapperKind } from '@graphql-tools/utils'
 import { GraphQLSchema } from 'graphql'
 import { IPFS } from 'ipfs-core'
-import { CID } from 'multiformats'
+import { resolveRecord, transformRecord } from './transform'
 
-export const add = (ipfs: IPFS, directiveName = 'add') => {
+export const d = (ipfs: IPFS, directiveName = 'd') => {
   return {
     typeDefs: `directive @${directiveName} on FIELD_DEFINITION`,
     transformer: (schema: GraphQLSchema) => {
@@ -16,52 +16,34 @@ export const add = (ipfs: IPFS, directiveName = 'add') => {
 
             config.resolve = async function (source, arguments_, context, info) {
               let data: any = {}
+              const ignoreCID = true
 
               if (originalResolve) {
                 data = await originalResolve(source, arguments_, context, info)
-              }
-
-              const cid = await ipfs.dag.put(data)
-              data.cid = cid.toString()
-
-              return data
-            }
-          }
-
-          return config
-        }
-      })
-    }
-  }
-}
-
-export const get = (ipfs: IPFS, directiveName = 'get') => {
-  return {
-    typeDefs: `directive @${directiveName} on FIELD_DEFINITION`,
-    transformer: (schema: GraphQLSchema) => {
-      return mapSchema(schema, {
-        [MapperKind.OBJECT_FIELD]: (config) => {
-          const directive = getDirective(schema, config, directiveName)?.[0]
-
-          if (directive) {
-            const originalResolve = config.resolve
-
-            config.resolve = async function (source, arguments_, context, info) {
-              let data: any = {}
-
-              if (originalResolve) {
-                data = await originalResolve(source, arguments_, context, info)
+              } else {
+                data = source[info.fieldName]
+                if (data.cid) {
+                  source[info.fieldName] = data.cid.toString()
+                }
               }
 
               if (!data.cid) {
-                throw new Error('cid could not be found')
+                data = transformRecord(data, ignoreCID)
+
+                const cid = await ipfs.dag.put(data)
+
+                data = await resolveRecord(ipfs, data)
+
+                data = { cid: cid.toString(), ...data }
+              } else {
+                data = transformRecord(data, ignoreCID)
+                const { value } = await ipfs.dag.get(data.cid)
+
+                data = await resolveRecord(ipfs, data)
+                data.cid = data.cid.toString()
+
+                data = { ...data, ...value }
               }
-
-              const cid = CID.parse(data.cid)
-
-              const result = await ipfs.dag.get(cid)
-
-              data = { cid: cid.toString(), ...result.value }
 
               return data
             }

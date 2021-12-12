@@ -5,7 +5,6 @@
     "@graphql-tools/utils": "^8.5.4",
     "debug": "^4.3.3",
     "deep-for-each": "^3.0.0",
-    "graphql": "^16.1.0",
     "gun": "^0.2020.1234",
     "ipfs-core": "^0.12.2",
     "multiformats": "^9.5.4",
@@ -50,6 +49,9 @@
   "license": "GPL-3.0",
   "main": "build/index.js",
   "name": "@dstack-js/lib",
+  "peerDependencies": {
+    "graphql": "^15.5.1"
+  },
   "private": false,
   "publishConfig": {
     "access": "public"
