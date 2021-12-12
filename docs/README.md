@@ -12,7 +12,7 @@ DStack was created to bring together some of the popular libraries for the decen
 - Distributed graph database built on top of [Gun.js](https://gun.eco)
 - Geohashing module
 
-In planned [release `v0.1.0`](https://github.com/0x77dev/dstack/milestone/1) DStack will offer distributed/hosted file sharing, user authentication, encryption and streams support
+Checkout new concept: [IPFS DAG API w/GraphQL](https://github.com/0x77dev/dstack/discussions/15)
 
 ## DStack uses
 
