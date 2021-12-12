@@ -18,7 +18,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
     [
       'docusaurus-plugin-typedoc',
       {
-        entryPoints: ['../packages/geo', '../packages/lib'],
+        entryPoints: ['../packages/lib'],
         entryPointStrategy: 'packages',
         sidebar: {
           fullNames: true

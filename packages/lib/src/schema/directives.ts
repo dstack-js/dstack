@@ -1,5 +1,5 @@
 import { mapSchema, getDirective, MapperKind } from '@graphql-tools/utils'
-import { GraphQLSchema } from 'graphql'
+import { GraphQLSchema } from 'graphql/type'
 import { IPFS } from 'ipfs-core'
 import { resolveRecord, transformRecord } from './transform'
 
