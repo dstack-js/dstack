@@ -5,7 +5,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 (module.exports = {
   title: 'DStack',
-  tagline: 'Technology stack as a library for developing decentralized web applications',
+  tagline: 'Technology stack as a library for developing semi-decentralized web applications',
   url: 'https://dstack.netlify.app',
   baseUrl: '/',
   onBrokenLinks: 'throw',

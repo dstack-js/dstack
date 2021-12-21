@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Quick Look
 
-Let's discover **DStack in less than 5 minutes**.
+Let's discover **DStack in less than 15 minutes**.
 
 ## Add DStack to your project
 
@@ -18,60 +18,80 @@ Using NPM:
 npm i -S @dstack-js/lib
 ```
 
-## Basic usage
-You'll need a bootstrap/relay peers, we provide them by default.
-
 ### Create stack
 ```javascript
-import { Stack } from '@dstack-js/lib'
-const stack = new Stack({ app: 'helloWorld' })
-```
-If you are using default peers be sure to set unique app name
+import { createStack } from '@dstack-js/lib'
 
-```javascript
-import { Stack } from '@dstack-js/lib'
-const stack = new Stack({ app: 'helloWorld', gun: { peers: ['https://localhost:1024/'] } })
-```
-If you want to use your own provide them in `gun.peers` option
+const typeDefs = /* GraphQL */ `
+type Author {
+  cid: ID!
+  name: String!
+}
 
-```javascript
-import { Stack, defaults } from '@dstack-js/lib'
-const stack = new Stack({ app: 'helloWorld', gun: { peers: ['https://localhost:1024/', ...defaults.gun.peers] } })
-```
-If you want to use both your own, and DStack default peers provide them in `gun.peers` option and use `defaults.gun.peers`.
+type Post {
+  cid: ID!
+  content: String!
+  author: Author! @put
+}
 
-### Store data
-```javascript
-const node = stack.node('sample.path.to.key')
-await node.set('Hey!')
-await node.set({hello: 'world'})
-```
+type Mutation {
+  addPost(content: String!, author: CID!): Post! @put
+  addAuthor(name: String): Author! @put
+}
 
-### Read data
-```javascript
-const node = stack.node('sample.path.to.key')
-const data = await node.get()
-```
+type Query {
+  post(cid: ID!): Post! @put
+}
+`
 
-### Observe data
-```javascript
-const {on} = stack.node('sample.path.to.key')
-
-on((data) => {
-  console.log(data)
+const stack = await createStack({
+  schema: {
+    typeDefs,
+    resolvers: {
+      Mutation: {
+        addPost: (root: void, data: unknown) => data,
+        addAuthor: (root: void, data: unknown) => data
+      },
+      Query: {
+        post: (root: void, data: unknown) => data
+      }
+    }
+  }
 })
 ```
 
-### Get parent node
-```javascript
-const {parent} = stack.node('sample.path.to.key')
+_**See [directives](/docs/directives) and [scalars](/docs/scalars)**_
 
-parent.path === 'sample.path.to'
+### Execute
+```javascript
+const { errors, data: { addAuthor } } = await stack.execute({
+  source: /* GraphQL */ `
+    mutation AddAuthor($name: String!) {
+      addAuthor(name: $name) {
+        cid
+        name
+      }
+    }
+  `,
+  variableValues: { name: 'John Doe' }
+})
+
+const { errors, data } = await stack.execute({
+  source: /* GraphQL */ `
+    mutation AddPost($author: CID!, $content: String!) {
+      addPost(content: $content, author: $author) {
+        cid
+        content
+        author {
+          cid
+          name
+        }
+      }
+    }
+  `,
+  variableValues: { content: 'Hello, world!', author: addAuthor }
+})
 ```
 
-### Get next nodes
-```javascript
-const node = stack.node('sample.path.to')
 
-await node.next() -> [Node('sample.path.to.key')]
-```
+_**See [API](/docs/api)**_

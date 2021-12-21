@@ -3,7 +3,7 @@ import { GraphQLSchema } from 'graphql/type'
 import { IPFS } from 'ipfs-core'
 import { resolveRecord, transformRecord } from './transform'
 
-export const d = (ipfs: IPFS, directiveName = 'd') => {
+export const put = (ipfs: IPFS, directiveName = 'put') => {
   return {
     typeDefs: `directive @${directiveName} on FIELD_DEFINITION`,
     transformer: (schema: GraphQLSchema) => {
@@ -35,14 +35,6 @@ export const d = (ipfs: IPFS, directiveName = 'd') => {
                 data = await resolveRecord(ipfs, data)
 
                 data = { cid: cid.toString(), ...data }
-              } else {
-                data = transformRecord(data, ignoreCID)
-                const { value } = await ipfs.dag.get(data.cid)
-
-                data = await resolveRecord(ipfs, data)
-                data.cid = data.cid.toString()
-
-                data = { ...data, ...value }
               }
 
               return data

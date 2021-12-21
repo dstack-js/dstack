@@ -6,6 +6,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
+  --docusaurus-btt-color: black;
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: rgb(33, 175, 144);
   --ifm-color-primary-darker: rgb(31, 165, 136);
@@ -36,6 +37,10 @@
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+.clean-btn > svg {
+  color: black;
 }
 
 .footer {

@@ -9,16 +9,16 @@ const FeatureList = [
     description: (
       <>
         DStack was designed from the ground up to be easily installed and
-        used to built decentralized apps quickly.
+        used to built semi-decentralized apps quickly, where your product infrastructure is single source of truth
       </>
     ),
   },
   {
-    title: 'Powered by Gun.js',
-    Svg: require('../../static/img/gun.svg').default,
+    title: 'Powered by GraphQL',
+    Svg: require('../../static/img/graphql.svg').default,
     description: (
       <>
-        Gun.js is an open source decentralized distributed graph database engine.
+        DStack provides a set of graphql elements (scalars, directives, etc) to store and fetch your data on decentralized web
       </>
     ),
   },
@@ -27,7 +27,7 @@ const FeatureList = [
     Svg: require('../../static/img/Typescript_logo_2020.svg').default,
     description: (
       <>
-        Built using TypeScript and includes type definition in every module.
+        Built using TypeScript and includes type definition in every module
       </>
     ),
   },

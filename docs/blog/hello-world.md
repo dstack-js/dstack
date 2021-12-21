@@ -14,15 +14,9 @@ DStack was created to bring together some of the popular libraries for the decen
 
 ## What DStack offers
 
-Currently DStack provides only distributed graph database built on top of [Gun.js](https://gun.eco)
-
-In planned [release `v0.1.0`](https://github.com/0x77dev/dstack/milestone/1) DStack will offer distributed/hosted file sharing, user authentication, encryption and streams support
-
-## DStack uses
-
-You can build distributed web/electron/react-native applications, that will not rely on backend implementation and cannot be controlled by big corporations
+Currently you can use DStack as a globally distributed GraphQL cache system built on top of [IPFS DAG API](https://github.com/ipfs/js-ipfs/blob/master/docs/core-api/DAG.md#dag-api-)
 
 ## Getting started
 
-See [Tutorial](/docs/intro) to get started using DStack in your dapp
+See [Tutorial](/docs/intro) to get started using DStack in your app
 

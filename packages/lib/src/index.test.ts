@@ -13,16 +13,16 @@ type Author {
 type Post {
   cid: ID!
   content: String!
-  author: Author! @d
+  author: Author! @put
 }
 
 type Mutation {
-  addPost(content: String!, author: CID!): Post! @d
-  addAuthor(name: String): Author! @d
+  addPost(content: String!, author: CID!): Post! @put
+  addAuthor(name: String): Author! @put
 }
 
 type Query {
-  post(cid: ID!): Post! @d
+  post(cid: ID!): Post! @put
 }
 `
 

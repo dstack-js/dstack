@@ -1,7 +1,7 @@
 import { makeExecutableSchema, IExecutableSchemaDefinition } from '@graphql-tools/schema'
 import { create, IPFS } from 'ipfs-core'
 import { GraphQLSchema, GraphQLArgs, graphql } from 'graphql'
-import { d } from './schema/directives'
+import { put } from './schema/directives'
 import { cid } from './schema/scalars'
 
 export interface StackOptions<TContext = any> {
@@ -21,7 +21,7 @@ export interface Stack {
 
 export const createStack = async (options: StackOptions): Promise<Stack> => {
   const ipfs = await create({ EXPERIMENTAL: { sharding: true, ipnsPubsub: true } })
-  const directives = await Promise.all([d(ipfs)])
+  const directives = await Promise.all([put(ipfs)])
   options.schema.typeDefs = `scalar CID\n${options.schema.typeDefs}`
 
   if (options.schema.resolvers) {
@@ -54,3 +54,7 @@ export const createStack = async (options: StackOptions): Promise<Stack> => {
     }
   }
 }
+
+export * from './schema/directives'
+export * from './schema/transform'
+export * from './schema/scalars'
