@@ -6,7 +6,7 @@
 
 ## Getting started
 
-See [Tutorial](https://dstack.netlify.app/docs/intro) to get started using DStack in your dapp
+See [Tutorial](https://dstack.0x77.dev/docs/intro) to get started using DStack in your dapp
 
 ## Introduction
 
