@@ -1,0 +1,17 @@
+{
+  "name": "dstack-js",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@nrwl/cli": "13.4.4",
+    "@nrwl/js": "13.4.4",
+    "@nrwl/tao": "13.4.4",
+    "@nrwl/workspace": "13.4.4",
+    "@types/node": "14.14.33",
+    "prettier": "^2.3.1",
+    "typescript": "~4.4.3"
+  }
+}
