@@ -3,7 +3,7 @@ import { Store, Shard } from "@dstack-js/lib"
 import { CID } from "multiformats/cid"
 
 const run = async () => {
-  const ipfs = await create({ config: { Addresses: { Swarm: ['/ip4/192.168.31.54/tcp/9090/ws/p2p-webrtc-star/'] }, Bootstrap: [] } })
+  const ipfs = await create({ config: { Addresses: { Swarm: ['/ip4/127.0.0.1/tcp/9090/ws/p2p-webrtc-star/', '/dns4/wrtc-star1.par.dwebops.pub/tcp/443/wss/p2p-webrtc-star/', '/dns4/wrtc-star1.sjc.dwebops.pub/tcp/443/wss/p2p-webrtc-star/'] }, Bootstrap: [] } })
   // @ts-ignore
   window.ipfs = ipfs
   // @ts-ignore
