@@ -1,0 +1,33 @@
+{
+  "root": "packages/ipfs",
+  "sourceRoot": "packages/ipfs/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/ipfs",
+        "main": "packages/ipfs/src/index.ts",
+        "tsConfig": "packages/ipfs/tsconfig.lib.json",
+        "assets": ["packages/ipfs/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/ipfs/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/ipfs"],
+      "options": {
+        "jestConfig": "packages/ipfs/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,4 +1,7 @@
 {
-  "version": 2,
-  "projects": {}
+  "projects": {
+    "ipfs": "packages/ipfs",
+    "lib": "packages/lib"
+  },
+  "version": 2
 }
