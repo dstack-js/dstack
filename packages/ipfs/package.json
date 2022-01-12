@@ -5,5 +5,5 @@
   "license": "GPL-3.0",
   "name": "@dstack-js/ipfs",
   "type": "commonjs",
-  "version": "0.0.1"
+  "version": "0.2.0"
 }
