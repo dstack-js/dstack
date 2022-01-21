@@ -1,0 +1,38 @@
+{
+  "commitUrlFormat": "https://github.com/0x77dev/dstack/commits/{{hash}}",
+  "compareUrlFormat": "https://github.com/0x77dev/dstack/compare/{{previousTag}}...{{currentTag}}",
+  "types": [
+    {
+      "section": "Features",
+      "type": "feat"
+    },
+    {
+      "section": "Bug Fixes",
+      "type": "fix"
+    },
+    {
+      "hidden": true,
+      "type": "chore"
+    },
+    {
+      "hidden": true,
+      "type": "docs"
+    },
+    {
+      "hidden": true,
+      "type": "style"
+    },
+    {
+      "hidden": true,
+      "type": "refactor"
+    },
+    {
+      "hidden": true,
+      "type": "perf"
+    },
+    {
+      "hidden": true,
+      "type": "test"
+    }
+  ]
+}
