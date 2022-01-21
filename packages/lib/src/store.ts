@@ -2,6 +2,7 @@ import type { IPFS } from "ipfs-core"
 import { Buffer } from "buffer"
 import { CID } from "multiformats/cid"
 import drain from "it-drain"
+import LRUCache, { Options as LRUOptions } from "lru-cache"
 
 export interface Link {
   [name: string]: CID | undefined
@@ -71,8 +72,11 @@ export class Shard {
 }
 
 export class Store {
-  // TODO: LRU cache
-  constructor(public ipfs: IPFS, public id: string, private keyCache: Record<string, CID> = {}) { }
+  private cache: LRUCache<string, CID>
+
+  constructor(public ipfs: IPFS, public id: string, cache: LRUOptions<string, CID> = { max: 1000000, maxAge: 1000 }) {
+    this.cache = new LRUCache(cache)
+  }
 
   private getDHTKey(key: string): Buffer {
     return Buffer.from(`${this.id}/${key}`)
@@ -85,7 +89,7 @@ export class Store {
   public async set(key: string, data: any): Promise<Shard> {
     const shard = await Shard.create(this.ipfs, data, { key, store: this })
 
-    this.keyCache[key] = shard.cid
+    this.cache.set(key, shard.cid)
     await this.setDHT(key, shard.cid)
 
     return shard
@@ -94,6 +98,9 @@ export class Store {
   public async get(key: string, timeout = 1000): Promise<Shard> {
     // eslint-disable-next-line no-async-promise-executor
     return new Promise<Shard>(async (resolve, reject) => {
+      const cached = this.cache.get(key)
+      if(cached) return resolve(Shard.from(this.ipfs, cached, { key, store: this }))
+
       const interval = setTimeout(() => reject('timeout'), timeout)
 
       for await (const event of this.ipfs.dht.get(this.getDHTKey(key))) {
@@ -101,7 +108,7 @@ export class Store {
           clearTimeout(interval)
 
           const cid = CID.decode(event.value)
-          this.keyCache[key] = cid
+          this.cache.set(key, cid)
 
           resolve(Shard.from(this.ipfs, cid, { key, store: this }))
         }
