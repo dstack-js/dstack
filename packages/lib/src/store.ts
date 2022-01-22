@@ -47,12 +47,18 @@ export class Shard {
     await this.refreshStore()
   }
 
+  /**
+   * **Links are EXPERIMENTAL**
+   */
   public async links(): Promise<Link> {
     const links = await this.ipfs.object.links(this.cid)
 
     return Object.fromEntries(links.map(({ Name, Hash }) => [Name, Hash]))
   }
 
+  /**
+   * **Links are EXPERIMENTAL**
+   */
   public async addLink(name: string, cid: CID): Promise<void> {
     this.cid = await this.ipfs.object.patch.addLink(this.cid, {
       Name: name,
@@ -62,6 +68,9 @@ export class Shard {
     await this.refreshStore()
   }
 
+  /**
+   * **Links are EXPERIMENTAL**
+   */
   public async rmLink(cid: CID): Promise<void> {
     this.cid = await this.ipfs.object.patch.rmLink(this.cid, {
       Hash: cid

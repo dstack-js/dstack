@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@dstack-js/ipfs": "^0.2.1",
+    "libp2p-webrtc-star-signalling-server": "^0.1.2"
+  },
+  "name": "@dstack-js/relay",
+  "type": "commonjs",
+  "version": "0.0.1"
+}

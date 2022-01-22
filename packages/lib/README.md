@@ -1,11 +1,5 @@
-# lib
+# @dstack-js/lib
 
-This library was generated with [Nx](https://nx.dev).
+DStack is under heavy development, no documentation currently available
 
-## Building
-
-Run `nx build lib` to build the library.
-
-## Running unit tests
-
-Run `nx test lib` to execute the unit tests via [Jest](https://jestjs.io).
+See more here: https://github.com/0x77dev/dstack

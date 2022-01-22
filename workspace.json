@@ -1,7 +1,8 @@
 {
   "projects": {
     "ipfs": "packages/ipfs",
-    "lib": "packages/lib"
+    "lib": "packages/lib",
+    "relay": "packages/relay"
   },
   "version": 2
 }
