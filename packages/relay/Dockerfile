@@ -1,8 +1,8 @@
-FROM node:lts-alpine
+FROM node:lts
 
 ARG USER=relay
 ENV HOME /home/$USER
-RUN adduser -D $USER
+RUN adduser --home $HOME $USER
 RUN chown $USER $HOME
 WORKDIR $HOME
 USER $USER
