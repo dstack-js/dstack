@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.6](https://github.com/0x77dev/dstack/compare/v0.2.5...v0.2.6) (2022-01-23)
+
+
+### Features
+
+* **ipfs:** fix listen, remove useless modules/code ([5578363](https://github.com/0x77dev/dstack/commits/5578363944a9c896e5f185d597b66a0e3d9ed6dd))
+* **relay:** support predefined peer id ([ee1f89d](https://github.com/0x77dev/dstack/commits/ee1f89dec4cbd2c950d9c111bf515d55bedb014d))
+
 ### [0.2.5](https://github.com/0x77dev/dstack/compare/v0.2.4...v0.2.5) (2022-01-23)
 
 ### [0.2.4](https://github.com/0x77dev/dstack/compare/v0.2.3...v0.2.4) (2022-01-23)
