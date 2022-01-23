@@ -16,7 +16,7 @@ export const create = (options?: Options, wrtc?: any): Promise<IPFS.IPFS> => {
       Addresses: {
         Swarm: listen,
       },
-      Bootstrap: [],
+      Bootstrap: ['/dns4/dstack-relay.herokuapp.com/tcp/443/wss/p2p-webrtc-star/p2p/QmV2uXBKbii29iJKHKVy8sx5m49qdDTBYNybVoa5uLJtrf'],
       ...options?.config
     },
     ...options,
