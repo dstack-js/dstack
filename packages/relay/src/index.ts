@@ -19,7 +19,7 @@ const run = async () => {
     metrics: !process.env['DISABLE_METRICS'] && true
   })
 
-  await create({
+  if (!process.env['NO_IPFS']) await create({
     start: true,
     ...(process.env['PRIVATE_KEY'] ? { init: { privateKey: process.env['PRIVATE_KEY'] } } : {}),
     relay: {
@@ -34,7 +34,8 @@ const run = async () => {
         Swarm: [
           ...(process.env['DNS_NAME'] ? [`/dns4/${process.env['DNS_NAME']}/tcp/443/wss/p2p-webrtc-star`] : ['/dns4/localhost/tcp/9090/ws/p2p-webrtc-star/'])
         ]
-      }
+      },
+      Bootstrap: []
     }
   }, wrtc)
 
