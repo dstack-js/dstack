@@ -1,17 +1,35 @@
 {
+  "projectType": "application",
   "root": "packages/relay",
   "sourceRoot": "packages/relay/src",
-  "projectType": "application",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
-      "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/relay",
+        "assets": [
+          "packages/relay/*.md",
+          "packages/relay/Dockerfile",
+          "yarn.lock"
+        ],
         "main": "packages/relay/src/index.ts",
-        "tsConfig": "packages/relay/tsconfig.app.json",
-        "assets": ["packages/relay/*.md"]
-      }
+        "outputPath": "dist/packages/relay",
+        "tsConfig": "packages/relay/tsconfig.app.json"
+      },
+      "outputs": [
+        "{options.outputPath}"
+      ]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/relay/**/*.ts"
+        ]
+      },
+      "outputs": [
+        "{options.outputFile}"
+      ]
     },
     "serve": {
       "executor": "@nrwl/js:node",
@@ -19,21 +37,15 @@
         "buildTarget": "relay:build"
       }
     },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["packages/relay/**/*.ts"]
-      }
-    },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/relay"],
       "options": {
         "jestConfig": "packages/relay/jest.config.js",
         "passWithNoTests": true
-      }
+      },
+      "outputs": [
+        "coverage/packages/relay"
+      ]
     }
-  },
-  "tags": []
+  }
 }

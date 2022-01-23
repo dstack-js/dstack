@@ -1,4 +1,5 @@
 import * as IPFS from "ipfs-core"
+import { libp2p } from "./libp2p"
 
 export const create = (options?: IPFS.Options): Promise<IPFS.IPFS> => {
   return IPFS.create({
@@ -13,15 +14,8 @@ export const create = (options?: IPFS.Options): Promise<IPFS.IPFS> => {
             '/dns4/wrtc-star2.sjc.dwebops.pub/tcp/443/wss/p2p-webrtc-star'
           ]),
         ],
-      },
-      Bootstrap: []
-    },
-    libp2p: options?.libp2p || {
-      config: {
-        dht: {
-          enabled: true
-        }
       }
-    }
+    },
+    libp2p: options?.libp2p || libp2p
   })
 }

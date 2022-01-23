@@ -6,7 +6,7 @@ import { start } from 'libp2p-webrtc-star-signalling-server'
 
 const run = async () => {
   if (!process.env['DNS_NAME']) {
-    throw new Error('no \'DNS_NAME\' env has been set')
+    console.warn('no \'DNS_NAME\' env has been set, running in local mode')
   }
 
   await start({
@@ -16,16 +16,25 @@ const run = async () => {
   })
 
   const ipfs = await create({
+    start: true,
+    relay: {
+      enabled: true,
+      hop: {
+        enabled: true,
+        active: true
+      },
+    },
     config: {
       Addresses: {
-        Swarm: [`/dns4/${process.env['DNS_NAME']}/tcp/443/wss/p2p-webrtc-star`]
+        Swarm: [
+          "/ip4/0.0.0.0/tcp/0",
+          ...(process.env['DNS_NAME'] ? [`/dns4/${process.env['DNS_NAME']}/tcp/443/wss/p2p-webrtc-star`] : ['/dns4/localhost/tcp/9090/ws/p2p-webrtc-star/'])
+        ]
       }
     }
   })
 
-  const id = await ipfs.id()
-
-  console.log('IPFS ready', id.addresses.map((m) => m.toString()).join('\n\t'))
+  console.log('Ready', await ipfs.config.get('Addresses.Swarm'))
 }
 
 run()
