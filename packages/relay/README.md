@@ -5,8 +5,11 @@ Relay provides IPFS peer with [`libp2p-webrtc-star`](https://github.com/libp2p/j
 ## Public relay
 
 PeerId - `QmV2uXBKbii29iJKHKVy8sx5m49qdDTBYNybVoa5uLJtrf`
+
 Signaling - `/dns4/dstack-relay.herokuapp.com/tcp/443/wss/p2p-webrtc-star/`
+
 Bootstrap - `['/dns4/dstack-relay.herokuapp.com/tcp/443/wss/p2p-webrtc-star/p2p/QmV2uXBKbii29iJKHKVy8sx5m49qdDTBYNybVoa5uLJtrf']`
+
 
 ## Using predefined peer id
 
