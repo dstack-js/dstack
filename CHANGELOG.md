@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.10](https://github.com/0x77dev/dstack/compare/v0.2.9...v0.2.10) (2022-01-23)
+
+
+### Features
+
+* **ipfs, relay:** add bootstrap node ([ed585c1](https://github.com/0x77dev/dstack/commits/ed585c189524c9103905c82523d49357220350d4))
+* **relay:** add deploy bash shebang ([5937de6](https://github.com/0x77dev/dstack/commits/5937de6ae0eb8b537f6817a59f30ac254861e549))
+* **relay:** add no ipfs env flag ([08598d4](https://github.com/0x77dev/dstack/commits/08598d42e407fab6f5c93d868d570f3a70e68161))
+
 ### [0.2.9](https://github.com/0x77dev/dstack/compare/v0.2.8...v0.2.9) (2022-01-23)
 
 
