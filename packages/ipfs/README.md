@@ -18,5 +18,5 @@ Node.js:
 import { create } from '@dstack-js/ipfs';
 import wrtc from 'wrtc'; // or 'electron-webrtc'
 
-const ipfs = await create(wrtc);
+const ipfs = await create({}, wrtc);
 ```
