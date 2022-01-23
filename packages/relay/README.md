@@ -1,8 +1,9 @@
 # @dstack-js/relay
 
-Relay provides anonymous IPFS peer with [`libp2p-webrtc-star`](https://github.com/libp2p/js-libp2p-webrtc-star) signaling server
+Relay provides IPFS peer with [`libp2p-webrtc-star`](https://github.com/libp2p/js-libp2p-webrtc-star) signaling server
 
 ## Public relay
+
 PeerId - `QmV2uXBKbii29iJKHKVy8sx5m49qdDTBYNybVoa5uLJtrf`
 Signaling - `/dns4/dstack-relay.herokuapp.com/tcp/443/wss/p2p-webrtc-star/`
 
@@ -27,4 +28,4 @@ console.log(JSON.stringify(id.toJSON(), null, 2));
 
 or generate [in browser](https://codepen.io/0x77dev/pen/JjrgQoe)
 
-Then you can store `privKey` in `PRIVATE_KEY` environment key 
+Then you can store `privKey` in `PRIVATE_KEY` environment key
