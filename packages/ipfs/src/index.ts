@@ -37,7 +37,11 @@ export const create = (options?: Options, wrtc?: any): Promise<IPFS.IPFS> => {
             wrtc
           }
         }
-      }
+      },
+      dht: {
+        enabled: true,
+        kBucketSize: 20
+      },
     },
   })
 }
