@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.8](https://github.com/0x77dev/dstack/compare/v0.2.7...v0.2.8) (2022-01-23)
+
+
+### Bug Fixes
+
+* **relay:** docker image wrtc support ([cc4910b](https://github.com/0x77dev/dstack/commits/cc4910ba3ead8723f14e342421b4f8c65ddcafab))
+
 ### [0.2.7](https://github.com/0x77dev/dstack/compare/v0.2.6...v0.2.7) (2022-01-23)
 
 ### [0.2.6](https://github.com/0x77dev/dstack/compare/v0.2.5...v0.2.6) (2022-01-23)
