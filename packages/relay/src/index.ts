@@ -21,6 +21,7 @@ const run = async () => {
 
   await create({
     start: true,
+    ...(process.env['PRIVATE_KEY'] ? { init: { privateKey: process.env['PRIVATE_KEY'] } } : {}),
     relay: {
       enabled: true,
       hop: {
