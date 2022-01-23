@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.4](https://github.com/0x77dev/dstack/compare/v0.2.3...v0.2.4) (2022-01-23)
+
+
+### Features
+
+* **ipfs, relay:** custom libp2p, docker, relay update ([62053ed](https://github.com/0x77dev/dstack/commits/62053edaadad29e43210005ac7d0afb614229730))
+
 ### [0.2.3](https://github.com/0x77dev/dstack/compare/v0.2.2...v0.2.3) (2022-01-22)
 
 
