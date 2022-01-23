@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@dstack-js/ipfs": "^0.2.3",
+    "@dstack-js/ipfs": "^0.2.6",
     "libp2p-webrtc-star-signalling-server": "^0.1.2",
     "wrtc": "^0.4.7"
   },
