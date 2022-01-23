@@ -2,6 +2,10 @@ import { create } from '@dstack-js/ipfs'
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
+import wrtc from 'wrtc'
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { start } from 'libp2p-webrtc-star-signalling-server'
 
 const run = async () => {
@@ -15,7 +19,7 @@ const run = async () => {
     metrics: !process.env['DISABLE_METRICS'] && true
   })
 
-  const ipfs = await create({
+  await create({
     start: true,
     relay: {
       enabled: true,
@@ -27,14 +31,13 @@ const run = async () => {
     config: {
       Addresses: {
         Swarm: [
-          "/ip4/0.0.0.0/tcp/0",
           ...(process.env['DNS_NAME'] ? [`/dns4/${process.env['DNS_NAME']}/tcp/443/wss/p2p-webrtc-star`] : ['/dns4/localhost/tcp/9090/ws/p2p-webrtc-star/'])
         ]
       }
     }
-  })
+  }, wrtc)
 
-  console.log('Ready', await ipfs.config.get('Addresses.Swarm'))
+  console.log("ready")
 }
 
 run()

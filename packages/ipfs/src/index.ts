@@ -1,20 +1,43 @@
 import * as IPFS from "ipfs-core"
-import { libp2p } from "./libp2p"
+import { listen } from "./addresses"
 
-export const create = (options?: IPFS.Options): Promise<IPFS.IPFS> => {
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import WebRTCStar from 'libp2p-webrtc-star'
+
+export type Options = Omit<IPFS.Options, "libp2p">
+
+export const create = (options?: Options, wrtc?: any): Promise<IPFS.IPFS> => {
   return IPFS.create({
-    ...options,
     config: {
-      ...options?.config,
+      Discovery: {
+        webRTCStar: { Enabled: true },
+      },
       Addresses: {
-        ...options?.config?.Addresses,
-        Swarm: [
-          ...(options?.config?.Addresses?.Swarm || [
-            '/dns4/dstack-relay.herokuapp.com/tcp/443/wss/p2p-webrtc-star/'
-          ]),
-        ],
+        Swarm: listen,
+      },
+      Bootstrap: [],
+      ...options?.config
+    },
+    ...options,
+    libp2p: {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      modules: {
+        transport: [WebRTCStar]
+      },
+      config: {
+        peerDiscovery: {
+          webRTCStar: {
+            enabled: true
+          }
+        },
+        transport: {
+          WebRTCStar: {
+            wrtc
+          }
+        }
       }
     },
-    libp2p: options?.libp2p || libp2p
   })
 }
