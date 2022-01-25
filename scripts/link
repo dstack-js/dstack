@@ -1,0 +1,9 @@
+#!/bin/bash
+# This script links built packages using `yarn link`
+
+for package in dist/packages/* ; do
+  echo "Linking $package"
+  bash -c "mkdir -p /tmp/$package && cp -Rf $package /tmp/$package && cd /tmp/$package && yarn install && yarn link --force" > /dev/null 2>&1 &
+done
+
+wait
