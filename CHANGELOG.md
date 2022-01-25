@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.11](https://github.com/0x77dev/dstack/compare/v0.2.10...v0.2.11) (2022-01-25)
+
+
+### Features
+
+* **lib:** add pubsub proof-of-concept ([9c722bb](https://github.com/0x77dev/dstack/commits/9c722bbfb6e22102bb3d624868a1ef1c2ceb21f9))
+
+
+### Bug Fixes
+
+* **relay:** fix readme ([e408f75](https://github.com/0x77dev/dstack/commits/e408f75d354461c945618c5fe1b5018318aac38e))
+
 ### [0.2.10](https://github.com/0x77dev/dstack/compare/v0.2.9...v0.2.10) (2022-01-23)
 
 
