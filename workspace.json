@@ -1,5 +1,6 @@
 {
   "projects": {
+    "explorer": "packages/explorer",
     "ipfs": "packages/ipfs",
     "lib": "packages/lib",
     "relay": "packages/relay"

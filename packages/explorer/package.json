@@ -1,0 +1,36 @@
+{
+  "alias": {
+    "@dstack-js/ipfs": "../../dist/packages/ipfs",
+    "@dstack-js/lib": "../../dist/packages/lib"
+  },
+  "author": "Mykhailo Marynenko <0x77dev@protonmail.com>",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "description": "DStack Web explorer/playground to debug your project or just play around",
+  "devDependencies": {
+    "@emotion/babel-plugin": "^11.7.2",
+    "@parcel/config-default": "^2.2.1",
+    "@parcel/transformer-svg-react": "^2.2.1",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "autoprefixer": "^10.4.2",
+    "parcel": "^2.2.1",
+    "parcel-resolver-ts-base-url": "^1.1.5",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.16"
+  },
+  "license": "GPL-3.0",
+  "name": "@dstack-js/explorer",
+  "private": true,
+  "repository": "https://github.com/0x77dev/dstack.git",
+  "scripts": {
+    "build": "parcel build",
+    "serve": "parcel"
+  },
+  "source": "src/index.html",
+  "version": "0.2.10"
+}
