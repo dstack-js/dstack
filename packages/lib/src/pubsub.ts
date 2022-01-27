@@ -1,5 +1,6 @@
 import type { IPFS } from "ipfs-core"
 import { Buffer } from "buffer"
+import { v4 as uuid } from "uuid"
 
 export interface Message<T> {
   from: string
@@ -7,12 +8,10 @@ export interface Message<T> {
 }
 
 export class PubSub<T = unknown> {
-  constructor(public ipfs: IPFS, public name: string) {
-
-  }
+  constructor(public ipfs: IPFS, public namespace: string) { }
 
   private getTopic(topic: string): string {
-    return `${this.name}/${topic}`
+    return `${this.namespace}/${topic}`
   }
 
   private encode(data: T): string {
@@ -29,6 +28,23 @@ export class PubSub<T = unknown> {
         from: message.from,
         data: this.decode(Buffer.from(message.data).toString())
       })
+    })
+  }
+
+  public async handleRequest(method: string, listener: (args: any[], reply: (data: any) => void) => Promise<any> | any): Promise<void> {
+    this.subscribe(method, async (msg) => {
+      const data = msg.data as unknown as { reply: string; args: any[] }
+      listener(data.args, (data) => this.publish(data.reply, data))
+    })
+  }
+
+  public async request(method: string, args: any[], timeout = 1000): Promise<any> {
+    const reply = uuid()
+
+    return new Promise<any>((resolve, reject) => {
+      this.subscribe(reply, (msg) => resolve(msg.data))
+      setTimeout(() => reject('timeout'), timeout)
+      this.publish(method, { reply, args } as any)
     })
   }
 

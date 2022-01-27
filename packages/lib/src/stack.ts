@@ -6,13 +6,15 @@ export class Stack {
   public store: Store
   public pubsub: PubSub
 
-  private constructor(public name: string, ipfs: IPFS) {
-    this.store = new Store(ipfs, name)
-    this.pubsub = new PubSub(ipfs, name)
+  private constructor(public namespace: string, ipfs: IPFS) {
+    this.pubsub = new PubSub(ipfs, namespace)
+    this.store = new Store(ipfs, namespace, this.pubsub)
   }
 
-  public static async create(name: string, ipfs: IPFS) {
-    // TODO: check ipfs for DHT turned on
-    return new Stack(name, ipfs)
+  public static async create(namespace: string, ipfs: IPFS) {
+    const stack = new Stack(namespace, ipfs)
+
+    await stack.store.start()
+    return stack
   }
 }
