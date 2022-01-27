@@ -26,12 +26,6 @@ const run = async () => {
           enabled: true,
           active: true
         },
-      },
-      config: {
-        Addresses: {
-          Swarm: process.env['DNS_NAME'] ? [`/dns4/${process.env['DNS_NAME']}/tcp/443/wss/p2p-webrtc-star`] : ['/dns4/localhost/tcp/9090/ws/p2p-webrtc-star/']
-        },
-        Bootstrap: []
       }
     }, wrtc)
 
