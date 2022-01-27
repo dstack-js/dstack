@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.18](https://github.com/0x77dev/dstack/compare/v0.2.17...v0.2.18) (2022-01-27)
+
+
+### Bug Fixes
+
+* **lib:** fix store emitUpdate ([653150f](https://github.com/0x77dev/dstack/commits/653150f50cfe70483d22b65539e2ef12cf62b07f))
+
 ### [0.2.17](https://github.com/0x77dev/dstack/compare/v0.2.16...v0.2.17) (2022-01-27)
 
 
