@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.16](https://github.com/0x77dev/dstack/compare/v0.2.15...v0.2.16) (2022-01-27)
+
+
+### Features
+
+* **lib:** add debug ([8e8f0ea](https://github.com/0x77dev/dstack/commits/8e8f0ea265c94d7d930b97c4539d19d2f8355bbe))
+* **lib:** add onPeerConnect ([5b22c3c](https://github.com/0x77dev/dstack/commits/5b22c3c35c5d09210dbc75807ec3b5bac6171960))
+* **lib:** add peer api ([cc5919b](https://github.com/0x77dev/dstack/commits/cc5919be7b9f130c43f946143e193343e495ba55))
+
 ### [0.2.15](https://github.com/0x77dev/dstack/compare/v0.2.14...v0.2.15) (2022-01-27)
 
 
