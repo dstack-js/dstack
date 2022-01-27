@@ -14,6 +14,8 @@
   "description": "DStack Web explorer/playground to debug your project or just play around",
   "devDependencies": {
     "@emotion/babel-plugin": "^11.7.2",
+    "@parcel/compressor-brotli": "^2.2.1",
+    "@parcel/compressor-gzip": "^2.2.1",
     "@parcel/config-default": "^2.2.1",
     "@parcel/transformer-svg-react": "^2.2.1",
     "@types/react": "^17.0.38",

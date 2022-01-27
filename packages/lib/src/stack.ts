@@ -12,7 +12,7 @@ export class Stack {
   public store: Store
   public pubsub: PubSub
 
-  private constructor(public namespace: string, public ipfs: IPFS) {
+  private constructor(public namespace: string, public ipfs: IPFS, public id: string) {
     this.pubsub = new PubSub(ipfs, namespace)
     this.store = new Store(ipfs, namespace, this.pubsub)
   }
@@ -29,7 +29,8 @@ export class Stack {
    * @returns Stack instance
    */
   public static async create(namespace: string, ipfs: IPFS) {
-    const stack = new Stack(namespace, ipfs)
+    const { id } = await ipfs.id()
+    const stack = new Stack(namespace, ipfs, id)
 
     await stack.store.start()
     return stack

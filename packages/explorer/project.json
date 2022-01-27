@@ -1,49 +1,31 @@
 {
   "projectType": "application",
   "root": "packages/explorer",
+  "serve": {
+    "executor": "@nrwl/workspace:run-commands",
+    "options": {
+      "commands": [
+        "nx build lib",
+        "nx build ipfs",
+        "cd packages/explorer && yarn serve"
+      ],
+      "cwd": "/"
+    }
+  },
   "sourceRoot": "packages/explorer/src",
   "tags": [],
   "targets": {
-    "build": {
-      "dependsOn": [
-        {
-          "projects": "dependencies",
-          "target": "ipfs:build"
-        },
-        {
-          "projects": "dependencies",
-          "target": "lib:build"
-        }
+    "executor": "@nrwl/workspace:run-commands",
+    "options": {
+      "commands": [
+        "nx build lib",
+        "nx build ipfs",
+        "yarn build"
       ],
-      "executor": "@nrwl/workspace:run-commands",
-      "options": {
-        "commands": [
-          "yarn build"
-        ],
-        "cwd": "packages/explorer"
-      },
-      "outputs": [
-        "packages/explorer/dist"
-      ]
+      "cwd": "/"
     },
-    "serve": {
-      "dependsOn": [
-        {
-          "projects": "dependencies",
-          "target": "ipfs:build"
-        },
-        {
-          "projects": "dependencies",
-          "target": "lib:build"
-        }
-      ],
-      "executor": "@nrwl/workspace:run-commands",
-      "options": {
-        "commands": [
-          "yarn serve"
-        ],
-        "cwd": "packages/explorer"
-      }
-    }
+    "outputs": [
+      "packages/explorer/dist"
+    ]
   }
 }
