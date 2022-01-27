@@ -102,7 +102,7 @@ export class Store {
     })
   }
 
-  private async emitUpdate(key: string, value: CID): Promise<void> {
+  public async emitUpdate(key: string, value: CID): Promise<void> {
     this.map[key] = value
     await this.pubsub.publish('$store', { key, value: value.toString() })
   }
