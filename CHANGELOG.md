@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.15](https://github.com/0x77dev/dstack/compare/v0.2.14...v0.2.15) (2022-01-27)
+
+
+### Bug Fixes
+
+* **lib:** fix pubsub request ([3e688b7](https://github.com/0x77dev/dstack/commits/3e688b740e4a1114ae0380170e097db82ba1d47f))
+
 ### [0.2.14](https://github.com/0x77dev/dstack/compare/v0.2.13...v0.2.14) (2022-01-27)
 
 
