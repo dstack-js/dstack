@@ -8,5 +8,5 @@
   "license": "GPL-3.0",
   "name": "@dstack-js/ipfs",
   "type": "commonjs",
-  "version": "0.2.13"
+  "version": "0.2.14"
 }

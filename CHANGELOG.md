@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.14](https://github.com/0x77dev/dstack/compare/v0.2.13...v0.2.14) (2022-01-27)
+
+
+### Features
+
+* **lib:** store top level cache.get ([e7a55ff](https://github.com/0x77dev/dstack/commits/e7a55ff8d9eede3a084b6175bf9ca5cfbbb3c9c4))
+
 ### [0.2.13](https://github.com/0x77dev/dstack/compare/v0.2.12...v0.2.13) (2022-01-27)
 
 
