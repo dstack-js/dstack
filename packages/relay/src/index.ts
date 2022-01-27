@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { create } from '@dstack-js/ipfs'
+import { Stack } from '@dstack-js/lib'
 
 const wrtc = require('wrtc')
 const { start } = require('libp2p-webrtc-star-signalling-server')
@@ -15,23 +16,27 @@ const run = async () => {
     metrics: !process.env['DISABLE_METRICS'] && true
   })
 
-  if (!process.env['NO_IPFS']) await create({
-    start: true,
-    ...(process.env['PRIVATE_KEY'] ? { init: { privateKey: process.env['PRIVATE_KEY'] } } : {}),
-    relay: {
-      enabled: true,
-      hop: {
+  if (process.env['NAMESPACE']) {
+    const ipfs = await create({
+      start: true,
+      ...(process.env['PRIVATE_KEY'] ? { init: { privateKey: process.env['PRIVATE_KEY'] } } : {}),
+      relay: {
         enabled: true,
-        active: true
+        hop: {
+          enabled: true,
+          active: true
+        },
       },
-    },
-    config: {
-      Addresses: {
-        Swarm: process.env['DNS_NAME'] ? [`/dns4/${process.env['DNS_NAME']}/tcp/443/wss/p2p-webrtc-star`] : ['/dns4/localhost/tcp/9090/ws/p2p-webrtc-star/']
-      },
-      Bootstrap: []
-    }
-  }, wrtc)
+      config: {
+        Addresses: {
+          Swarm: process.env['DNS_NAME'] ? [`/dns4/${process.env['DNS_NAME']}/tcp/443/wss/p2p-webrtc-star`] : ['/dns4/localhost/tcp/9090/ws/p2p-webrtc-star/']
+        },
+        Bootstrap: []
+      }
+    }, wrtc)
+
+    await Stack.create(process.env['NAMESPACE'], ipfs)
+  }
 
   console.log("ready")
 }
