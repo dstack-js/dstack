@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.21](https://github.com/0x77dev/dstack/compare/v0.2.20...v0.2.21) (2022-01-27)
+
+
+### Features
+
+* **ipfs:** add more relays ([41d10e4](https://github.com/0x77dev/dstack/commits/41d10e4c373fa8537584f615acc0f4eddbcf6951))
+
 ### [0.2.20](https://github.com/0x77dev/dstack/compare/v0.2.19...v0.2.20) (2022-01-27)
 
 
