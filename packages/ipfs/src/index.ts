@@ -4,6 +4,7 @@ import { listen } from "./addresses"
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import WebRTCStar from 'libp2p-webrtc-star'
+import { NOISE } from '@chainsafe/libp2p-noise'
 
 export type Options = Omit<IPFS.Options, "libp2p">
 
@@ -24,7 +25,9 @@ export const create = (options?: Options, wrtc?: any): Promise<IPFS.IPFS> => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       modules: {
-        transport: [WebRTCStar]
+        transport: [WebRTCStar],
+        // @ts-expect-error: incompatible type
+        connEncryption: [NOISE]
       },
       config: {
         peerDiscovery: {
