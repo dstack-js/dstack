@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.12](https://github.com/0x77dev/dstack/compare/v0.2.11...v0.2.12) (2022-01-27)
+
+
+### Features
+
+* **explorer:** basic playground ([1632b91](https://github.com/0x77dev/dstack/commits/1632b9132b43ef06715b33779dbfd679ecc1bb05))
+* **lib:** pubsub store sync ([34c22f7](https://github.com/0x77dev/dstack/commits/34c22f7edd11e276b158498cb7520344535f4ca9))
+* **relay:** store sync ([19f2053](https://github.com/0x77dev/dstack/commits/19f205315be93fba3e47466e886e074c6a2211a2))
+
+
+### Bug Fixes
+
+* **ipfs:** encryption issues ([4fa31e3](https://github.com/0x77dev/dstack/commits/4fa31e36f2250a3e870271d6402d9c2dee589a97))
+
 ### [0.2.11](https://github.com/0x77dev/dstack/compare/v0.2.10...v0.2.11) (2022-01-25)
 
 
