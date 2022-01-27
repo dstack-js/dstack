@@ -1,4 +1,5 @@
 import type { IPFS } from "ipfs-core"
+import type { libp2p as Libp2p } from "ipfs-core/src/components/network"
 import { PubSub } from "./pubsub"
 import { Store } from "./store"
 
@@ -14,6 +15,10 @@ export class Stack {
   private constructor(public namespace: string, public ipfs: IPFS) {
     this.pubsub = new PubSub(ipfs, namespace)
     this.store = new Store(ipfs, namespace, this.pubsub)
+  }
+
+  private get libp2p() {
+    return (this.ipfs as any).libp2p as Libp2p
   }
 
   /**
@@ -53,5 +58,19 @@ export class Stack {
    */
   public async connect(address: string): Promise<void> {
     await this.ipfs.swarm.connect(address)
+  }
+
+  /**
+   * Listen on new peer connected
+   *
+   * @param listener Will be called with peer info
+   */
+  public onPeerConnect(listener: (peer: Peer) => void): void {
+    this.libp2p.addressManager.on('peer:connect', (event) => {
+      listener({
+        id: event.remotePeer.toB58String(),
+        address: event.remoteAddr.toString()
+      })
+    })
   }
 }
