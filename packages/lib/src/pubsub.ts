@@ -32,7 +32,7 @@ export class PubSub<T = unknown> {
   }
 
   public async handleRequest(method: string, listener: (args: any[], reply: (data: any) => void) => Promise<any> | any): Promise<void> {
-    this.subscribe(method, async (msg) => {
+    await this.subscribe(method, async (msg) => {
       const data = msg.data as unknown as { reply: string; args: any[] }
       listener(data.args, (data) => this.publish(data.reply, data))
     })
@@ -41,10 +41,11 @@ export class PubSub<T = unknown> {
   public async request(method: string, args: any[], timeout = 1000): Promise<any> {
     const reply = uuid()
 
-    return new Promise<any>((resolve, reject) => {
-      this.subscribe(reply, (msg) => resolve(msg.data))
+    // eslint-disable-next-line no-async-promise-executor
+    return new Promise<any>(async (resolve, reject) => {
+      await this.subscribe(reply, (msg) => resolve(msg.data))
       setTimeout(() => reject('timeout'), timeout)
-      this.publish(method, { reply, args } as any)
+      await this.publish(method, { reply, args } as any)
     })
   }
 
