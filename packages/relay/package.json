@@ -1,6 +1,10 @@
 {
+  "bin": {
+    "dstack-relay": "src/index.js"
+  },
   "dependencies": {
-    "@dstack-js/ipfs": "^0.2.6",
+    "@dstack-js/ipfs": "^0.2.12",
+    "@dstack-js/lib": "^0.2.12",
     "libp2p-webrtc-star-signalling-server": "^0.1.2",
     "wrtc": "^0.4.7"
   },
