@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.17](https://github.com/0x77dev/dstack/compare/v0.2.16...v0.2.17) (2022-01-27)
+
+
+### Features
+
+* **lib:** improve store data fetching ([e3a56c6](https://github.com/0x77dev/dstack/commits/e3a56c69bb49565a6c42e0b9f007e0f0e8566a74))
+
 ### [0.2.16](https://github.com/0x77dev/dstack/compare/v0.2.15...v0.2.16) (2022-01-27)
 
 
