@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.22](https://github.com/0x77dev/dstack/compare/v0.2.21...v0.2.22) (2022-01-27)
+
+
+### Features
+
+* **relay:** bump ipfs ([7d30f0e](https://github.com/0x77dev/dstack/commits/7d30f0e6bb322fb9e0ebb4b3fb561e9845eefc70))
+
 ### [0.2.21](https://github.com/0x77dev/dstack/compare/v0.2.20...v0.2.21) (2022-01-27)
 
 
