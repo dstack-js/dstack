@@ -6,9 +6,10 @@ export const App: React.FunctionComponent<{}> = () => {
   const [ready, setReady] = useState(false);
 
   const init = async (): Promise<void> => {
+    localStorage.setItem('debug', '*');
     const ipfs = await create();
     const stack = await Stack.create('stack', ipfs);
-
+    stack.debug();
     // @ts-expect-error
     window.stack = stack;
 

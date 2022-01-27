@@ -73,4 +73,11 @@ export class Stack {
       })
     })
   }
+
+  /**
+   * Start logging debug events
+   */
+  public debug(): void {
+    this.onPeerConnect((peer) => console.log('New peer connected', peer.id, peer.address))
+  }
 }
