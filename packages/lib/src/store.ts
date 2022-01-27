@@ -111,14 +111,14 @@ export class Store {
     await Promise.all([
       drain(this.ipfs.dht.put(this.getDHTKey(key), value.bytes, { minPeers: 0 } as any)),
       this.pubsub.publish('$store', { key, value: value.toString() })
-    ])
+    ]).catch(console.warn)
   }
 
   public async set<T = any>(key: string, data: T): Promise<Shard<T>> {
     const shard = await Shard.create(this.ipfs, data, { namespace: key, store: this })
 
     this.cache.set(key, shard.cid)
-    await this.emitUpdate(key, shard.cid).catch(console.warn)
+    await this.emitUpdate(key, shard.cid)
 
     return shard
   }
@@ -126,9 +126,6 @@ export class Store {
   public async getFromDHT<T = any>(key: string, timeout = 1000): Promise<Shard<T>> {
     // eslint-disable-next-line no-async-promise-executor
     return new Promise<Shard>(async (resolve, reject) => {
-      const cached = this.cache.get(key)
-      if (cached) return resolve(Shard.from(this.ipfs, cached, { namespace: key, store: this }))
-
       const interval = setTimeout(() => reject('timeout'), timeout)
 
       for await (const event of this.ipfs.dht.get(this.getDHTKey(key))) {
@@ -150,10 +147,13 @@ export class Store {
     return Shard.from(this.ipfs, CID.parse(value), { namespace: key, store: this })
   }
 
-  public async get<T = any>(key: string, timeout = 1000): Promise<Shard<T>> {
+  public async get<T = any>(key: string, timeout = 1000): Promise<Shard<T> | void> {
+    const cached = this.cache.get(key)
+    if (cached) return Shard.from(this.ipfs, cached, { namespace: key, store: this })
+
     return Promise.race([
-      this.getFromPubSub(key, timeout),
-      this.getFromDHT(key, timeout)
+      this.getFromPubSub(key, timeout).catch(console.warn),
+      this.getFromDHT(key, timeout).catch(console.warn)
     ])
   }
 }
