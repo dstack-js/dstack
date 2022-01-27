@@ -22,6 +22,26 @@ export class PubSub<T = unknown> {
     return JSON.parse(data)
   }
 
+  public async topics(ignoreInternals = true): Promise<string[]> {
+    const topic = await this.ipfs.pubsub.ls()
+
+    return topic
+      .filter((value) => {
+        if (ignoreInternals && value.includes('$')) {
+          return false
+        }
+
+        return true
+      })
+      .map((topic) => topic.replace(`${this.namespace}/`, ''))
+  }
+
+  public async peers(topic: string): Promise<number> {
+    const peers = await this.ipfs.pubsub.peers(this.getTopic(topic))
+
+    return peers.length
+  }
+
   public async subscribe(topic: string, listener: (msg: Message<T>) => void): Promise<void> {
     await this.ipfs.pubsub.subscribe(this.getTopic(topic), (message) => {
       listener({
