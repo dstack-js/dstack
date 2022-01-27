@@ -2,6 +2,9 @@
 
 Relay provides IPFS peer with [`libp2p-webrtc-star`](https://github.com/libp2p/js-libp2p-webrtc-star) signaling server
 
+[Metrics (Grafana Dashboard)](https://dstack.grafana.net/goto/Y5cMV1xnz?orgId=1)
+_Login into Grafana using your GitHub, grafana can be only accessed by organization members_
+
 ## Public relay
 
 PeerId - `QmV2uXBKbii29iJKHKVy8sx5m49qdDTBYNybVoa5uLJtrf`
@@ -9,7 +12,6 @@ PeerId - `QmV2uXBKbii29iJKHKVy8sx5m49qdDTBYNybVoa5uLJtrf`
 Signaling - `/dns4/dstack-relay.herokuapp.com/tcp/443/wss/p2p-webrtc-star/`
 
 Bootstrap - `['/dns4/dstack-relay.herokuapp.com/tcp/443/wss/p2p-webrtc-star/p2p/QmV2uXBKbii29iJKHKVy8sx5m49qdDTBYNybVoa5uLJtrf']`
-
 
 ## Using predefined peer id
 
