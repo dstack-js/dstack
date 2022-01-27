@@ -1,0 +1,17 @@
+scrape_configs:
+  - job_name: !<!yaml-crypt/fernet:0x80> >-
+      gAAAAABh8uibvjAB8wlRhayttNvBS269FT92zHG8fKlxdENxKltMzJb57AiV71CzRQAvKFbNrAm3X6oqdXdEnA9emHHc23NsPA==
+    scheme: !<!yaml-crypt/fernet:0x80> >-
+      gAAAAABh8uib9VhgJ9T_aaADJxdvaJBLhjIpKqiAOlUTApnuvpYH9LiliG9kYAHupXADqjmsryz0cBHn1COYqh0J6fiQ1El_hA==
+    static_configs:
+      - targets:
+          - !<!yaml-crypt/fernet:0x80> >-
+            gAAAAABh8uibk3Wp7YuYLbDq1oH_ALs7o7oDkJc7noTd9SMdxQSjNrSJ5AlScB1GN3_Ex8GWOK46194Qe28WQeLHhs3S81N3rbQ7cSqs_fYPc8efGhSfjzw=
+remote_write:
+  - url: !<!yaml-crypt/fernet:0x80> >-
+      gAAAAABh8uibNKVY4LZ8W-CLAOxoKcMf1V36nrOpI49VfYdnUeGX0jr6DUCxmW-0v7kvthWa_ofJef3fC2l1IXmjlj9oFma0u3YK9Nx-yhyv-rngHVfARDbnjJecXZrPpsOfmHwP_Y7yjncyKeNO1eTF7M8_ENZ1Cg==
+    basic_auth:
+      username: !<!yaml-crypt/fernet:0x80> >-
+        gAAAAABh8uibCDvo3-ScDhMJ5VOdDPW0w3XwJ_oL0DsRMn2z74U418bzQ3COevFS-aAGNczenZsPQND3EF75hAbZ6QzdT1M1Cw==
+      password: !<!yaml-crypt/fernet:0x80> >-
+        gAAAAABh8uibOVDXitVvlFl8ysXC9sIoaNGZJrgxLdiyqpCDNit1TXHTMmZ79DK0d4qV4UUVSHYed_I-AkIBnXUVB6f4QvxA86kHw4W8IcE0korXv3nhxxaRoZevQOSIF2qgwX85AnaBKrRW3j02z7iid9NR81wEXpQgy57fYkJYGbTtSnqV6qRp2Fh4QVW9fQ7e5DqV88EnDaeWKEveYl7ZLu4dus3pPQ==
