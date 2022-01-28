@@ -14,9 +14,11 @@ DStack was created to bring together some of the popular libraries for the decen
 
 ## What DStack offers
 
-Currently you can use DStack as a peer-to-peer distributed KV/Graph database
+DStack simplifies IPFS JavaScript API for application development usage
 
-_**[See milestones](https://github.com/0x77dev/dstack/milestones)**_
+Also provides relay node and Store API
+
+Checkout [Peerchat](https://dstack.0x77.dev/blog/peerchat) demo
 
 [license]: https://github.com/0x77dev/dstack/blob/main/LICENSE
 [license-badge]: https://img.shields.io/github/license/0x77dev/dstack

@@ -14,9 +14,18 @@ DStack was created to bring together some of the popular libraries for the decen
 
 ## What DStack offers
 
-Currently you can use DStack as a globally distributed GraphQL cache system built on top of [IPFS DAG API](https://github.com/ipfs/js-ipfs/blob/master/docs/core-api/DAG.md#dag-api-)
+DStack simplifies IPFS JavaScript API for application development usage
+
+DStack provides:
+
+- Store API
+- PubSub API
+- Relay
+
+Checkout [Peerchat](/blog/peerchat) demo
+
+Play with DStack in a [Playground](https://dstack-playground.netlify.app)
 
 ## Getting started
 
 See [Tutorial](/docs/intro) to get started using DStack in your app
-
