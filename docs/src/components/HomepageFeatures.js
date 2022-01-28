@@ -8,32 +8,32 @@ const FeatureList = [
     Svg: require('../../static/img/logo_white.svg').default,
     description: (
       <>
-        DStack was designed from the ground up to be easily installed and
-        used to built semi-decentralized apps quickly, where your product infrastructure is single source of truth
+        DStack was designed from the ground up to be easily installed and used
+        zero configuration
       </>
     ),
   },
   {
-    title: 'Powered by GraphQL',
-    Svg: require('../../static/img/graphql.svg').default,
+    title: 'Powered by IPFS',
+    Svg: require('../../static/img/ipfs.svg').default,
     description: (
       <>
-        DStack provides a set of graphql elements (scalars, directives, etc) to store and fetch your data on decentralized web
+        DStack simplifies IPFS JavaScript API for application development usage
       </>
     ),
   },
   {
-    title: 'TypeScript Support',
-    Svg: require('../../static/img/Typescript_logo_2020.svg').default,
+    title: 'Under construction',
+    Svg: require('../../static/img/Under_construction.svg').default,
     description: (
       <>
-        Built using TypeScript and includes type definition in every module
+        In an active development <br /> Highly experimental as of a moment
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({ Svg, title, description }) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">

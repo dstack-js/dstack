@@ -1,0 +1,115 @@
+---
+title: Quick Look
+sidebar_position: 1
+---
+
+import Flowchart from '../src/components/Flowchart.js';
+
+_DStack is under heavy development, currently some docs is not finished yet_
+
+Let's discover **DStack in less than 15 minutes**.
+
+### Architecture
+
+<Flowchart
+  snapToGrid={true}
+  elements={[
+    {
+      id: 'ipfs',
+      type: 'input',
+      data: { label: 'IPFS' },
+      position: { x: 400, y: 25 },
+    },
+    {
+      id: 'stack',
+      data: { label: 'Stack' },
+      position: { x: 400, y: 100 },
+    },
+    {
+      id: 'pubsub',
+      type: 'output',
+      data: { label: 'PubSub' },
+      style: { borderColor: '#000' },
+      position: { x: 200, y: 300 },
+    },
+    {
+      id: 'store',
+      data: { label: 'Store' },
+      position: { x: 500, y: 250 },
+    },
+    {
+      id: 'shard',
+      type: 'output',
+      style: { borderColor: '#000' },
+      data: { label: 'Shard' },
+      position: { x: 500, y: 350 },
+    },
+    // animated edge
+    { id: 'e1-2', source: 'ipfs', target: 'stack', animated: true },
+    { id: 'e2-3', source: 'stack', target: 'pubsub' },
+    { id: 'e3-4', source: 'stack', target: 'store' },
+    {
+      id: 'e4-5',
+      source: 'store',
+      target: 'shard',
+      animated: true,
+    },
+  ]}
+/>
+
+## Add DStack to your project
+
+Using Yarn:
+
+```shell
+yarn add @dstack-js/lib
+```
+
+Using NPM:
+
+```shell
+npm i -S @dstack-js/lib
+```
+
+You also need IPFS, can use `@dstack-js/ipfs` or `ipfs-core@^0.13.0`, `@dstack-js/ipfs` provides zero configuration package for DStack.
+
+### Initialize Stack
+
+```javascript
+import { create } from '@dstack-js/ipfs';
+import { Stack } from '@dstack-js/lib';
+
+// Browser:
+const ipfs = await create();
+// In Node.js environment you need to provide WebRTC implementation
+// const wrtc = require('wrtc');
+// const ipfs = await create({}, wrtc);
+
+const stack = await Stack.create('namespace', ipfs);
+
+console.log('My Peer ID is:', stack.id);
+```
+
+### Interact with PubSub
+
+```javascript
+stack.pubsub.subscribe('topic', (msg) => {
+  console.log('Received a message', msg.from, msg.data);
+});
+
+stack.pubsub.publish('topic', 'Hello, DStack!');
+```
+
+### Interact with Store
+
+```javascript
+const shard = await stack.store.set('hello', 'world');
+
+// Set value
+await shard.set('dstack');
+
+// Get fresh value
+await shard.get();
+
+const shard = await stack.store.get('hello');
+```
