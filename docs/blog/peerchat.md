@@ -12,7 +12,7 @@ Peerchat is a CLI app that allows to chat via DStack PubSub API without any conf
 
 ## Demo
 
-![Demo](https://github.com/dstack-js/chat/raw/main/docs/demo.svg)
+[![asciicast](https://asciinema.org/a/465056.svg)](https://asciinema.org/a/465056)
 
 _Recording looks ugly, but in terminal it seems to be fine_
 
