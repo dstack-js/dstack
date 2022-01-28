@@ -1,6 +1,6 @@
 {
-  "commitUrlFormat": "https://github.com/0x77dev/dstack/commits/{{hash}}",
-  "compareUrlFormat": "https://github.com/0x77dev/dstack/compare/{{previousTag}}...{{currentTag}}",
+  "commitUrlFormat": "https://github.com/dstack-js/dstack/commits/{{hash}}",
+  "compareUrlFormat": "https://github.com/dstack-js/dstack/compare/{{previousTag}}...{{currentTag}}",
   "types": [
     {
       "section": "Features",

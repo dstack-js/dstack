@@ -29,7 +29,7 @@
   "license": "GPL-3.0",
   "name": "@dstack-js/explorer",
   "private": true,
-  "repository": "https://github.com/0x77dev/dstack.git",
+  "repository": "https://github.com/dstack-js/dstack.git",
   "scripts": {
     "build": "parcel build",
     "serve": "parcel"

@@ -20,9 +20,9 @@ Also provides relay node and Store API
 
 Checkout [Peerchat](https://dstack.0x77.dev/blog/peerchat) demo
 
-[license]: https://github.com/0x77dev/dstack/blob/main/LICENSE
-[license-badge]: https://img.shields.io/github/license/0x77dev/dstack
-[issues]: https://github.com/0x77dev/dstack/issues
-[issues-badge]: https://img.shields.io/github/issues/0x77dev/dstack
+[license]: https://github.com/dstack-js/dstack/blob/main/LICENSE
+[license-badge]: https://img.shields.io/github/license/dstack-js/dstack
+[issues]: https://github.com/dstack-js/dstack/issues
+[issues-badge]: https://img.shields.io/github/issues/dstack-js/dstack
 [npm]: https://www.npmjs.com/package/@dstack-js/lib
 [npm-badge]: https://img.shields.io/npm/v/@dstack-js/lib
