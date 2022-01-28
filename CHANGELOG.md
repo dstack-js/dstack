@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.23](https://github.com/0x77dev/dstack/compare/v0.2.22...v0.2.23) (2022-01-28)
+
+
+### Features
+
+* **lib:** optional wait for peers on publish ([6b11cac](https://github.com/0x77dev/dstack/commits/6b11cacc94e9188710691e88e06b0feb067c372e))
+
 ### [0.2.22](https://github.com/0x77dev/dstack/compare/v0.2.21...v0.2.22) (2022-01-27)
 
 
