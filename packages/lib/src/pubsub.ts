@@ -11,7 +11,7 @@ export class PubSub<T = unknown> {
   constructor(public ipfs: IPFS, public namespace: string) { }
 
   private getTopic(topic: string): string {
-    return `${this.namespace}/${topic}`
+    return `${this.namespace}.${topic}`
   }
 
   private encode(data: T): string {
@@ -33,7 +33,7 @@ export class PubSub<T = unknown> {
 
         return true
       })
-      .map((topic) => topic.replace(`${this.namespace}/`, ''))
+      .map((topic) => topic.replace(`${this.namespace}.`, ''))
   }
 
   public async peers(topic: string): Promise<number> {
@@ -69,7 +69,19 @@ export class PubSub<T = unknown> {
     })
   }
 
-  public async publish(topic: string, data: T): Promise<void> {
+  private async waitForPeers(topic: string, depth = 0): Promise<void> {
+    depth++
+    const peers = await this.peers(topic)
+
+    if (!peers) {
+      console.debug('Waiting for peers to appear before publishing to', topic)
+      await new Promise((resolve) => setTimeout(resolve, 2 * depth * 10))
+      return this.waitForPeers(topic, depth)
+    }
+  }
+
+  public async publish(topic: string, data: T, waitForPeers = true): Promise<void> {
+    if (!waitForPeers) await this.waitForPeers(topic)
     await this.ipfs.pubsub.publish(this.getTopic(topic), Buffer.from(this.encode(data)))
   }
 

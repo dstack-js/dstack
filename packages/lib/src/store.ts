@@ -97,7 +97,7 @@ export class Store {
 
       if (value) {
         await this.pubsub.publish('$store', { key, value: value.toString() })
-        await this.pubsub.publish(`$store/${key}`, { key, value: value.toString() })
+        await this.pubsub.publish(`$store.${key}`, { key, value: value.toString() })
       }
     })
   }
@@ -143,7 +143,7 @@ export class Store {
 
     // eslint-disable-next-line no-async-promise-executor
     return new Promise<Shard<T> | void>(async (resolve) => {
-      await this.pubsub.subscribe(`$store/${key}`, (msg) => {
+      await this.pubsub.subscribe(`$store.${key}`, (msg) => {
         const data = msg.data as { key: string; value: string }
 
         resolve(Shard.from(this.ipfs, CID.parse(data.value), { namespace: key, store: this }))
