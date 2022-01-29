@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { IPFS } from "ipfs-core"
-import { Buffer } from "buffer"
-import { CID } from "multiformats/cid"
-import { PubSub } from "./pubsub"
+import type { IPFS } from 'ipfs-core'
+import { Buffer } from 'buffer'
+import { CID } from 'multiformats/cid'
+import { PubSub } from './pubsub'
 
 export interface Link {
   [name: string]: CID | undefined

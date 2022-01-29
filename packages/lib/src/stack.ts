@@ -1,16 +1,16 @@
-import type { IPFS } from "ipfs-core"
-import type { libp2p as Libp2p } from "ipfs-core/src/components/network"
-import { PubSub } from "./pubsub"
-import { Store } from "./store"
+import type { IPFS } from 'ipfs-core'
+import type { libp2p as Libp2p } from 'ipfs-core/src/components/network'
+import { PubSub } from './pubsub'
+import { Store } from './store'
 
 export interface Peer {
   id: string
   address: string
 }
 
-export class Stack {
+export class Stack<TMessage = any> {
   public store: Store
-  public pubsub: PubSub
+  public pubsub: PubSub<TMessage>
 
   private constructor(public namespace: string, public ipfs: IPFS, public id: string) {
     this.pubsub = new PubSub(ipfs, namespace)
@@ -76,9 +76,24 @@ export class Stack {
   }
 
   /**
+   * Listen on peer disconnected
+   *
+   * @param listener Will be called with peer info
+   */
+  public onPeerDisconnected(listener: (peer: Peer) => void): void {
+    this.libp2p.addressManager.on('peer:disconnect', (event) => {
+      listener({
+        id: event.remotePeer.toB58String(),
+        address: event.remoteAddr.toString()
+      })
+    })
+  }
+
+  /**
    * Start logging debug events
    */
   public debug(): void {
     this.onPeerConnect((peer) => console.log('New peer connected', peer.id, peer.address))
+    this.onPeerDisconnected((peer) => console.log('Peer disconnected', peer.id, peer.address))
   }
 }

@@ -1,6 +1,7 @@
-import type { IPFS } from "ipfs-core"
-import { Buffer } from "buffer"
-import { v4 as uuid } from "uuid"
+import type { IPFS } from 'ipfs-core'
+import { Buffer } from 'buffer'
+import { v4 as uuid } from 'uuid'
+import { TimeoutError } from './errors'
 
 export interface Message<T> {
   from: string
@@ -64,7 +65,7 @@ export class PubSub<T = unknown> {
     // eslint-disable-next-line no-async-promise-executor
     return new Promise<any>(async (resolve, reject) => {
       await this.subscribe(reply, (msg) => resolve(msg.data))
-      setTimeout(() => reject('timeout'), timeout)
+      setTimeout(() => reject(new TimeoutError()), timeout)
       await this.publish(method, { reply, args } as any)
     })
   }
