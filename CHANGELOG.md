@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.24](https://github.com/dstack-js/dstack/compare/v0.2.23...v0.2.24) (2022-01-29)
+
+
+### Features
+
+* **blog:** add peerchat blog post ([90fb36a](https://github.com/dstack-js/dstack/commits/90fb36ac883c234d63a50b211df7a17785cc1be1))
+* **ci:** add nx workflow [#17](https://github.com/dstack-js/dstack/issues/17) ([5c03395](https://github.com/dstack-js/dstack/commits/5c03395148c34e38c82a126106ebaa426cfc005d))
+* **docs:** update intro and landing ([9865e7a](https://github.com/dstack-js/dstack/commits/9865e7aa281b9c94d15e86ddd01b4f82070efd62))
+* **lib:** add license field ([0edc1ab](https://github.com/dstack-js/dstack/commits/0edc1abedc475aea1a9e736f1b521c2b487527c0))
+
 ### [0.2.23](https://github.com/dstack-js/dstack/compare/v0.2.22...v0.2.23) (2022-01-28)
 
 ### Features
