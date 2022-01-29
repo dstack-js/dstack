@@ -1,9 +1,12 @@
 {
-    "cSpell.words": [
-        "dstack"
-    ],
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true
+  "cSpell.words": [
+    "dstack",
+    "ipfs",
+    "libp2p"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
 }
