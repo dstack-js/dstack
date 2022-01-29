@@ -4,6 +4,8 @@
 
 [![npm-badge]][npm] [![issues-badge]][issues] [![license-badge]][license]
 
+Checkout [Peerchat](https://dstack.0x77.dev/blog/peerchat) demo
+
 ## Getting started
 
 See [Tutorial](https://dstack.0x77.dev/docs/intro) to get started using DStack in your dapp
@@ -16,9 +18,39 @@ DStack was created to bring together some of the popular libraries for the decen
 
 DStack simplifies IPFS JavaScript API for application development usage
 
-Also provides relay node and Store API
+DStack provides:
 
-Checkout [Peerchat](https://dstack.0x77.dev/blog/peerchat) demo
+- Store API
+- PubSub API
+- Relay
+
+### Tell others that you use DStack
+
+Badge:
+
+[![dstack](https://dstack.0x77.dev/img/badge.svg)](https://dstack.0x77.dev)
+
+```markdown
+[![dstack](https://dstack.0x77.dev/img/badge.svg)](https://dstack.0x77.dev)
+```
+
+## Workspace
+
+DStack workspace is managed by [nx.dev](https://nx.dev)
+
+### Packages
+
+- [lib](packages/lib) - Core library
+- [relay](packages/relay) - Relay
+- [ipfs](packages/ipfs) - IPFS
+
+### Commands
+
+Build packages:
+
+```console
+yarn build
+```
 
 [license]: https://github.com/dstack-js/dstack/blob/main/LICENSE
 [license-badge]: https://img.shields.io/github/license/dstack-js/dstack
