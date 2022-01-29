@@ -3,6 +3,7 @@
 <img width="16" src="./static/img/logo.svg" /> Technology stack as a library for developing decentralized web applications
 
 [![npm-badge]][npm] [![issues-badge]][issues] [![license-badge]][license]
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdstack-js%2Fdstack.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdstack-js%2Fdstack?ref=badge_shield)
 
 Checkout [Peerchat](https://dstack.0x77.dev/blog/peerchat) demo
 
@@ -58,3 +59,7 @@ yarn build
 [issues-badge]: https://img.shields.io/github/issues/dstack-js/dstack
 [npm]: https://www.npmjs.com/package/@dstack-js/lib
 [npm-badge]: https://img.shields.io/npm/v/@dstack-js/lib
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdstack-js%2Fdstack.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdstack-js%2Fdstack?ref=badge_large)
