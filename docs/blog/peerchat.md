@@ -14,23 +14,18 @@ Peerchat is a CLI app that allows to chat via DStack PubSub API without any conf
 
 [![asciicast](https://asciinema.org/a/465056.svg)](https://asciinema.org/a/465056)
 
-_Recording looks ugly, but in terminal it seems to be fine_
-
 ## Try it out!
 
 ### Install
 
 ```console
-$ npm i -g peerchar
+$ npm i -g peerchat
 ```
 
 ```console
-$ yarn global add peerchar
+$ yarn global add peerchat
 ```
 
-```console
-$ npx peerchar
-```
 
 ### Usage
 
