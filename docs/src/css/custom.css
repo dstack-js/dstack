@@ -52,3 +52,7 @@ nav.navbar {
   background-color: #fcf9e8;
   color: black;
 }
+
+.navbar-sidebar__brand > .navbar__brand {
+  color: white;
+}
