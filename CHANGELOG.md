@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.25](https://github.com/dstack-js/dstack/compare/v0.2.24...v0.2.25) (2022-01-29)
+
+
+### Features
+
+* **lib:** add errors, types and some refactoring ([11b4d3a](https://github.com/dstack-js/dstack/commits/11b4d3aaee8bec6f7f48780ff231c23d724b236c))
+
+
+### Bug Fixes
+
+* **ci:** fix nx workflow ([a8a4f1c](https://github.com/dstack-js/dstack/commits/a8a4f1c4ba861662d5a84759a7fea9a77681e643))
+* **ci:** fix nx workflow ([48d1433](https://github.com/dstack-js/dstack/commits/48d14333c4062c6a7ce731cab22a0ed5205c5b18))
+
 ### [0.2.24](https://github.com/dstack-js/dstack/compare/v0.2.23...v0.2.24) (2022-01-29)
 
 
