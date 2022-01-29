@@ -40,9 +40,9 @@ DStack workspace is managed by [nx.dev](https://nx.dev)
 
 ### Packages
 
-- [lib](packages/lib) - Core library
-- [relay](packages/relay) - Relay
-- [ipfs](packages/ipfs) - IPFS
+- [lib](../packages/lib) - Core library
+- [relay](../packages/relay) - Relay
+- [ipfs](../packages/ipfs) - IPFS
 
 ### Commands
 
