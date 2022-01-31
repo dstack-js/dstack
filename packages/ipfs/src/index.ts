@@ -1,36 +1,38 @@
-import * as IPFS from "ipfs-core"
-import { listen } from "./addresses"
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
+import IPFS from 'ipfs'
+import type { Options as IPFSOptions } from 'ipfs-core'
+// @ts-expect-error: no-types
 import WebRTCStar from 'libp2p-webrtc-star'
+// @ts-expect-error: no-types
+import WS from 'libp2p-websockets'
 import { NOISE } from '@chainsafe/libp2p-noise'
+import { listen } from './addresses'
 
-export type Options = Omit<IPFS.Options, "libp2p">
+export type Options = Omit<IPFSOptions, 'libp2p'>
 
 export const create = (options?: Options, wrtc?: any): Promise<IPFS.IPFS> => {
   return IPFS.create({
     config: {
       Discovery: {
-        webRTCStar: { Enabled: true },
+        webRTCStar: { Enabled: true }
       },
       Addresses: {
-        Swarm: listen,
+        Swarm: listen
       },
       Bootstrap: [
-        '/dns4/dstack-relay.herokuapp.com/tcp/443/wss/p2p-webrtc-star/p2p/QmV2uXBKbii29iJKHKVy8sx5m49qdDTBYNybVoa5uLJtrf',
-        '/dns4/ipfs.thedisco.zone/tcp/4430/wss/p2p/12D3KooWChhhfGdB9GJy1GbhghAAKCUR99oCymMEVS4eUcEy67nt',
-        '/dns6/ipfs.thedisco.zone/tcp/4430/wss/p2p/12D3KooWChhhfGdB9GJy1GbhghAAKCUR99oCymMEVS4eUcEy67nt'
+        '/dns4/dstack-relay.herokuapp.com/tcp/443/wss/p2p-webrtc-star/p2p/QmV2uXBKbii29iJKHKVy8sx5m49qdDTBYNybVoa5uLJtrf'
       ],
       ...options?.config
     },
     ...options,
+    relay: {
+      enabled: true,
+      hop: {
+        enabled: true
+      }
+    },
     libp2p: {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       modules: {
-        transport: [WebRTCStar],
-        // @ts-expect-error: incompatible type
+        transport: [WS, WebRTCStar],
         connEncryption: [NOISE]
       },
       config: {
@@ -48,7 +50,7 @@ export const create = (options?: Options, wrtc?: any): Promise<IPFS.IPFS> => {
       dht: {
         enabled: true,
         kBucketSize: 20
-      },
-    },
+      }
+    }
   })
 }
