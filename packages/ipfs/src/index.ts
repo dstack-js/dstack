@@ -19,7 +19,7 @@ export const create = (options?: Options, wrtc?: any): Promise<IPFS.IPFS> => {
         Swarm: listen
       },
       Bootstrap: [
-        '/dns4/dstack-relay.herokuapp.com/tcp/443/wss/p2p-webrtc-star/p2p/QmV2uXBKbii29iJKHKVy8sx5m49qdDTBYNybVoa5uLJtrf'
+        '/dns4/relay.dstack.dev/tcp/443/wss/p2p-webrtc-star/p2p/QmV2uXBKbii29iJKHKVy8sx5m49qdDTBYNybVoa5uLJtrf'
       ],
       ...options?.config
     },

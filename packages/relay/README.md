@@ -10,9 +10,9 @@ _Login into Grafana using your GitHub, Grafana can be only accessed by organizat
 
 PeerId - `QmV2uXBKbii29iJKHKVy8sx5m49qdDTBYNybVoa5uLJtrf`
 
-Signaling - `/dns4/dstack-relay.herokuapp.com/tcp/443/wss/p2p-webrtc-star/`
+Signaling - `/dns4/relay.dstack.dev/tcp/443/wss/p2p-webrtc-star/`
 
-Bootstrap - `['/dns4/dstack-relay.herokuapp.com/tcp/443/wss/p2p-webrtc-star/p2p/QmV2uXBKbii29iJKHKVy8sx5m49qdDTBYNybVoa5uLJtrf']`
+Bootstrap - `['/dns4/relay.dstack.dev/tcp/443/wss/p2p-webrtc-star/p2p/QmV2uXBKbii29iJKHKVy8sx5m49qdDTBYNybVoa5uLJtrf']`
 
 ## Using predefined peer id
 
