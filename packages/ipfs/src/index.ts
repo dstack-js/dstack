@@ -1,5 +1,5 @@
-import IPFS from 'ipfs'
-import type { Options as IPFSOptions } from 'ipfs-core'
+import { create as IPFSCreate, PeerId, CID } from 'ipfs'
+import type { IPFS, Options as IPFSOptions } from 'ipfs-core'
 // @ts-expect-error: no-types
 import WebRTCStar from 'libp2p-webrtc-star'
 // @ts-expect-error: no-types
@@ -9,8 +9,8 @@ import { listen } from './addresses'
 
 export type Options = Omit<IPFSOptions, 'libp2p'>
 
-export const create = (options?: Options, wrtc?: any): Promise<IPFS.IPFS> => {
-  return IPFS.create({
+const create = (options?: Options, wrtc?: any): Promise<IPFS> => {
+  return IPFSCreate({
     config: {
       Discovery: {
         webRTCStar: { Enabled: true }
@@ -54,3 +54,5 @@ export const create = (options?: Options, wrtc?: any): Promise<IPFS.IPFS> => {
     }
   })
 }
+
+export { PeerId, CID, create }
