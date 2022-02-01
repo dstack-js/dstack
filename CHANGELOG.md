@@ -2,43 +2,44 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.2.27](https://github.com/dstack-js/dstack/compare/v0.2.26...v0.2.27) (2022-02-01)
+### [0.2.28](https://github.com/dstack-js/dstack/compare/v0.2.27...v0.2.28) (2022-02-01)
 
+### Features
+
+- **store:** new implementation ([1f2c862](https://github.com/dstack-js/dstack/commits/1f2c862d9dedd3386f12116e21f505ab0b5e1425))
+
+### [0.2.27](https://github.com/dstack-js/dstack/compare/v0.2.26...v0.2.27) (2022-02-01)
 
 ### Bug Fixes
 
-* **ipfs:** ipfs create function ([bf002b1](https://github.com/dstack-js/dstack/commits/bf002b121595b7f08589146042608c01a3795d86))
+- **ipfs:** ipfs create function ([bf002b1](https://github.com/dstack-js/dstack/commits/bf002b121595b7f08589146042608c01a3795d86))
 
 ### [0.2.26](https://github.com/dstack-js/dstack/compare/v0.2.25...v0.2.26) (2022-02-01)
 
-
 ### Features
 
-* **ipfs:** change ipfs-core to ipfs ([892a67c](https://github.com/dstack-js/dstack/commits/892a67c822dc8ef3980693c365e577ddb5ac2b00)), closes [#19](https://github.com/dstack-js/dstack/issues/19)
-* **relay:** update domain ([73068fb](https://github.com/dstack-js/dstack/commits/73068fbfd324f950b2690b0672c7c5f70d89b27d))
+- **ipfs:** change ipfs-core to ipfs ([892a67c](https://github.com/dstack-js/dstack/commits/892a67c822dc8ef3980693c365e577ddb5ac2b00)), closes [#19](https://github.com/dstack-js/dstack/issues/19)
+- **relay:** update domain ([73068fb](https://github.com/dstack-js/dstack/commits/73068fbfd324f950b2690b0672c7c5f70d89b27d))
 
 ### [0.2.25](https://github.com/dstack-js/dstack/compare/v0.2.24...v0.2.25) (2022-01-29)
 
-
 ### Features
 
-* **lib:** add errors, types and some refactoring ([11b4d3a](https://github.com/dstack-js/dstack/commits/11b4d3aaee8bec6f7f48780ff231c23d724b236c))
-
+- **lib:** add errors, types and some refactoring ([11b4d3a](https://github.com/dstack-js/dstack/commits/11b4d3aaee8bec6f7f48780ff231c23d724b236c))
 
 ### Bug Fixes
 
-* **ci:** fix nx workflow ([a8a4f1c](https://github.com/dstack-js/dstack/commits/a8a4f1c4ba861662d5a84759a7fea9a77681e643))
-* **ci:** fix nx workflow ([48d1433](https://github.com/dstack-js/dstack/commits/48d14333c4062c6a7ce731cab22a0ed5205c5b18))
+- **ci:** fix nx workflow ([a8a4f1c](https://github.com/dstack-js/dstack/commits/a8a4f1c4ba861662d5a84759a7fea9a77681e643))
+- **ci:** fix nx workflow ([48d1433](https://github.com/dstack-js/dstack/commits/48d14333c4062c6a7ce731cab22a0ed5205c5b18))
 
 ### [0.2.24](https://github.com/dstack-js/dstack/compare/v0.2.23...v0.2.24) (2022-01-29)
 
-
 ### Features
 
-* **blog:** add peerchat blog post ([90fb36a](https://github.com/dstack-js/dstack/commits/90fb36ac883c234d63a50b211df7a17785cc1be1))
-* **ci:** add nx workflow [#17](https://github.com/dstack-js/dstack/issues/17) ([5c03395](https://github.com/dstack-js/dstack/commits/5c03395148c34e38c82a126106ebaa426cfc005d))
-* **docs:** update intro and landing ([9865e7a](https://github.com/dstack-js/dstack/commits/9865e7aa281b9c94d15e86ddd01b4f82070efd62))
-* **lib:** add license field ([0edc1ab](https://github.com/dstack-js/dstack/commits/0edc1abedc475aea1a9e736f1b521c2b487527c0))
+- **blog:** add peerchat blog post ([90fb36a](https://github.com/dstack-js/dstack/commits/90fb36ac883c234d63a50b211df7a17785cc1be1))
+- **ci:** add nx workflow [#17](https://github.com/dstack-js/dstack/issues/17) ([5c03395](https://github.com/dstack-js/dstack/commits/5c03395148c34e38c82a126106ebaa426cfc005d))
+- **docs:** update intro and landing ([9865e7a](https://github.com/dstack-js/dstack/commits/9865e7aa281b9c94d15e86ddd01b4f82070efd62))
+- **lib:** add license field ([0edc1ab](https://github.com/dstack-js/dstack/commits/0edc1abedc475aea1a9e736f1b521c2b487527c0))
 
 ### [0.2.23](https://github.com/dstack-js/dstack/compare/v0.2.22...v0.2.23) (2022-01-28)
 

@@ -1,6 +1,6 @@
 {
   "name": "dstack-js",
-  "version": "0.2.27",
+  "version": "0.2.28",
   "license": "GPl-3.0",
   "scripts": {
     "prepare": "husky install",
