@@ -5,11 +5,11 @@
 [![npm-badge]][npm] [![issues-badge]][issues] [![license-badge]][license]
 [![FOSSA Status][fossa-badge]][fossa] [![CI][ci-badge]][ci] [![Discord][discord-badge]][discord]
 
-Checkout [Peerchat](https://dstack.0x77.dev/blog/peerchat) demo
+Checkout [Peerchat](https://dstack.dev/blog/peerchat) demo
 
 ## Getting started
 
-See [Tutorial](https://dstack.0x77.dev/docs/intro) to get started using DStack in your dapp
+See [Tutorial](https://dstack.dev/docs/intro) to get started using DStack in your dapp
 
 ## Introduction
 
@@ -29,10 +29,10 @@ DStack provides:
 
 Badge:
 
-[![dstack](https://dstack.0x77.dev/img/badge.svg)](https://dstack.0x77.dev)
+[![dstack](https://dstack.dev/img/badge.svg)](https://dstack.dev)
 
 ```markdown
-[![dstack](https://dstack.0x77.dev/img/badge.svg)](https://dstack.0x77.dev)
+[![dstack](https://dstack.dev/img/badge.svg)](https://dstack.dev)
 ```
 
 ## Workspace
