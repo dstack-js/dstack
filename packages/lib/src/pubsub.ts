@@ -9,7 +9,13 @@ export interface Message<T> {
 }
 
 export class PubSub<T = unknown> {
+  public subscribed: string[] = []
+
   constructor(public ipfs: IPFS, public namespace: string) { }
+
+  public create<T = unknown>(namespace: string): PubSub<T> {
+    return new PubSub<T>(this.ipfs, `${this.namespace}/${namespace}`)
+  }
 
   private getTopic(topic: string): string {
     return `${this.namespace}.${topic}`
@@ -27,14 +33,14 @@ export class PubSub<T = unknown> {
     const topic = await this.ipfs.pubsub.ls()
 
     return topic
+      .map((topic) => topic.replace(`${this.namespace}.`, ''))
       .filter((value) => {
-        if (ignoreInternals && value.includes('$')) {
+        if (ignoreInternals && value.startsWith('$$')) {
           return false
         }
 
         return true
       })
-      .map((topic) => topic.replace(`${this.namespace}.`, ''))
   }
 
   public async peers(topic: string): Promise<number> {
@@ -44,6 +50,8 @@ export class PubSub<T = unknown> {
   }
 
   public async subscribe(topic: string, listener: (msg: Message<T>) => void): Promise<void> {
+    this.subscribed.push(topic)
+
     await this.ipfs.pubsub.subscribe(this.getTopic(topic), (message) => {
       listener({
         from: message.from,
@@ -87,6 +95,12 @@ export class PubSub<T = unknown> {
   }
 
   public async unsubscribe(topic: string): Promise<void> {
+    delete this.subscribed[this.subscribed.indexOf(topic)]
+
     await this.ipfs.pubsub.unsubscribe(this.getTopic(topic))
+  }
+
+  public async stop() {
+    await Promise.all(this.subscribed.map(this.unsubscribe))
   }
 }

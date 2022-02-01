@@ -1,24 +1,65 @@
-import type { IPFS } from 'ipfs-core'
+import { IPFS } from 'ipfs-core-types'
 import type { libp2p as Libp2p } from 'ipfs-core/src/components/network'
+import { CID } from 'multiformats/cid'
+import { Store } from '.'
 import { PubSub } from './pubsub'
-import { Store } from './store'
 
 export interface Peer {
   id: string
   address: string
 }
 
-export class Stack<TMessage = any> {
-  public store: Store
-  public pubsub: PubSub<TMessage>
+export interface PeerAnnouncement {
+  kind: 'announcement'
+  peer: Peer
+}
 
-  private constructor(public namespace: string, public ipfs: IPFS, public id: string) {
-    this.pubsub = new PubSub(ipfs, namespace)
-    this.store = new Store(ipfs, namespace, this.pubsub)
+export type StackPubSubMessage = PeerAnnouncement
+
+export class Stack {
+  public pubsub: PubSub<StackPubSubMessage>
+  public store: Store
+
+  private announceInterval?: ReturnType<typeof setTimeout>
+  public announce = false
+
+  constructor(public namespace: CID, public ipfs: IPFS) {
+    this.pubsub = new PubSub(ipfs, namespace.toString())
+    this.store = new Store(this)
+  }
+
+  /**
+   * get this peer info
+   */
+  public async id(): Promise<Peer> {
+    const result = await this.ipfs.id()
+
+    return {
+      id: result.id,
+      address: result.addresses[0].toString()
+    }
   }
 
   private get libp2p() {
     return (this.ipfs as any).libp2p as Libp2p
+  }
+
+  public async start(): Promise<void> {
+    this.announceInterval = setInterval(async () => {
+      if (!this.announce) return
+      await this.pubsub.publish('announce', {
+        kind: 'announcement',
+        peer: await this.id()
+      })
+    }, 250)
+
+    await this.store.start()
+  }
+
+  public async stop(): Promise<void> {
+    if (this.announceInterval) clearInterval(this.announceInterval)
+    await this.store.stop()
+    await this.pubsub.stop()
   }
 
   /**
@@ -29,10 +70,11 @@ export class Stack<TMessage = any> {
    * @returns Stack instance
    */
   public static async create(namespace: string, ipfs: IPFS) {
-    const { id } = await ipfs.id()
-    const stack = new Stack(namespace, ipfs, id)
+    const cid = await ipfs.dag.put({ namespace })
 
-    await stack.store.start()
+    const stack = new Stack(cid, ipfs)
+    await stack.start()
+
     return stack
   }
 
@@ -87,13 +129,5 @@ export class Stack<TMessage = any> {
         address: event.remoteAddr.toString()
       })
     })
-  }
-
-  /**
-   * Start logging debug events
-   */
-  public debug(): void {
-    this.onPeerConnect((peer) => console.log('New peer connected', peer.id, peer.address))
-    this.onPeerDisconnected((peer) => console.log('Peer disconnected', peer.id, peer.address))
   }
 }

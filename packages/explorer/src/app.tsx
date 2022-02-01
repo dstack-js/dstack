@@ -1,5 +1,5 @@
 import { create } from '@dstack-js/ipfs';
-import { Stack } from '@dstack-js/lib';
+import { Stack, Shard, ShardKind } from '@dstack-js/lib';
 import React, { useState } from 'react';
 import { Dashboard } from './dashboard';
 
@@ -14,10 +14,13 @@ export const App: React.FunctionComponent<{}> = () => {
 
     const ipfs = await create();
     const stack = await Stack.create(namespace, ipfs);
-    stack.debug();
 
     // @ts-expect-error
     window.stack = stack;
+    // @ts-expect-error
+    window.Shard = Shard;
+    // @ts-expect-error
+    window.ShardKind = ShardKind;
 
     setStack(stack);
   };
