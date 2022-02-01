@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.27](https://github.com/dstack-js/dstack/compare/v0.2.26...v0.2.27) (2022-02-01)
+
+
+### Bug Fixes
+
+* **ipfs:** ipfs create function ([bf002b1](https://github.com/dstack-js/dstack/commits/bf002b121595b7f08589146042608c01a3795d86))
+
 ### [0.2.26](https://github.com/dstack-js/dstack/compare/v0.2.25...v0.2.26) (2022-02-01)
 
 
