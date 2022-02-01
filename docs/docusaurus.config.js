@@ -52,12 +52,12 @@ module.exports = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // algolia: {
-      //   apiKey: '6407ba8e951f3066d9d6761b7959174e',
-      //   indexName: 'dstack',
-      //   appId: 'C0HURB3Q6E',
-      //   contextualSearch: true,
-      // },
+      algolia: {
+        apiKey: 'eab344c5c227a12cbb6b6edaecff07db',
+        indexName: 'dstack',
+        appId: 'F0OSB2D3F0',
+        contextualSearch: true,
+      },
       gtag: {
         trackingID: '3222457047',
         anonymizeIP: true,

@@ -35,13 +35,13 @@
   },
   "sitemap_alternate_links": true,
   "sitemap_urls": [
-    "https://dstack.netlify.app/sitemap.xml"
+    "https://dstack.dev/sitemap.xml"
   ],
   "start_urls": [
-    "https://dstack.netlify.app/"
+    "https://dstack.dev"
   ],
   "stop_urls": [
-    "https://dstack.netlify.app/blog"
+    "https://dstack.dev/cdn-cgi"
   ],
   "strip_chars": " .,;:#"
 }
