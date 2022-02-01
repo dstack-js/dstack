@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.26](https://github.com/dstack-js/dstack/compare/v0.2.25...v0.2.26) (2022-02-01)
+
+
+### Features
+
+* **ipfs:** change ipfs-core to ipfs ([892a67c](https://github.com/dstack-js/dstack/commits/892a67c822dc8ef3980693c365e577ddb5ac2b00)), closes [#19](https://github.com/dstack-js/dstack/issues/19)
+* **relay:** update domain ([73068fb](https://github.com/dstack-js/dstack/commits/73068fbfd324f950b2690b0672c7c5f70d89b27d))
+
 ### [0.2.25](https://github.com/dstack-js/dstack/compare/v0.2.24...v0.2.25) (2022-01-29)
 
 
