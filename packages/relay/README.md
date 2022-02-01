@@ -2,7 +2,7 @@
 
 Relay provides DStack peer with [`libp2p-webrtc-star`](https://github.com/libp2p/js-libp2p-webrtc-star) signaling server
 
-[Metrics (Grafana Dashboard)](https://dstack.grafana.net/goto/Y5cMV1xnz?orgId=1)
+[Metrics (Grafana Dashboard)](https://grafana.dstack.dev/goto/Y5cMV1xnz?orgId=1)
 
 _Login into Grafana using your GitHub, Grafana can be only accessed by organization members, remember to grant access to dstack-js organization while logging in._
 
