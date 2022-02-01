@@ -7,7 +7,7 @@ module.exports = {
   title: 'DStack',
   tagline:
     'Technology stack as a library for developing semi-decentralized web applications',
-  url: 'https://dstack.0x77.dev',
+  url: 'https://dstack.dev',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -58,6 +58,14 @@ module.exports = {
       //   appId: 'C0HURB3Q6E',
       //   contextualSearch: true,
       // },
+      gtag: {
+        trackingID: '3222457047',
+        anonymizeIP: true,
+      },
+      googleAnalytics: {
+        trackingID: 'UA-141789564-1',
+        anonymizeIP: true,
+      },
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: true,
