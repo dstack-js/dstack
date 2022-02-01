@@ -86,6 +86,11 @@ module.exports = {
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
+            href: '/changelog',
+            label: 'Changelog',
+            position: 'right',
+          },
+          {
             href: 'https://github.com/dstack-js/dstack',
             label: 'GitHub',
             position: 'right',
@@ -127,6 +132,10 @@ module.exports = {
               {
                 label: 'Blog',
                 to: '/blog',
+              },
+              {
+                label: 'Changelog',
+                to: '/changelog',
               },
               {
                 label: 'GitHub',
