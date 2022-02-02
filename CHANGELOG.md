@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.29](https://github.com/dstack-js/dstack/compare/v0.2.28...v0.2.29) (2022-02-02)
+
+### Features
+
+- **ipfs:** remove useless dependencies and configs ([ef7d40f](https://github.com/dstack-js/dstack/commits/ef7d40fae49bf891169d18914ddca5bd35e1dfdb))
+- **scripts:** add release script ([85e40cd](https://github.com/dstack-js/dstack/commits/85e40cd5be942fed88fe0ca92b1c3c308ae71356))
+- **scripts:** chmod release script ([f73cefd](https://github.com/dstack-js/dstack/commits/f73cefd458dde75ec47a9560a1d5a0b869678ba3))
+
 ### [0.2.28](https://github.com/dstack-js/dstack/compare/v0.2.27...v0.2.28) (2022-02-01)
 
 ### Features
