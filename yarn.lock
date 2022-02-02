@@ -1271,7 +1271,7 @@
     protobufjs "^6.11.2"
     uint8arrays "^3.0.0"
 
-"@chainsafe/libp2p-noise@^5.0.1", "@chainsafe/libp2p-noise@^5.0.2":
+"@chainsafe/libp2p-noise@^5.0.1":
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/@chainsafe/libp2p-noise/-/libp2p-noise-5.0.2.tgz#1fe7ae2cf453a9fbb2bd982b6941d6f866ed025f"
   integrity sha512-hpxHl3bxHN2fgpmjP2zkC2Lq3ajA349WxI7U2aBuskkq3Pd+aUmSlVjM8pyN+5Dr5+yHuayqCgMUxq3AeOM7Zw==
