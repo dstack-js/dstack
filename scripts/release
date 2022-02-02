@@ -1,0 +1,13 @@
+#!/bin/bash
+# This script links built packages using `yarn link`
+
+yarn release
+yarn build
+
+for package in dist/packages/* ; do
+  echo "Publishing and Linking $package"
+  bash -c "cd $package && yarn publish --access public" > /dev/null 2>&1 &
+  bash -c "mkdir -p /tmp/$package && cp -Rf $package /tmp/$package && cd /tmp/$package && yarn install && yarn link --force" > /dev/null 2>&1 &
+done
+
+wait
