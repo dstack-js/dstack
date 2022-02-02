@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.30](https://github.com/dstack-js/dstack/compare/v0.2.29...v0.2.30) (2022-02-02)
+
+### Features
+
+- **relay:** format files ([ac9c135](https://github.com/dstack-js/dstack/commits/ac9c13505cd0cf407df315c949a421561a548f7e))
+
 ### [0.2.29](https://github.com/dstack-js/dstack/compare/v0.2.28...v0.2.29) (2022-02-02)
 
 ### Features
