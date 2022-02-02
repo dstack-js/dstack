@@ -6,22 +6,22 @@ const wrtc = require('wrtc');
 const { start } = require('libp2p-webrtc-star-signalling-server');
 
 const run = async () => {
-  if (!process.env.DNS_NAME) {
+  if (!process.env['DNS_NAME']) {
     console.warn("no 'DNS_NAME' env has been set, running in local mode");
   }
 
   await start({
-    port: process.env.PORT || 9090,
-    host: process.env.HOST || '0.0.0.0',
-    metrics: !process.env.DISABLE_METRICS && true,
+    port: process.env['PORT'] || 9090,
+    host: process.env['HOST'] || '0.0.0.0',
+    metrics: !process.env['DISABLE_METRICS'] && true,
   });
 
-  if (process.env.NAMESPACE) {
+  if (process.env['NAMESPACE']) {
     const ipfs = await create(
       {
         start: true,
-        ...(process.env.PRIVATE_KEY
-          ? { init: { privateKey: process.env.PRIVATE_KEY } }
+        ...(process.env['PRIVATE_KEY']
+          ? { init: { privateKey: process.env['PRIVATE_KEY'] } }
           : {}),
         relay: {
           enabled: true,
@@ -34,7 +34,7 @@ const run = async () => {
       wrtc
     );
 
-    await Stack.create(process.env.NAMESPACE, ipfs);
+    await Stack.create(process.env['NAMESPACE'], ipfs);
   }
 
   console.log('ready');
