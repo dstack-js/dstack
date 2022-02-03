@@ -22,6 +22,7 @@ DStack simplifies IPFS JavaScript API for application development usage
 DStack provides:
 
 - Store API
+- Shard API
 - PubSub API
 - Relay
 
