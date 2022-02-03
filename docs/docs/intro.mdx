@@ -57,6 +57,10 @@ Let's discover **DStack in less than 15 minutes**.
   ]}
 />
 
+## Play with DStack in browser console
+
+https://explorer.dstack.dev/
+
 ## Add DStack to your project
 
 Using Yarn:
@@ -103,13 +107,10 @@ stack.pubsub.publish('topic', 'Hello, DStack!');
 ### Interact with Store
 
 ```javascript
-const shard = await stack.store.set('hello', 'world');
-
 // Set value
-await shard.set('dstack');
+const shard = await Shard.new(stack, ShardKind.Object, {hello: 'world'})
+await stack.store.set('hello', shard));
 
-// Get fresh value
-await shard.get();
-
+// Get value
 const shard = await stack.store.get('hello');
 ```
