@@ -13,7 +13,7 @@ See [Tutorial](https://dstack.dev/docs/intro) to get started using DStack in you
 
 ## Introduction
 
-DStack was created to bring together some of the popular libraries for the decentralized web into a single ecosystem
+DStack was created to bring together some of the popular libraries/technologies (like [IPFS](https://ipfs.io)) for the decentralized web into a single ecosystem
 
 ## What DStack offers
 
