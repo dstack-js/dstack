@@ -1,5 +1,6 @@
 {
   "plugins": [
-    "@emotion/babel-plugin"
+    "@emotion/babel-plugin",
+    "babel-plugin-styled-components"
   ]
 }

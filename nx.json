@@ -1,24 +1,25 @@
 {
-  "extends": "@nrwl/workspace/presets/core.json",
-  "npmScope": "dstack-js",
   "affected": {
     "defaultBase": "main"
   },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
   },
+  "extends": "@nrwl/workspace/presets/core.json",
+  "npmScope": "dstack-js",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/nx-cloud",
       "options": {
+        "accessToken": "MjBiYTU3ODktZDVlZC00MmNkLWI2YmQtNmNlNDIwOWY3ZDU1fHJlYWQtd3JpdGU=",
         "cacheableOperations": [
           "build",
           "lint",
           "test",
-          "e2e"
-        ],
-        "accessToken": "MjBiYTU3ODktZDVlZC00MmNkLWI2YmQtNmNlNDIwOWY3ZDU1fHJlYWQtd3JpdGU="
-      }
+          "e2e",
+          "serve"
+        ]
+      },
+      "runner": "@nrwl/nx-cloud"
     }
   }
 }

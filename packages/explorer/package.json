@@ -7,7 +7,9 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "dependencies": {
     "@emotion/react": "^11.7.1",
-    "awesome-react-repl": "^1.0.0",
+    "@emotion/styled": "^11.6.0",
+    "@mui/lab": "^5.0.0-alpha.67",
+    "@mui/material": "^5.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -21,17 +23,16 @@
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "autoprefixer": "^10.4.2",
+    "babel-plugin-styled-components": "^2.0.2",
     "parcel": "^2.2.1",
-    "parcel-resolver-ts-base-url": "^1.1.5",
-    "postcss": "^8.4.5",
-    "tailwindcss": "^3.0.16"
+    "parcel-resolver-ts-base-url": "^1.1.5"
   },
   "license": "GPL-3.0",
   "name": "@dstack-js/explorer",
   "private": true,
   "repository": "https://github.com/dstack-js/dstack.git",
   "scripts": {
-    "build": "parcel build",
+    "build": "parcel build src/index.html --experimental-scope-hoisting",
     "serve": "parcel"
   },
   "source": "src/index.html",

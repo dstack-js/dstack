@@ -1,15 +1,18 @@
 import { create } from '@dstack-js/ipfs';
 import { Stack, Shard, ShardKind } from '@dstack-js/lib';
+import Box from '@mui/material/Box';
+import LoadingButton from '@mui/lab/LoadingButton';
+import TextField from '@mui/material/TextField';
 import React, { useState } from 'react';
 import { Dashboard } from './dashboard';
 
 export const App: React.FunctionComponent<{}> = () => {
   const [stack, setStack] = useState<Stack | null>(null);
-  const [fillInfo, setFillInfo] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [namespace, setNamespace] = useState('dstack');
 
   const init = async (): Promise<void> => {
-    setFillInfo(false);
+    setLoading(true);
     localStorage.setItem('debug', '*');
 
     const ipfs = await create();
@@ -22,21 +25,32 @@ export const App: React.FunctionComponent<{}> = () => {
     // @ts-expect-error
     window.ShardKind = ShardKind;
 
+    setLoading(false);
     setStack(stack);
   };
 
-  if (fillInfo) {
+  if (!stack) {
     return (
-      <div>
-        <input
-          type="text"
-          value={namespace}
+      <Box
+        component="form"
+        sx={{
+          '& > :not(style)': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          label="Stack namespace"
           onChange={(e) => setNamespace(e.target.value)}
-        ></input>
-        <button onClick={init}>Start</button>
-      </div>
+          value={namespace}
+          focused
+        />
+        <LoadingButton loading={loading} onClick={init}>
+          Create
+        </LoadingButton>
+      </Box>
     );
   }
 
-  return stack ? <Dashboard stack={stack} /> : <h3>Initializing</h3>;
+  return <Dashboard stack={stack} />;
 };

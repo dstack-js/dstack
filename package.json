@@ -1,20 +1,7 @@
 {
-  "name": "dstack-js",
-  "version": "0.2.30",
-  "license": "GPl-3.0",
-  "scripts": {
-    "prepare": "husky install",
-    "build": "nx run-many --all --target=build",
-    "release": "standard-version --bumpFiles package.json packages/lib/package.json packages/ipfs/package.json packages/relay/package.json"
-  },
-  "private": true,
   "dependencies": {
     "tslib": "^2.0.0"
   },
-  "workspaces": [
-    "packages/*",
-    "docs"
-  ],
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
@@ -48,10 +35,25 @@
     "yaml-crypt": "^0.7.6",
     "zx": "^4.3.0"
   },
+  "license": "GPl-3.0",
   "lint-staged": {
     "*.{js,ts,css,md}": [
       "prettier --write",
       "eslint --cache --fix"
     ]
-  }
+  },
+  "name": "dstack-js",
+  "private": true,
+  "scripts": {
+    "build": "nx run-many --all --target=build",
+    "lint": "nx run-many --all --target=lint",
+    "prepare": "husky install",
+    "release": "standard-version --bumpFiles package.json packages/lib/package.json packages/ipfs/package.json packages/relay/package.json",
+    "serve": "nx run-many --all --target=serve"
+  },
+  "version": "0.2.30",
+  "workspaces": [
+    "packages/*",
+    "docs"
+  ]
 }

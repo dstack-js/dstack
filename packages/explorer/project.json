@@ -1,31 +1,49 @@
 {
+  "implicitDependencies": [
+    "lib",
+    "ipfs"
+  ],
   "projectType": "application",
   "root": "packages/explorer",
-  "serve": {
-    "executor": "@nrwl/workspace:run-commands",
-    "options": {
-      "commands": [
-        "nx build lib",
-        "nx build ipfs",
-        "cd packages/explorer && yarn serve"
-      ],
-      "cwd": "/"
-    }
-  },
   "sourceRoot": "packages/explorer/src",
   "tags": [],
   "targets": {
-    "executor": "@nrwl/workspace:run-commands",
-    "options": {
-      "commands": [
-        "nx build lib",
-        "nx build ipfs",
-        "yarn build"
+    "build": {
+      "dependsOn": [
+        {
+          "projects": "dependencies",
+          "target": "build"
+        }
       ],
-      "cwd": "/"
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "yarn build"
+        ],
+        "cwd": "packages/explorer"
+      },
+      "outputs": [
+        "packages/explorer/dist",
+        ".parcel-cache"
+      ]
     },
-    "outputs": [
-      "packages/explorer/dist"
-    ]
+    "serve": {
+      "dependsOn": [
+        {
+          "projects": "dependencies",
+          "target": "build"
+        }
+      ],
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "yarn serve"
+        ],
+        "cwd": "packages/explorer"
+      },
+      "outputs": [
+        ".parcel-cache"
+      ]
+    }
   }
 }
