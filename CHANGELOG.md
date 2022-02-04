@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.31](https://github.com/dstack-js/dstack/compare/v0.2.30...v0.2.31) (2022-02-04)
+
+### Features
+
+- **ci:** improve nx workflow [#17](https://github.com/dstack-js/dstack/issues/17) ([53ad628](https://github.com/dstack-js/dstack/commits/53ad62871f5874abf9920bdb5dca942180c71bf7))
+- **ci:** improve nx workflow [#17](https://github.com/dstack-js/dstack/issues/17) ([c772085](https://github.com/dstack-js/dstack/commits/c7720856700fecc9112f8935737c0956da04337b))
+- **docs:** add store and shard [#20](https://github.com/dstack-js/dstack/issues/20) ([bbc47ae](https://github.com/dstack-js/dstack/commits/bbc47ae3ebfa62f27956cbe7f1aecb7e43d51b9b))
+- **docs:** update intro ([1911e22](https://github.com/dstack-js/dstack/commits/1911e225f0581e8d6321f0b0c3123b1f499dc66c))
+- **explorer:** add mui, fix nx config ([9a9e833](https://github.com/dstack-js/dstack/commits/9a9e833a2061b9dae79ff8b3f70896a0aef76208))
+
+### Bug Fixes
+
+- **relay:** webrtc ipfs transport missing ([27ac39e](https://github.com/dstack-js/dstack/commits/27ac39e2849e4094a4936f4eb39afa30b81f8e02))
+
 ### [0.2.30](https://github.com/dstack-js/dstack/compare/v0.2.29...v0.2.30) (2022-02-02)
 
 ### Features
