@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { create } from '@dstack-js/ipfs'
 import { Stack } from '@dstack-js/lib'
+// @ts-expect-error: no types
+import WebRTCStar from 'libp2p-webrtc-star'
 
 const wrtc = require('wrtc')
 const { start } = require('libp2p-webrtc-star-signalling-server')
@@ -23,6 +25,9 @@ const run = async () => {
         ...(process.env['PRIVATE_KEY']
           ? { init: { privateKey: process.env['PRIVATE_KEY'] } }
           : {}),
+        libp2p: {
+          modules: [WebRTCStar]
+        } as any,
         relay: {
           enabled: true,
           hop: {

@@ -24,6 +24,7 @@ const create = (options?: IPFSOptions, wrtc?: any): Promise<IPFS> => {
       }
     },
     libp2p: {
+      ...options?.libp2p,
       config: {
         peerDiscovery: {
           webRTCStar: {

@@ -32,10 +32,26 @@
       ]
     },
     "serve": {
-      "executor": "@nrwl/js:node",
+      "dependsOn": [
+        {
+          "projects": "self",
+          "target": "build"
+        },
+        {
+          "projects": "dependencies",
+          "target": "build"
+        }
+      ],
+      "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "buildTarget": "relay:build"
-      }
+        "commands": [
+          "yarn install && node ."
+        ],
+        "cwd": "dist/packages/relay"
+      },
+      "outputs": [
+        "dist/packages/relay"
+      ]
     },
     "test": {
       "executor": "@nrwl/jest:jest",
