@@ -4,14 +4,14 @@ import { v4 as uuid } from 'uuid'
 import { TimeoutError } from './errors'
 
 export interface Message<T> {
-  from: string
-  data: T
+  from: string;
+  data: T;
 }
 
 export class PubSub<T = unknown> {
   public subscribed: string[] = []
 
-  constructor(public ipfs: IPFS, public namespace: string) { }
+  constructor(public ipfs: IPFS, public namespace: string) {}
 
   public create<T = unknown>(namespace: string): PubSub<T> {
     return new PubSub<T>(this.ipfs, `${this.namespace}/${namespace}`)
@@ -49,7 +49,10 @@ export class PubSub<T = unknown> {
     return peers.length
   }
 
-  public async subscribe(topic: string, listener: (msg: Message<T>) => void): Promise<void> {
+  public async subscribe(
+    topic: string,
+    listener: (msg: Message<T>) => void
+  ): Promise<void> {
     this.subscribed.push(topic)
 
     await this.ipfs.pubsub.subscribe(this.getTopic(topic), (message) => {
@@ -60,14 +63,21 @@ export class PubSub<T = unknown> {
     })
   }
 
-  public async handleRequest(method: string, listener: (args: any[], reply: (data: any) => void) => Promise<any> | any): Promise<void> {
+  public async handleRequest(
+    method: string,
+    listener: (args: any[], reply: (data: any) => void) => Promise<any> | any
+  ): Promise<void> {
     await this.subscribe(method, async (msg) => {
       const data = msg.data as unknown as { reply: string; args: any[] }
       listener(data.args, (data) => this.publish(data.reply, data))
     })
   }
 
-  public async request(method: string, args: any[], timeout = 1000): Promise<any> {
+  public async request(
+    method: string,
+    args: any[],
+    timeout = 1000
+  ): Promise<any> {
     const reply = uuid()
 
     // eslint-disable-next-line no-async-promise-executor
@@ -79,6 +89,7 @@ export class PubSub<T = unknown> {
   }
 
   private async waitForPeers(topic: string, depth = 0): Promise<void> {
+    if (depth > 100) throw new TimeoutError()
     depth++
     const peers = await this.peers(topic)
 
@@ -89,9 +100,16 @@ export class PubSub<T = unknown> {
     }
   }
 
-  public async publish(topic: string, data: T, waitForPeers = true): Promise<void> {
+  public async publish(
+    topic: string,
+    data: T,
+    waitForPeers = true
+  ): Promise<void> {
     if (!waitForPeers) await this.waitForPeers(topic)
-    await this.ipfs.pubsub.publish(this.getTopic(topic), Buffer.from(this.encode(data)))
+    await this.ipfs.pubsub.publish(
+      this.getTopic(topic),
+      Buffer.from(this.encode(data))
+    )
   }
 
   public async unsubscribe(topic: string): Promise<void> {
