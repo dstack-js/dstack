@@ -7,6 +7,8 @@ PubSub allows to publish and subscribe to events in topics
 
 All events is serialized using `JSON.parse` / `JSON.stringify` methods
 
+See [Peerchat](https://github.com/dstack-js/chat) demo
+
 ## Topic
 
 Topics is a scope for event to happen, you can publish or subscribe to events in it
