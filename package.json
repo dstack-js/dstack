@@ -37,7 +37,8 @@
   },
   "license": "GPl-3.0",
   "lint-staged": {
-    "*.{js,ts,css,md}": [
+    "*.{yaml,json,md}": "prettier --write",
+    "*.{js,html,ts,css}": [
       "prettier --write",
       "eslint --cache --fix"
     ]
