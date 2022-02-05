@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.32](https://github.com/dstack-js/dstack/compare/v0.2.31...v0.2.32) (2022-02-05)
+
+### Features
+
+- **docs:** add pubsub and stack [#20](https://github.com/dstack-js/dstack/issues/20) ([564dfc3](https://github.com/dstack-js/dstack/commits/564dfc3812ba7fc3cb807282f56528f5c0ac70b5))
+- **docs:** update pubsub [#20](https://github.com/dstack-js/dstack/issues/20) ([081e785](https://github.com/dstack-js/dstack/commits/081e7856b45ecc4271fdb482ad125924b3650f78))
+- **stack:** add ping method ([3163d11](https://github.com/dstack-js/dstack/commits/3163d11a3201d2997978fce927619f356156d77d))
+
 ### [0.2.31](https://github.com/dstack-js/dstack/compare/v0.2.30...v0.2.31) (2022-02-04)
 
 ### Features
