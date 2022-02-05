@@ -1,11 +1,15 @@
 # DStack
 
-<img width="16" src="./static/img/logo.svg" /> Technology stack as a library for developing decentralized web applications
+<img width="16" src="./static/img/logo.svg" /> Technology stack as a library for developing semi-decentralized web applications
 
 [![npm-badge]][npm] [![Changelog][changelog-badge]][changelog] [![issues-badge]][issues] [![license-badge]][license]
-[![FOSSA Status][fossa-badge]][fossa] [![CI][ci-badge]][ci] [![Discord][discord-badge]][discord]
+[![FOSSA Status][fossa-badge]][fossa] [![Discord][discord-badge]][discord]
 
 Checkout [Peerchat](https://dstack.dev/blog/peerchat) demo
+
+| [Explorer](https://explorer.dstack.dev)                                                                                                                              | [Docs](https://dstack.dev)                                                                                                                                            | [CI](https://github.com/dstack-js/dstack/actions/workflows/nx.yaml)                                                                                         |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [![Netlify Status](https://api.netlify.com/api/v1/badges/995efbf9-cafc-4354-b597-44a13e872d34/deploy-status)](https://app.netlify.com/sites/dstack-explorer/deploys) | [![Netlify Status](https://api.netlify.com/api/v1/badges/aa98407a-eb62-401d-a403-4ea91e55d37b/deploy-status)](https://app.netlify.com/sites/zen-kirch-ed73c4/deploys) | [![CI](https://github.com/dstack-js/dstack/actions/workflows/nx.yaml/badge.svg?branch=main)](https://github.com/dstack-js/dstack/actions/workflows/nx.yaml) |
 
 ## Getting started
 
