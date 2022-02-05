@@ -15,3 +15,9 @@ export class InvalidShardPathError extends Error {
     super(extensions)
   }
 }
+
+export class PeerUnreachableError extends Error {
+  constructor(extensions: any = 'peerUnreachable') {
+    super(extensions)
+  }
+}

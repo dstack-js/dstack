@@ -1,20 +1,21 @@
 import { IPFS } from 'ipfs-core-types'
 import type { libp2p as Libp2p } from 'ipfs-core/src/components/network'
+import all from 'it-all'
 import { CID } from 'multiformats/cid'
-import { Store } from '.'
+import { PeerUnreachableError, Store } from '.'
 import { PubSub } from './pubsub'
 
 export interface Peer {
-  id: string
-  address: string
+  id: string;
+  address: string;
 }
 
 export interface PeerAnnouncement {
-  kind: 'announcement'
-  peer: Peer
+  kind: 'announcement';
+  peer: Peer;
 }
 
-export type StackPubSubMessage = PeerAnnouncement
+export type StackPubSubMessage = PeerAnnouncement;
 
 export class Stack {
   public pubsub: PubSub<StackPubSubMessage>
@@ -129,5 +130,25 @@ export class Stack {
         address: event.remoteAddr.toString()
       })
     })
+  }
+
+  /**
+   * Ping peer
+   *
+   * @param peer destination
+   * @param options timeout and cycles settings `{ timeout: 1000, count: 10 }`
+   * @returns round-trip time in ms
+   */
+  public async ping(
+    peer: Peer,
+    { timeout = 1000, count = 10 }
+  ): Promise<number> {
+    let ping = await all(this.ipfs.ping(peer.id, { count, timeout }))
+    ping = ping.filter(({ success }) => success)
+
+    const result = ping.slice(-1)[0].text.match(/\d+.\d+ms/)
+    if (!ping.length || !result) throw new PeerUnreachableError()
+
+    return parseFloat(result[0].split('ms')[0])
   }
 }
