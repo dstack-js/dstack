@@ -4,7 +4,7 @@
     "@dstack-js/lib": "../../dist/packages/lib"
   },
   "author": "Mykhailo Marynenko <0x77dev@protonmail.com>",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "browserslist": "> 0.5%, last 2 versions, not dead, not ios_saf < 13",
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
@@ -32,7 +32,7 @@
   "private": true,
   "repository": "https://github.com/dstack-js/dstack.git",
   "scripts": {
-    "build": "parcel build src/index.html --experimental-scope-hoisting",
+    "build": "parcel build src/index.html",
     "serve": "parcel"
   },
   "source": "src/index.html",
