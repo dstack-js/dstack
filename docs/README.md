@@ -86,6 +86,19 @@ Bump packages version:
 yarn release
 ```
 
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/dstack-js/dstack.svg)](https://starchart.cc/dstack-js/dstack)
+
+
+## License
+
+All packages licensed under GPL-3.0
+
+See [LICENSE](../LICENSE)
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdstack-js%2Fdstack.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdstack-js%2Fdstack?ref=badge_large)
+
 [license]: https://github.com/dstack-js/dstack/blob/main/LICENSE
 [license-badge]: https://img.shields.io/github/license/dstack-js/dstack
 [issues]: https://github.com/dstack-js/dstack/issues
@@ -106,11 +119,3 @@ yarn release
 [docs]: https://dstack.dev
 [docs-badge]: https://api.netlify.com/api/v1/badges/aa98407a-eb62-401d-a403-4ea91e55d37b/deploy-status
 [docs-deploys]: https://app.netlify.com/sites/dstack-docs/deploys
-
-## License
-
-All packages licensed under GPL-3.0
-
-See [LICENSE](../LICENSE)
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdstack-js%2Fdstack.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdstack-js%2Fdstack?ref=badge_large)
