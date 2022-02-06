@@ -8,9 +8,13 @@ tags: [dstack, getting-started]
 
 ## Introduction
 
-This post was created to explain what DStack is and its uses
+DStack was created to bring together some of the popular libraries/technologies for the decentralized web (like [IPFS](https://ipfs.io)) into a single ecosystem to provide an easy way for developing decentralized web applications where your infrastructure is a single source of truth.
 
-DStack was created to bring together some of the popular libraries for the decentralized web into a single ecosystem
+For example, you can use PubSub API to create real-time events client-side
+
+or Shard API to share temporary/preview files or structured data between clients without the need to upload to your servers
+
+For example, you can create a collaborative real-time WYSIWYG editor with file preview support where all events and file previews are handled without your server infrastructure.
 
 ## What DStack offers
 
@@ -18,9 +22,10 @@ DStack simplifies IPFS JavaScript API for application development usage
 
 DStack provides:
 
-- Store API
-- PubSub API
-- Relay
+- [Store](/docs/store.md) API
+- [Shard](/docs/shard.md) API
+- [PubSub](/docs/pubsub.md) API
+- [Relay](https://github.com/dstack-js/dstack/tree/main/packages/relay)
 
 Checkout [Peerchat](/blog/peerchat) demo
 

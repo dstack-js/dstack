@@ -52,6 +52,14 @@ module.exports = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      announcementBar: {
+        id: 'support_us',
+        content:
+          '<a href="https://discord.link/dstack">👀 We are looking for new members/contributors</a>',
+        backgroundColor: 'black',
+        textColor: 'white',
+        isCloseable: true,
+      },
       algolia: {
         apiKey: 'eab344c5c227a12cbb6b6edaecff07db',
         indexName: 'dstack',
@@ -123,6 +131,10 @@ module.exports = {
               {
                 label: 'Discord',
                 href: 'https://discord.link/dstack',
+              },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/dstackjs',
               },
             ],
           },
