@@ -105,7 +105,7 @@ yarn release
 [explorer-deploys]: https://app.netlify.com/sites/dstack-explorer/deploys
 [docs]: https://dstack.dev
 [docs-badge]: https://api.netlify.com/api/v1/badges/aa98407a-eb62-401d-a403-4ea91e55d37b/deploy-status
-[docs-deploys]: https://app.netlify.com/sites/zen-kirch-ed73c4/deploys
+[docs-deploys]: https://app.netlify.com/sites/dstack-docs/deploys
 
 ## License
 
