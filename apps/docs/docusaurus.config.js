@@ -15,20 +15,6 @@ module.exports = {
   organizationName: '0x77dev',
   projectName: 'dstack',
 
-  plugins: [
-    [
-      'docusaurus-plugin-typedoc',
-      {
-        id: 'lib',
-        entryPoints: ['..'],
-        entryPointStrategy: 'packages',
-        sidebar: {
-          fullNames: true,
-        },
-      },
-    ],
-  ],
-
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -49,6 +35,8 @@ module.exports = {
     ],
   ],
 
+  plugins: [],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -60,24 +48,14 @@ module.exports = {
         textColor: 'white',
         isCloseable: true,
       },
-      algolia: {
-        apiKey: 'eab344c5c227a12cbb6b6edaecff07db',
-        indexName: 'dstack',
-        appId: 'F0OSB2D3F0',
-        contextualSearch: true,
-      },
       gtag: {
         trackingID: '3222457047',
-        anonymizeIP: true,
-      },
-      googleAnalytics: {
-        trackingID: 'UA-141789564-1',
         anonymizeIP: true,
       },
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: true,
-        respectPrefersColorScheme: true,
+        respectPrefersColorScheme: false,
       },
       navbar: {
         title: 'DStack',

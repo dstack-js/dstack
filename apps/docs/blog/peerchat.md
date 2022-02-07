@@ -26,7 +26,6 @@ $ npm i -g peerchat
 $ yarn global add peerchat
 ```
 
-
 ### Usage
 
 ```console

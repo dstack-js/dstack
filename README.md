@@ -35,10 +35,10 @@ DStack simplifies IPFS JavaScript API for application development usage
 
 DStack provides:
 
-- [Store](docs/store.md)
-- [Shard](docs/shard.md)
-- [PubSub](docs/pubsub.md)
-- [Relay](../packages/relay)
+- [Store](./apps/docs/store.md)
+- [Shard](./apps/docs/shard.md)
+- [PubSub](./apps/docs/pubsub.md)
+- [Relay](./packages/relay)
 
 ### Tell others that you use DStack
 
@@ -56,9 +56,10 @@ DStack workspace is managed by [nx.dev](https://nx.dev)
 
 ### Packages
 
-- [lib](../packages/lib) - Core library
-- [relay](../packages/relay) - Relay
-- [ipfs](../packages/ipfs) - IPFS
+- [lib](./packages/lib) - Core library
+- [relay](./packages/relay) - Relay
+- [ipfs](./packages/ipfs) - IPFS
+- [docs](./apps/docs) - Docs
 
 ### Commands
 
@@ -89,7 +90,6 @@ yarn release
 ## Stargazers over time
 
 [![Stargazers over time](https://starchart.cc/dstack-js/dstack.svg)](https://starchart.cc/dstack-js/dstack)
-
 
 ## License
 

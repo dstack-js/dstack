@@ -4,7 +4,27 @@
     "explorer-e2e": "packages/explorer-e2e",
     "ipfs": "packages/ipfs",
     "lib": "packages/lib",
-    "relay": "packages/relay"
+    "relay": "packages/relay",
+    "docs": {
+      "projectType": "application",
+      "root": "apps/docs",
+      "sourceRoot": "apps/docs/src",
+      "targets": {
+        "build": {
+          "executor": "@nx-plus/docusaurus:browser",
+          "options": {
+            "outputPath": "dist/apps/docs"
+          }
+        },
+        "serve": {
+          "executor": "@nx-plus/docusaurus:dev-server",
+          "options": {
+            "port": 3000
+          }
+        }
+      },
+      "tags": []
+    }
   },
   "version": 2
 }

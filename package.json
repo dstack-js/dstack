@@ -1,12 +1,17 @@
 {
   "dependencies": {
+    "@docusaurus/core": "^2.0.0-alpha.70",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.70",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
+    "@mdx-js/react": "^1.6.21",
     "@mui/icons-material": "^5.3.1",
     "@mui/material": "^5.4.0",
+    "clsx": "^1.1.1",
     "core-js": "^3.6.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-flow-renderer": "^9.7.3",
     "react-router-dom": "5.3.0",
     "regenerator-runtime": "0.13.7",
     "tslib": "^2.0.0"
@@ -26,6 +31,7 @@
     "@nrwl/tao": "13.4.4",
     "@nrwl/web": "13.7.3",
     "@nrwl/workspace": "13.4.4",
+    "@nx-plus/docusaurus": "^12.2.0",
     "@testing-library/react": "12.1.2",
     "@testing-library/react-hooks": "7.0.2",
     "@types/jest": "27.0.2",
@@ -51,6 +57,7 @@
     "jest": "27.2.3",
     "lerna": "^4.0.0",
     "lint-staged": ">=10",
+    "patch-package": "^6.4.7",
     "prettier": "^2.3.1",
     "react-test-renderer": "17.0.2",
     "standard-version": "^9.3.2",
@@ -68,9 +75,14 @@
       "eslint --cache --fix"
     ]
   },
+  "resolutions": {
+    "@docusaurus/core": "2.0.0-beta.6",
+    "@svgr/webpack": "^5.5.0"
+  },
   "name": "dstack-js",
   "private": true,
   "scripts": {
+    "postinstall": "patch-package",
     "build": "nx run-many --all --target=build",
     "lint": "nx run-many --all --target=lint",
     "prepare": "husky install",

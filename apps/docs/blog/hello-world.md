@@ -22,9 +22,9 @@ DStack simplifies IPFS JavaScript API for application development usage
 
 DStack provides:
 
-- [Store](../docs/store.md) API
-- [Shard](../docs/shard.md) API
-- [PubSub](../docs/pubsub.md) API
+- [Store](/docs/store) API
+- [Shard](/docs/shard) API
+- [PubSub](/docs/pubsub) API
 - [Relay](https://github.com/dstack-js/dstack/tree/main/packages/relay)
 
 Checkout [Peerchat](/blog/peerchat) demo

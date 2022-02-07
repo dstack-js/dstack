@@ -1,0 +1,31 @@
+diff --git a/node_modules/@nx-plus/docusaurus/src/schematics/app/schematic.js b/node_modules/@nx-plus/docusaurus/src/schematics/app/schematic.js
+index a7b034f..1d473c8 100644
+--- a/node_modules/@nx-plus/docusaurus/src/schematics/app/schematic.js
++++ b/node_modules/@nx-plus/docusaurus/src/schematics/app/schematic.js
+@@ -4,14 +4,15 @@ const core_1 = require("@angular-devkit/core");
+ const schematics_1 = require("@angular-devkit/schematics");
+ const workspace_1 = require("@nrwl/workspace");
+ const ast_utils_1 = require("@nrwl/workspace/src/utils/ast-utils");
++const devkit_1 = require('@nrwl/devkit');
+ /**
+  * Depending on your needs, you can change this to either `Library` or `Application`
+  */
+ const projectType = workspace_1.ProjectType.Application;
+ function normalizeOptions(host, options) {
+-    const name = workspace_1.toFileName(options.name);
++    const name = devkit_1.names(options.name).fileName;
+     const projectDirectory = options.directory
+-        ? `${workspace_1.toFileName(options.directory)}/${name}`
++        ? `${devkit_1.names(options.directory).fileName}/${name}`
+         : name;
+     const projectName = projectDirectory.replace(new RegExp('/', 'g'), '-');
+     const projectRoot = core_1.normalize(`${ast_utils_1.appsDir(host)}/${projectDirectory}`);
+@@ -26,7 +27,7 @@ function normalizeOptions(host, options) {
+ }
+ function addFiles(options) {
+     return schematics_1.mergeWith(schematics_1.apply(schematics_1.url(`./files`), [
+-        schematics_1.applyTemplates(Object.assign(Object.assign(Object.assign({}, options), workspace_1.names(options.name)), { offsetFromRoot: workspace_1.offsetFromRoot(options.projectRoot) })),
++        schematics_1.applyTemplates(Object.assign(Object.assign(Object.assign({}, options), devkit_1.names(options.name)), { offsetFromRoot: devkit_1.offsetFromRoot(options.projectRoot) })),
+         schematics_1.move(options.projectRoot),
+     ]));
+ }

@@ -3,7 +3,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "editor.formatOnSave": true,
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
