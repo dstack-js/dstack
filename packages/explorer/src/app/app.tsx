@@ -1,11 +1,11 @@
-import styled from '@emotion/styled';
-import NxWelcome from './nx-welcome';
+import styled from '@emotion/styled'
+import NxWelcome from './nx-welcome'
 
-import { Route, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom'
 
 const StyledApp = styled.div`
   // Your style here
-`;
+`
 
 export function App() {
   return (
@@ -49,7 +49,7 @@ export function App() {
       />
       {/* END: routes */}
     </StyledApp>
-  );
+  )
 }
 
-export default App;
+export default App

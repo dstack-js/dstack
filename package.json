@@ -70,7 +70,7 @@
   "license": "GPl-3.0",
   "lint-staged": {
     "*.{yaml,json,md}": "prettier --write",
-    "*.{js,ts,css}": [
+    "*.{js,jsx,tsx,ts,css}": [
       "prettier --write",
       "eslint --cache --fix"
     ]
