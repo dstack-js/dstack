@@ -1,6 +1,12 @@
 {
-  "plugins": [
-    "@emotion/babel-plugin",
-    "babel-plugin-styled-components"
-  ]
+  "presets": [
+    [
+      "@nrwl/react/babel",
+      {
+        "runtime": "automatic",
+        "importSource": "@emotion/react"
+      }
+    ]
+  ],
+  "plugins": ["@emotion/babel-plugin"]
 }

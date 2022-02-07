@@ -3,7 +3,7 @@
     "defaultBase": "main"
   },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/react"
   },
   "extends": "@nrwl/workspace/presets/core.json",
   "npmScope": "dstack-js",
@@ -11,15 +11,26 @@
     "default": {
       "options": {
         "accessToken": "MjBiYTU3ODktZDVlZC00MmNkLWI2YmQtNmNlNDIwOWY3ZDU1fHJlYWQtd3JpdGU=",
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e",
-          "serve"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e", "serve"]
       },
       "runner": "@nrwl/nx-cloud"
     }
-  }
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "@emotion/styled",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "@emotion/styled"
+      },
+      "library": {
+        "style": "@emotion/styled",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "explorer"
 }

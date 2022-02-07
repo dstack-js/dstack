@@ -1,49 +1,73 @@
 {
-  "implicitDependencies": [
-    "lib",
-    "ipfs"
-  ],
-  "projectType": "application",
   "root": "packages/explorer",
   "sourceRoot": "packages/explorer/src",
-  "tags": [],
+  "projectType": "application",
   "targets": {
     "build": {
-      "dependsOn": [
-        {
-          "projects": "dependencies",
-          "target": "build"
-        }
-      ],
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
       "options": {
-        "commands": [
-          "yarn build"
+        "compiler": "babel",
+        "outputPath": "dist/packages/explorer",
+        "index": "packages/explorer/src/index.html",
+        "baseHref": "/",
+        "main": "packages/explorer/src/main.tsx",
+        "polyfills": "packages/explorer/src/polyfills.ts",
+        "tsConfig": "packages/explorer/tsconfig.app.json",
+        "assets": [
+          "packages/explorer/src/favicon.ico",
+          "packages/explorer/src/assets"
         ],
-        "cwd": "packages/explorer"
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
       },
-      "outputs": [
-        "packages/explorer/dist",
-        ".parcel-cache"
-      ]
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "packages/explorer/src/environments/environment.ts",
+              "with": "packages/explorer/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
     },
     "serve": {
-      "dependsOn": [
-        {
-          "projects": "dependencies",
-          "target": "build"
-        }
-      ],
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "@nrwl/web:dev-server",
       "options": {
-        "commands": [
-          "yarn serve"
-        ],
-        "cwd": "packages/explorer"
+        "buildTarget": "explorer:build",
+        "hmr": true
       },
-      "outputs": [
-        ".parcel-cache"
-      ]
+      "configurations": {
+        "production": {
+          "buildTarget": "explorer:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/explorer/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/explorer"],
+      "options": {
+        "jestConfig": "packages/explorer/jest.config.js",
+        "passWithNoTests": true
+      }
     }
-  }
+  },
+  "tags": []
 }
