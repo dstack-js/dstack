@@ -110,6 +110,8 @@ export class Stack {
    * @param listener Will be called with peer info
    */
   public onPeerConnect(listener: (peer: Peer) => void): void {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     this.libp2p.addressManager.on('peer:connect', (event) => {
       listener({
         id: event.remotePeer.toB58String(),
@@ -124,6 +126,8 @@ export class Stack {
    * @param listener Will be called with peer info
    */
   public onPeerDisconnected(listener: (peer: Peer) => void): void {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     this.libp2p.addressManager.on('peer:disconnect', (event) => {
       listener({
         id: event.remotePeer.toB58String(),
