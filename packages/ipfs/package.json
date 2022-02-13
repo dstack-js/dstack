@@ -2,7 +2,7 @@
   "dependencies": {
     "ipfs": "^0.62.0",
     "ipfs-core": "^0.14.0",
-    "libp2p-webrtc-star": "0.20.1",
+    "libp2p-webrtc-star": "0.25.0",
     "libp2p-websockets": "0.15.0",
     "tslib": "^2.3.1"
   },
