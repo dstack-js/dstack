@@ -8,9 +8,8 @@ WORKDIR $HOME
 USER $USER
 
 COPY package.json .
-COPY yarn.lock .
-RUN yarn install --pure-lockfile --no-cache --silent
+RUN yarn install --no-cache --silent
 
 COPY . .
 
-CMD ["node", "."]
+CMD ["node", "src/start.js"]
