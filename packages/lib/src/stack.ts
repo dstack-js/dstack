@@ -4,6 +4,7 @@ import all from 'it-all'
 import { CID } from 'multiformats/cid'
 import { PeerUnreachableError, Store } from '.'
 import { PubSub } from './pubsub'
+import { Storage } from './storage'
 
 export interface Peer {
   id: string;
@@ -24,9 +25,9 @@ export class Stack {
   private announceInterval?: ReturnType<typeof setTimeout>
   public announce = false
 
-  constructor(public namespace: CID, public ipfs: IPFS) {
+  constructor(public namespace: CID, public ipfs: IPFS, storage: Storage) {
     this.pubsub = new PubSub(ipfs, namespace.toString())
-    this.store = new Store(this)
+    this.store = new Store(this, storage)
   }
 
   /**
@@ -70,10 +71,11 @@ export class Stack {
    * @param ipfs IPFS instance / see `@dstack-js/ipfs` package
    * @returns Stack instance
    */
-  public static async create(namespace: string, ipfs: IPFS) {
+  public static async create(namespace: string, ipfs: IPFS, storage?: Storage) {
     const cid = await ipfs.dag.put({ namespace })
+    storage = storage || new Storage(namespace)
 
-    const stack = new Stack(cid, ipfs)
+    const stack = new Stack(cid, ipfs, storage)
     await stack.start()
 
     return stack

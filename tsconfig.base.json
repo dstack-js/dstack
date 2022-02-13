@@ -7,27 +7,18 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "esModuleInterop": true,
     "importHelpers": true,
     "target": "es2016",
     "module": "esnext",
-    "lib": [
-      "esnext",
-      "dom"
-    ],
+    "lib": ["esnext", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@dstack-js/ipfs": [
-        "packages/ipfs/src/index.ts"
-      ],
-      "@dstack-js/lib": [
-        "packages/lib/src/index.ts"
-      ]
+      "@dstack-js/ipfs": ["packages/ipfs/src/index.ts"],
+      "@dstack-js/lib": ["packages/lib/src/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }

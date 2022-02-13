@@ -16,42 +16,22 @@
         "outputPath": "dist/packages/relay",
         "tsConfig": "packages/relay/tsconfig.app.json"
       },
-      "outputs": [
-        "{options.outputPath}"
-      ]
+      "outputs": ["{options.outputPath}"]
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": [
-          "packages/relay/**/*.ts"
-        ]
+        "lintFilePatterns": ["packages/relay/**/*.ts"]
       },
-      "outputs": [
-        "{options.outputFile}"
-      ]
+      "outputs": ["{options.outputFile}"]
     },
     "serve": {
-      "dependsOn": [
-        {
-          "projects": "self",
-          "target": "build"
-        },
-        {
-          "projects": "dependencies",
-          "target": "build"
-        }
-      ],
       "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "commands": [
-          "yarn install && node ."
-        ],
-        "cwd": "dist/packages/relay"
+        "commands": ["yarn serve"],
+        "cwd": "packages/relay"
       },
-      "outputs": [
-        "dist/packages/relay"
-      ]
+      "outputs": ["packages/relay/src/generated"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",
@@ -59,9 +39,7 @@
         "jestConfig": "packages/relay/jest.config.js",
         "passWithNoTests": true
       },
-      "outputs": [
-        "coverage/packages/relay"
-      ]
+      "outputs": ["coverage/packages/relay"]
     }
   }
 }

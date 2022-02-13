@@ -1,5 +1,17 @@
 {
-  "cSpell.words": ["docsearch", "dstack", "ipfs", "libp2p", "multiformats"],
+  "cSpell.words": [
+    "docsearch",
+    "dstack",
+    "fastify",
+    "ipfs",
+    "libp2p",
+    "mercurius",
+    "multiaddr",
+    "multiformats",
+    "protoport",
+    "typegen",
+    "webrtc"
+  ],
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },

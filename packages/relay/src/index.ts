@@ -1,51 +1,81 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import { create } from '@dstack-js/ipfs'
-import { Stack } from '@dstack-js/lib'
+import fastify from 'fastify'
 // @ts-expect-error: no types
 import WebRTCStar from 'libp2p-webrtc-star'
+// @ts-expect-error: no types
+import WebSocket from 'libp2p-websockets'
+import fastifyCors from 'fastify-cors'
+import { setSocket } from './services/signaling'
+import { makeSchema } from 'nexus'
+import mercurius from 'mercurius'
+import { types } from './types'
+import { GraphQLSchema } from 'graphql'
+import path from 'path'
+import { setPlayground } from './playgroud'
+import { create } from '@dstack-js/ipfs'
+import { Stack } from '@dstack-js/lib'
+import { RedisStorage } from './services/storage'
+import { getListenAddress } from './services/address'
+// @ts-expect-error no types
+import * as wrtc from 'wrtc'
 
-const wrtc = require('wrtc')
-const { start } = require('libp2p-webrtc-star-signalling-server')
+export interface ListenOptions {
+  namespace?: string;
+  listenOn?: string;
+  host?: string;
+  port?: number | string;
+}
 
-const run = async () => {
-  if (!process.env['DNS_NAME']) {
-    console.warn("no 'DNS_NAME' env has been set, running in local mode")
-  }
-
-  await start({
-    port: process.env['PORT'] || 9090,
-    host: process.env['HOST'] || '0.0.0.0',
-    metrics: !process.env['DISABLE_METRICS'] && true
+export const listen = async ({
+  port = process.env['PORT'] || 13579,
+  host = process.env['HOST'] || '0.0.0.0',
+  namespace = process.env['NAMESPACE'] || 'dstack',
+  listenOn = process.env['LISTEN_ON']
+}: ListenOptions = {}) => {
+  const server = fastify()
+  const schema = makeSchema({
+    types,
+    outputs: {
+      schema: path.join(__dirname, 'generated/schema.graphql'),
+      typegen: path.join(__dirname, 'generated/types.d.ts')
+    }
   })
 
-  if (process.env['NAMESPACE']) {
+  setSocket(server)
+  setPlayground(server)
+  server.register(fastifyCors, { origin: '*' })
+  server.register(mercurius, {
+    // TODO: fix types
+    schema: schema as unknown as GraphQLSchema,
+    path: '/graphql'
+  })
+
+  const address = await server.listen(port, host)
+  console.log('GraphQL and signalling server listening on', address)
+
+  if (namespace) {
+    const listen = [listenOn || getListenAddress('http', host, port)]
+
     const ipfs = await create(
       {
-        start: true,
-        ...(process.env['PRIVATE_KEY']
-          ? { init: { privateKey: process.env['PRIVATE_KEY'] } }
-          : {}),
+        init: {
+          privateKey: process.env['PRIVATE_KEY']
+        },
         libp2p: {
-          modules: [WebRTCStar]
-        } as any,
-        relay: {
-          enabled: true,
-          hop: {
-            enabled: true,
-            active: true
+          // @ts-expect-error incompatible types
+          modules: {
+            transport: [WebRTCStar, WebSocket]
+          },
+          addresses: {
+            listen
           }
         }
       },
       wrtc
     )
 
-    await Stack.create(process.env['NAMESPACE'], ipfs)
+    const storage = new RedisStorage(namespace)
+    Stack.create(namespace, ipfs, storage).then(() =>
+      console.log('Stack created, namespace:', namespace)
+    )
   }
-
-  console.log('ready')
 }
-
-run().catch((error) => {
-  console.error(error)
-  process.exit(-1)
-})
