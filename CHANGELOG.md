@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.34](https://github.com/dstack-js/dstack/compare/v0.2.33...v0.2.34) (2022-02-13)
+
+### Features
+
+- **ipfs:** add compatible transports ([7dc02ff](https://github.com/dstack-js/dstack/commits/7dc02ff940553eb175c803e8aafc8d414e8ccd84))
+
+### Bug Fixes
+
+- **relay:** fix dockerfile ([6c896dd](https://github.com/dstack-js/dstack/commits/6c896dd60e1fe6c34479a5d69027939079234460))
+
 ### [0.2.33](https://github.com/dstack-js/dstack/compare/v0.2.32...v0.2.33) (2022-02-13)
 
 ### Features
