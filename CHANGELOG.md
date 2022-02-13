@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.35](https://github.com/dstack-js/dstack/compare/v0.2.34...v0.2.35) (2022-02-13)
+
+### Features
+
+- **relay:** namespace query ([0db0fca](https://github.com/dstack-js/dstack/commits/0db0fcab9a8880a6806877415fc70e65ab3f35f4))
+
+### Bug Fixes
+
+- **relay:** fix redis storage ([34b1c2b](https://github.com/dstack-js/dstack/commits/34b1c2b93db07f4299af32e0969440a61c96123e))
+
 ### [0.2.34](https://github.com/dstack-js/dstack/compare/v0.2.33...v0.2.34) (2022-02-13)
 
 ### Features
