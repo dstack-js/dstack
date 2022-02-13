@@ -9,7 +9,7 @@ export class RedisStorage<
   }
 
   public override async set(key: string, value: T): Promise<void> {
-    await redis.set(`${this.namespace}#{key}`, JSON.stringify(value))
+    await redis.set(`${this.namespace}#${key}`, JSON.stringify(value))
   }
 
   public override async get(key: string): Promise<T | null> {
