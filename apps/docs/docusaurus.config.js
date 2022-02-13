@@ -41,16 +41,12 @@ module.exports = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       announcementBar: {
-        id: 'support_us',
+        id: 'announcement',
         content:
-          '<a href="https://discord.link/dstack">👀 We are looking for new members/contributors</a>',
+          '<a style="text-decoration: none; color: white" href="https://discord.link/dstack">Join our Discord <img width="14px" src="/img/discord.svg" /></a>',
         backgroundColor: 'black',
         textColor: 'white',
         isCloseable: true,
-      },
-      gtag: {
-        trackingID: '3222457047',
-        anonymizeIP: true,
       },
       colorMode: {
         defaultMode: 'dark',
@@ -93,6 +89,10 @@ module.exports = {
                 label: 'Tutorial',
                 to: '/docs/intro',
               },
+              {
+                label: 'Core Library',
+                to: '/docs/stack',
+              },
             ],
           },
           {
@@ -101,6 +101,10 @@ module.exports = {
               {
                 label: 'Status',
                 to: 'https://status.dstack.dev',
+              },
+              {
+                label: 'Working with Relay',
+                to: '/docs/relay',
               },
             ],
           },

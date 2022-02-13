@@ -17,6 +17,7 @@ import { RedisStorage } from './services/storage'
 import { getListenAddress } from './services/address'
 // @ts-expect-error no types
 import * as wrtc from 'wrtc'
+import { getPeers } from './services/signaling/peer'
 
 export interface ListenOptions {
   namespace?: string;
@@ -68,14 +69,41 @@ export const listen = async ({
           addresses: {
             listen
           }
+        },
+        relay: {
+          enabled: true,
+          hop: {
+            enabled: true,
+            active: true
+          }
+        },
+        config: {
+          Discovery: {
+            webRTCStar: {
+              Enabled: true
+            }
+          },
+          Bootstrap: []
         }
       },
       wrtc
     )
 
     const storage = new RedisStorage(namespace)
-    Stack.create(namespace, ipfs, storage).then(() =>
-      console.log('Stack created, namespace:', namespace)
-    )
+    const stack = await Stack.create(namespace, ipfs, storage)
+    const { id } = await stack.id()
+    console.log('Stack created, namespace:', namespace)
+
+    setInterval(async () => {
+      const peers = await getPeers()
+
+      for (const peer of peers) {
+        if (peer.includes(id)) {
+          continue
+        }
+
+        stack.connect(peer).catch(console.error)
+      }
+    }, 5000)
   }
 }
