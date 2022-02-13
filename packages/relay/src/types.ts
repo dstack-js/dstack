@@ -34,8 +34,18 @@ const listen = queryField('listen', {
   }
 })
 
+const namespace = queryField('namespace', {
+  type: 'String',
+  description: 'Stack namespace',
+  resolve() {
+    return process.env['NAMESPACE'] || 'dstack'
+  }
+})
+
 const peers = queryField('peers', {
   type: list(MultiAddr),
+  description:
+    'Get addresses to bootstrap for IPFS, use `randomize` argument to get 3 random peers',
   args: {
     randomize: booleanArg()
   },
@@ -54,4 +64,4 @@ const peers = queryField('peers', {
   }
 })
 
-export const types = [MultiAddr, Protocol, listen, peers]
+export const types = [MultiAddr, Protocol, listen, peers, namespace]
