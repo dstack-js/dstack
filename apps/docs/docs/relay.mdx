@@ -1,0 +1,99 @@
+---
+title: Working with Relay
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Relay provides [Stack instance](./stack.md) with [`libp2p-webrtc-star`](https://github.com/libp2p/js-libp2p-webrtc-star) compatible scalable signaling server and GraphQL API
+
+## Getting Bootstrap data
+
+Relay provides necessary GraphQL resolvers for initializing the [Stack instance](./stack.md)
+
+<Tabs>
+  <TabItem value="request" label="Query">
+
+```graphql
+query Bootstrap {
+  listen(protocol: https, hostname: "relay.dstack.dev", port: 443)
+  peers(randomize: true)
+  namespace
+}
+```
+
+  </TabItem>
+  <TabItem value="response" label="Response">
+
+```graphql
+{
+  "data": {
+    "listen": [
+      "/dns4/relay.dstack.dev/tcp/443/wss/p2p-webrtc-star/"
+    ],
+    "peers": [
+      "/dns4/relay.dstack.dev/tcp/443/wss/p2p-webrtc-star/p2p/12D3KooWRNzGrUc9nHEquTwJJvKr7gVZRW2xaFwzWoHbHKUZf6WQ",
+      "/dns4/relay.dstack.dev/tcp/443/wss/p2p-webrtc-star/p2p/12D3KooWNqcWa4vXqNBUxyz9LKiKQMY62hZUUvmYpDSYBXSwkeiT",
+      "/dns4/relay.dstack.dev/tcp/443/wss/p2p-webrtc-star/p2p/12D3KooWJN1Uvd3QzcNEmcTdybsYqdGgSsSnFH39RerEGodQr8E9"
+    ],
+    "namespace": "dstack"
+  }
+}
+```
+
+  </TabItem>
+  <TabItem value="code" label="Code Example" default>
+
+```typescript
+import { request, gql } from "graphql-request";
+import { Stack } from "@dstack-js/lib";
+import { create } from "@dstack-js/ipfs";
+
+export const createStack = async () => {
+  const endpoint = "https://relay.dstack.dev:443/graphql";
+  const url = new URL(endpoint);
+
+  const query = gql`
+    query Bootstrap($protocol: Protocol!, $hostname: String!, $port: Int!) {
+      listen(protocol: $protocol, hostname: $hostname, port: $port)
+      peers(randomize: true)
+      namespace
+    }
+  `;
+
+  const {listen, peers, namespace} = await request<{ listen: string[]; peers: string[]; namespace: string }>(
+    endpoint,
+    query,
+    {
+      protocol: url.protocol.replace(":", ""),
+      hostname: url.hostname,
+      port: Number(url.port || "443")
+    }
+  );
+
+  const ipfs = await create({
+    config: {
+      Addresses: {
+        Swarm: listen
+      },
+      Bootstrap: peers
+    }
+  });
+
+  const stack = await Stack.create(namespace, ipfs);
+};
+```
+
+  </TabItem>
+</Tabs>
+
+
+
+
+## Endpoints
+
+| Path       | Description        |
+|------------|--------------------|
+| `/`        | GraphQL Playground |
+| `/graphql` | GraphQL Endpoint   |

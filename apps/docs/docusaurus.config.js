@@ -96,6 +96,15 @@ module.exports = {
             ],
           },
           {
+            title: 'Cloud',
+            items: [
+              {
+                label: 'Status',
+                to: 'https://status.dstack.dev',
+              },
+            ],
+          },
+          {
             title: 'Community',
             items: [
               {
