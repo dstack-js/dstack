@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.33](https://github.com/dstack-js/dstack/compare/v0.2.32...v0.2.33) (2022-02-13)
+
+### Features
+
+- **docs:** move docs to nx workspace ([aa92d98](https://github.com/dstack-js/dstack/commits/aa92d989bba597051933ae770381d3c763f0f0b4)), closes [#25](https://github.com/dstack-js/dstack/issues/25)
+- **docs:** update readme and intro ([8502203](https://github.com/dstack-js/dstack/commits/850220311affd74e8b80ca3f5cbc06b38ddb603a))
+- **relay, lib:** impl signalling server, add relay graphql server, add custom storage for store ([f95c6f2](https://github.com/dstack-js/dstack/commits/f95c6f2fca8b24f7c3a9e1971ca581df95a3fbc2)), closes [#26](https://github.com/dstack-js/dstack/issues/26) [#23](https://github.com/dstack-js/dstack/issues/23)
+
+### Bug Fixes
+
+- **deps:** upgrade ([07ad70f](https://github.com/dstack-js/dstack/commits/07ad70f96f0b3fb3e2d38f7b4a20a7f48625845e))
+- **docs:** unreachable links ([7acb50a](https://github.com/dstack-js/dstack/commits/7acb50a4d15c1cccb5e8b55693d34bb900aae876))
+- **explorer:** build configuration ([c5bfe8d](https://github.com/dstack-js/dstack/commits/c5bfe8d962b7f4612d0d620782b53bb7b07316f6))
+- **lib, relay:** broken types ([ffd1b86](https://github.com/dstack-js/dstack/commits/ffd1b863c001c92d5234c04625cb1876fc26bc27))
+
 ### [0.2.32](https://github.com/dstack-js/dstack/compare/v0.2.31...v0.2.32) (2022-02-05)
 
 ### Features
