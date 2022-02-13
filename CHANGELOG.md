@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.36](https://github.com/dstack-js/dstack/compare/v0.2.35...v0.2.36) (2022-02-13)
+
+### Features
+
+- **docs:** add relay and status [#20](https://github.com/dstack-js/dstack/issues/20) ([c8eb2a6](https://github.com/dstack-js/dstack/commits/c8eb2a6e6f12b98bf8ae0f02e95e2bad2adf9a4e))
+- **relay:** add discovery and relay ([266d918](https://github.com/dstack-js/dstack/commits/266d918a8b9d6da7ce8a71d7bf90da155e7e54cc))
+
 ### [0.2.35](https://github.com/dstack-js/dstack/compare/v0.2.34...v0.2.35) (2022-02-13)
 
 ### Features
