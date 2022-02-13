@@ -1,10 +1,15 @@
 # @dstack-js/relay
 
-Relay provides DStack peer with [`libp2p-webrtc-star`](https://github.com/libp2p/js-libp2p-webrtc-star) signaling server
+Relay provides DStack peer with [`libp2p-webrtc-star`](https://github.com/libp2p/js-libp2p-webrtc-star) compatible signaling server written with multi-tenancy support using redis
 
 [Metrics (Grafana Dashboard)](https://grafana.dstack.dev/goto/Y5cMV1xnz?orgId=1)
 
 _Login into Grafana using your GitHub, Grafana can be only accessed by organization members, remember to grant access to dstack-js organization while logging in._
+
+## Supported transport versions
+
+- libp2p-webrtc-star@0.20.1
+- libp2p-websockets@0.15.0
 
 ## Public relay
 

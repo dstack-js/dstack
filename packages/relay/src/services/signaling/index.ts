@@ -10,8 +10,12 @@ import {
 } from './peer'
 
 const handle = (socket: WebRTCStarSocket) => {
+  console.log('signaling', 'handle', socket.id)
   const closeFunctions: (() => Promise<void>)[] = []
-  const close = () => closeFunctions.forEach((close) => close())
+  const close = () => {
+    console.log('signaling', 'close', socket.id, multiaddr)
+    closeFunctions.forEach((close) => close())
+  }
 
   let multiaddr: string
 
@@ -19,10 +23,10 @@ const handle = (socket: WebRTCStarSocket) => {
     if (!ma) return
 
     multiaddr = ma
-
     closeFunctions.push(await addPeer(multiaddr))
     closeFunctions.push(await setPeerSocket(multiaddr, socket))
     closeFunctions.push(await onPeerConnect(socket))
+    console.log('signaling', 'ss-join', socket.id, multiaddr)
   })
 
   socket.on('disconnect', close)
@@ -49,6 +53,15 @@ const handle = (socket: WebRTCStarSocket) => {
       offer.err = 'peer is not available'
       await emitPeerSocket(offer.srcMultiaddr, 'ws-handshake', offer)
     }
+
+    console.log(
+      'signaling',
+      'ss-handshake',
+      socket.id,
+      offer.srcMultiaddr,
+      offer.dstMultiaddr,
+      offer.err || ''
+    )
   })
 }
 

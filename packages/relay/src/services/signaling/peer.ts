@@ -72,4 +72,5 @@ export const emitPeerSocket = async (
   const payload: SocketEvent = { event, params }
 
   await publisher.publish(ma, JSON.stringify(payload))
+  console.log('signaling', 'peer/emitPeerSocket', ma, event)
 }

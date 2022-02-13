@@ -1,3 +1,7 @@
+// @ts-expect-error: no types
+import WebRTCStar from 'libp2p-webrtc-star'
+// @ts-expect-error: no types
+import WebSocket from 'libp2p-websockets'
 import { create as IPFSCreate, PeerId, CID } from 'ipfs'
 import type { IPFS, Options as IPFSOptions } from 'ipfs-core'
 import { listen } from './addresses'
@@ -25,6 +29,9 @@ const create = (options?: IPFSOptions, wrtc?: any): Promise<IPFS> => {
     },
     libp2p: {
       ...options?.libp2p,
+      modules: {
+        transport: [WebRTCStar, WebSocket]
+      },
       config: {
         peerDiscovery: {
           webRTCStar: {
