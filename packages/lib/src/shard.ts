@@ -5,7 +5,7 @@ import { UnknownShardKindError } from './errors'
 import { EventEmitter } from 'events'
 import { Stack } from './stack'
 import { InvalidShardPathError } from '.'
-import all from 'it-all'
+import type { IPFS } from 'ipfs-core'
 
 export enum ShardKind {
   // eslint-disable-next-line no-unused-vars
@@ -20,9 +20,26 @@ const toUint8Array = (buf: Buffer): Uint8Array => {
   return a
 }
 
-export class Shard<
-  TData extends Buffer | Record<string, any> = Buffer | Record<string, any>
-> {
+type Data = Buffer | Record<string, any>;
+
+const createCID = async (
+  data: Data,
+  kind: ShardKind,
+  ipfs: IPFS
+): Promise<CID> => {
+  if (kind === ShardKind.Binary) {
+    const file = await ipfs.add(toUint8Array(data as Buffer))
+    return file.cid
+  }
+
+  if (kind === ShardKind.Object) {
+    return ipfs.dag.put(data)
+  }
+
+  throw new UnknownShardKindError()
+}
+
+export class Shard<TData extends Data = Data> {
   private events = new EventEmitter()
 
   private constructor(
@@ -33,19 +50,7 @@ export class Shard<
   ) {}
 
   public async put(data: TData): Promise<void> {
-    switch (this.kind) {
-      case ShardKind.Binary:
-        this.cid = (
-          await this.stack.ipfs.add(toUint8Array(data as Buffer))
-        ).cid
-        break
-      case ShardKind.Object:
-        this.cid = await this.stack.ipfs.dag.put(data)
-        break
-      default:
-        throw new UnknownShardKindError()
-    }
-
+    this.cid = await createCID(data, this.kind, this.stack.ipfs)
     this.events.emit('update', this)
   }
 
@@ -53,39 +58,40 @@ export class Shard<
     this.events.on(event, listener)
   }
 
-  public static async new<TData = unknown>(
+  public static async new<TData extends Data>(
     stack: Stack,
     kind: ShardKind,
     data: TData
   ): Promise<Shard<TData>> {
-    const cid: CID = await stack.ipfs.dag.put({ empty: true })
-
-    const shard = new Shard<TData>(stack, cid, kind, data)
-    shard.put(data)
-
-    return shard
+    return new Shard<TData>(
+      stack,
+      await createCID(data as TData, kind, stack.ipfs),
+      kind,
+      data
+    )
   }
 
-  public static async create<TData = Buffer | Record<string, any>>(
+  public static async create<TData extends Data>(
     stack: Stack,
     cid: CID,
     kind: ShardKind
   ): Promise<Shard<TData>> {
     let data
 
-    if (ShardKind.Binary) {
-      const u8 = await all(stack.ipfs.cat(cid))
-      data = Buffer.from(u8)
-    }
+    if (kind === ShardKind.Binary) {
+      data = Buffer.from('')
 
-    if (ShardKind.Object) {
+      for await (const chunk of stack.ipfs.cat(cid)) {
+        data = Buffer.concat([data, Buffer.from(chunk)])
+      }
+    } else if (kind === ShardKind.Object) {
       data = (await stack.ipfs.dag.get(cid)).value
     }
 
     return new Shard(stack, cid, kind, data)
   }
 
-  public static from<TData = Buffer | Record<string, any>>(
+  public static from<TData extends Data>(
     stack: Stack,
     path: string
   ): Promise<Shard<TData>> {
