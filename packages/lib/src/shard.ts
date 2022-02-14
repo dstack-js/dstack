@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-class-members */
 import { CID } from 'multiformats/cid'
 import { Buffer } from 'buffer'
 import { UnknownShardKindError } from './errors'
@@ -13,7 +14,15 @@ export enum ShardKind {
   Object = 'object',
 }
 
-export class Shard<TData = Buffer | Record<string, any>> {
+const toUint8Array = (buf: Buffer): Uint8Array => {
+  const a = new Uint8Array(buf.length)
+  for (let i = 0; i < buf.length; i++) a[i] = buf[i]
+  return a
+}
+
+export class Shard<
+  TData extends Buffer | Record<string, any> = Buffer | Record<string, any>
+> {
   private events = new EventEmitter()
 
   private constructor(
@@ -26,7 +35,9 @@ export class Shard<TData = Buffer | Record<string, any>> {
   public async put(data: TData): Promise<void> {
     switch (this.kind) {
       case ShardKind.Binary:
-        this.cid = (await this.stack.ipfs.add(data as any as Uint8Array)).cid
+        this.cid = (
+          await this.stack.ipfs.add(toUint8Array(data as Buffer))
+        ).cid
         break
       case ShardKind.Object:
         this.cid = await this.stack.ipfs.dag.put(data)
@@ -62,15 +73,13 @@ export class Shard<TData = Buffer | Record<string, any>> {
   ): Promise<Shard<TData>> {
     let data
 
-    switch (kind) {
-      case ShardKind.Binary:
-        data = Buffer.from(await all(stack.ipfs.cat(cid)))
-        break
-      case ShardKind.Object:
-        data = (await stack.ipfs.dag.get(cid)).value
-        break
-      default:
-        throw new UnknownShardKindError()
+    if (ShardKind.Binary) {
+      const u8 = await all(stack.ipfs.cat(cid))
+      data = Buffer.from(u8)
+    }
+
+    if (ShardKind.Object) {
+      data = (await stack.ipfs.dag.get(cid)).value
     }
 
     return new Shard(stack, cid, kind, data)
