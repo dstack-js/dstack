@@ -14,8 +14,13 @@ export const addPeer = async (multiaddr: string) => {
   }
 }
 
-export const onPeerConnect = async (socket: WebRTCStarSocket) => {
+export const onPeerConnect = async (
+  socket: WebRTCStarSocket,
+  ignore?: string
+) => {
   const listener = (multiaddr: string) => {
+    if (multiaddr === ignore) return
+
     socket.emit('ws-peer', multiaddr)
   }
 

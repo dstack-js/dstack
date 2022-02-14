@@ -18,6 +18,7 @@ import { getListenAddress } from './services/address'
 // @ts-expect-error no types
 import * as wrtc from 'wrtc'
 import { getPeers } from './services/signaling/peer'
+import { peersMetric, setMetrics } from './services/metrics'
 
 export interface ListenOptions {
   namespace?: string;
@@ -42,6 +43,7 @@ export const listen = async ({
   })
 
   setSocket(server)
+  setMetrics(server)
   setPlayground(server)
   server.register(fastifyCors, { origin: '*' })
   server.register(mercurius, {
@@ -96,6 +98,7 @@ export const listen = async ({
 
     setInterval(async () => {
       const peers = await getPeers()
+      peersMetric.set(peers.length)
 
       for (const peer of peers) {
         if (peer.includes(id)) {

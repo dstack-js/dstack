@@ -8,6 +8,13 @@ import {
   onPeerConnect,
   setPeerSocket
 } from './peer'
+import {
+  dialsFailureTotal,
+  dialsSuccessTotal,
+  dialsTotal,
+  joinsFailureTotal,
+  joinsTotal
+} from '../metrics'
 
 const handle = (socket: WebRTCStarSocket) => {
   console.log('signaling', 'handle', socket.id)
@@ -20,7 +27,9 @@ const handle = (socket: WebRTCStarSocket) => {
   let multiaddr: string
 
   socket.on('ss-join', async (ma) => {
-    if (!ma) return
+    joinsTotal.inc()
+
+    if (!ma) return joinsFailureTotal.inc()
 
     multiaddr = ma
     closeFunctions.push(await addPeer(multiaddr))
@@ -33,12 +42,15 @@ const handle = (socket: WebRTCStarSocket) => {
   socket.on('ss-leave', close)
 
   socket.on('ss-handshake', async (offer) => {
+    dialsTotal.inc()
+
     if (
       offer == null ||
       typeof offer !== 'object' ||
       offer.srcMultiaddr == null ||
       offer.dstMultiaddr == null
     ) {
+      dialsFailureTotal.inc()
       console.warn('dial failure', offer, multiaddr)
       return
     }
@@ -46,10 +58,12 @@ const handle = (socket: WebRTCStarSocket) => {
     const peers = await getPeers()
 
     if (offer.answer === true) {
+      dialsSuccessTotal.inc()
       await emitPeerSocket(offer.srcMultiaddr, 'ws-handshake', offer)
     } else if (peers.includes(offer.dstMultiaddr)) {
       await emitPeerSocket(offer.dstMultiaddr, 'ws-handshake', offer)
     } else if (peers.includes(offer.srcMultiaddr)) {
+      dialsFailureTotal.inc()
       offer.err = 'peer is not available'
       await emitPeerSocket(offer.srcMultiaddr, 'ws-handshake', offer)
     }
