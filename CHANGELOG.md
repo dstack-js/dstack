@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.38](https://github.com/dstack-js/dstack/compare/v0.2.37...v0.2.38) (2022-02-14)
+
+### Features
+
+- **relay:** add prometheus metrics endpoint ([99a6dfa](https://github.com/dstack-js/dstack/commits/99a6dfa07ba990e3a6ed3c90d72bb500cc6ca987))
+
+### Bug Fixes
+
+- **lib:** fix put binary shard ([6a60f07](https://github.com/dstack-js/dstack/commits/6a60f07b22e5ce02535efff982a00aefc47fe73f))
+
 ### [0.2.37](https://github.com/dstack-js/dstack/compare/v0.2.36...v0.2.37) (2022-02-13)
 
 ### [0.2.36](https://github.com/dstack-js/dstack/compare/v0.2.35...v0.2.36) (2022-02-13)
