@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.40](https://github.com/dstack-js/dstack/compare/v0.2.39...v0.2.40) (2022-02-14)
+
+### Bug Fixes
+
+- **lib:** fix put binary shard ([e4a263d](https://github.com/dstack-js/dstack/commits/e4a263decb7d35026ce45f22842bea000c2496e0))
+
 ### [0.2.39](https://github.com/dstack-js/dstack/compare/v0.2.38...v0.2.39) (2022-02-14)
 
 ### Bug Fixes
