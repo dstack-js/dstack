@@ -1,7 +1,5 @@
-const lightCodeTheme = require('prism-react-renderer/themes/vsLight');
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 
-// With JSDoc @type annotations, IDEs can provide config autocompletion
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'DStack',
@@ -35,7 +33,14 @@ module.exports = {
     ],
   ],
 
-  plugins: [],
+  plugins: [
+    '@docusaurus/plugin-content-pages', [
+      '@docusaurus/plugin-sitemap',
+      {
+        changefreq: 'weekly',
+      },
+    ],
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -43,7 +48,7 @@ module.exports = {
       announcementBar: {
         id: 'announcement',
         content:
-          '<a style="text-decoration: none; color: white" href="https://discord.link/dstack">Join our Discord <img width="14px" src="/img/discord.svg" /></a>',
+          '<a style="text-decoration: none; color: white" href="https://savelife.in.ua/">Support Ukraine <img width="14px" src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" /></a>',
         backgroundColor: 'black',
         textColor: 'white',
         isCloseable: true,
@@ -150,7 +155,7 @@ module.exports = {
         copyright: `Copyright © ${new Date().getFullYear()} <a href="https://github.com/dstack-js/dstack/graphs/contributors">DStack Contributors</a>`,
       },
       prism: {
-        theme: lightCodeTheme,
+        theme: darkCodeTheme,
         darkTheme: darkCodeTheme,
       },
     }),
