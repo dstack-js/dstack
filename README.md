@@ -29,7 +29,7 @@ or Shard API to share temporary/preview files or structured data between clients
 
 For example, you can create a collaborative real-time WYSIWYG editor with file preview support where all events and file previews are handled without your server infrastructure.
 
-![Demo](https://i.imgur.com/cKjBrge.gif)
+[Demo](https://imgur.com/cKjBrge)
 
 ## What DStack offers
 
