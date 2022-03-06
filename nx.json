@@ -5,32 +5,38 @@
   "cli": {
     "defaultCollection": "@nrwl/react"
   },
+  "defaultProject": "explorer",
   "extends": "@nrwl/workspace/presets/core.json",
-  "npmScope": "dstack-js",
-  "tasksRunnerOptions": {
-    "default": {
-      "options": {
-        "accessToken": "MjBiYTU3ODktZDVlZC00MmNkLWI2YmQtNmNlNDIwOWY3ZDU1fHJlYWQtd3JpdGU=",
-        "cacheableOperations": ["build", "lint", "test", "e2e", "serve"]
-      },
-      "runner": "@nrwl/nx-cloud"
-    }
-  },
   "generators": {
     "@nrwl/react": {
       "application": {
-        "style": "@emotion/styled",
+        "babel": true,
         "linter": "eslint",
-        "babel": true
+        "style": "@emotion/styled"
       },
       "component": {
         "style": "@emotion/styled"
       },
       "library": {
-        "style": "@emotion/styled",
-        "linter": "eslint"
+        "linter": "eslint",
+        "style": "@emotion/styled"
       }
     }
   },
-  "defaultProject": "explorer"
+  "npmScope": "dstack-js",
+  "tasksRunnerOptions": {
+    "default": {
+      "options": {
+        "accessToken": "MjBiYTU3ODktZDVlZC00MmNkLWI2YmQtNmNlNDIwOWY3ZDU1fHJlYWQtd3JpdGU=",
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "serve"
+        ]
+      },
+      "runner": "@nrwl/nx-cloud"
+    }
+  }
 }

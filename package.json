@@ -31,7 +31,6 @@
     "@nrwl/tao": "13.4.4",
     "@nrwl/web": "13.7.3",
     "@nrwl/workspace": "13.4.4",
-    "@nx-plus/docusaurus": "^12.2.0",
     "@testing-library/react": "12.1.2",
     "@testing-library/react-hooks": "7.0.2",
     "@types/jest": "27.0.2",
@@ -75,14 +74,9 @@
       "eslint --cache --fix"
     ]
   },
-  "resolutions": {
-    "@docusaurus/core": "2.0.0-beta.6",
-    "@svgr/webpack": "^5.5.0"
-  },
   "name": "dstack-js",
   "private": true,
   "scripts": {
-    "postinstall": "patch-package",
     "build": "nx run-many --all --target=build",
     "lint": "nx run-many --all --target=lint",
     "prepare": "npm-run-all prepare:hooks prepare:services",

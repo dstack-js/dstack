@@ -1,5 +1,8 @@
 {
   "cSpell.words": [
+    "cacheable",
+    "clsx",
+    "commitlint",
     "docsearch",
     "dstack",
     "fastify",
@@ -8,7 +11,9 @@
     "mercurius",
     "multiaddr",
     "multiformats",
+    "nrwl",
     "protoport",
+    "svgr",
     "typegen",
     "webrtc"
   ],

@@ -1,3 +1,5 @@
+// @ts-check
+// Note: type annotations allow type checking and IDEs autocompletion
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
@@ -33,18 +35,16 @@ module.exports = {
     ],
   ],
 
-  plugins: [
-    '@docusaurus/plugin-content-pages', [
-      '@docusaurus/plugin-sitemap',
-      {
-        changefreq: 'weekly',
-      },
-    ],
-  ],
+  plugins: [],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      algolia: {
+        appId: 'N3GRA9WRYT',
+        apiKey: 'bb094d16c9b7d8137519d3495c0348cf',
+        indexName: 'dstack'
+      },
       announcementBar: {
         id: 'announcement',
         content:

@@ -1,11 +1,17 @@
 import React from 'react';
 import clsx from 'clsx';
-import styles from './HomepageFeatures.module.css';
+import styles from './styles.module.css';
 
-const FeatureList = [
+type FeatureItem = {
+  title: string;
+  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  description: JSX.Element;
+};
+
+const FeatureList: FeatureItem[] = [
   {
     title: 'Easy to Use',
-    Svg: require('../../static/img/logo_white.svg').default,
+    Svg: require('../../../static/img/logo_white.svg').default,
     description: (
       <>
         DStack was designed from the ground up to be easily installed and used
@@ -15,7 +21,7 @@ const FeatureList = [
   },
   {
     title: 'Powered by IPFS',
-    Svg: require('../../static/img/ipfs.svg').default,
+    Svg: require('../../../static/img/ipfs.svg').default,
     description: (
       <>
         DStack simplifies IPFS JavaScript API for application development usage
@@ -24,7 +30,7 @@ const FeatureList = [
   },
   {
     title: 'Under construction',
-    Svg: require('../../static/img/Under_construction.svg').default,
+    Svg: require('../../../static/img/Under_construction.svg').default,
     description: (
       <>
         In an active development <br /> Highly experimental as of a moment
@@ -33,11 +39,11 @@ const FeatureList = [
   },
 ];
 
-function Feature({ Svg, title, description }) {
+function Feature({title, Svg, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} alt={title} />
+        <Svg className={styles.featureSvg} role="img" />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
@@ -47,7 +53,7 @@ function Feature({ Svg, title, description }) {
   );
 }
 
-export default function HomepageFeatures() {
+export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">

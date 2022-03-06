@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactFlow, { Background, Controls } from 'react-flow-renderer';
+import ReactFlow, { Controls, Background, BackgroundVariant, OnLoadFunc } from 'react-flow-renderer';
 
-const fitView = (reactFlowInstance) => {
-  reactFlowInstance.fitView();
+const onLoad: OnLoadFunc = (flow) => {
+  flow.fitView();
 };
 
-export default ({ elements, style, ...props }) => (
+const Flowchart: React.FC<any> = ({ elements, style, ...props }) => (
   <div
     style={{
       height: 425,
@@ -17,17 +17,19 @@ export default ({ elements, style, ...props }) => (
   >
     <ReactFlow
       elements={elements}
+      // @ts-ignore
       grid={true}
       nodesDraggable={false}
-      onLoad={fitView}
-      onMove={fitView}
+      onLoad={onLoad}
       nodesConnectable={false}
       elementsSelectable={false}
       {...props}
     >
-      <Background variant="dots" gap={10} size={0.5} />
+      <Background variant={BackgroundVariant.Dots} gap={10} size={0.5} />
       {/* <MiniMap /> */}
       <Controls />
     </ReactFlow>
   </div>
 );
+
+export default Flowchart;
