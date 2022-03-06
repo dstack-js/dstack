@@ -1,7 +1,7 @@
 # DStack
 
 <p align="center">
-  <img alt="logo" width="128" src="./apps/docs/static/img/logo.svg" />
+  <img alt="logo" width="128" src="./docs/static/img/logo.svg" />
   <br />
   Technology stack as a library for developing semi-decentralized web applications
 </p>
