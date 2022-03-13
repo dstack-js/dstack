@@ -99,7 +99,7 @@ All packages licensed under GPL-3.0
 
 See [LICENSE](../LICENSE)
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdstack-js%2Fdstack.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdstack-js%2Fdstack?ref=badge_large)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdstack-js%2Fdstack.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdstack-js%2Fdstack?ref=badge_large) [![Join the chat at https://gitter.im/dstack-chat/community](https://badges.gitter.im/dstack-chat/community.svg)](https://gitter.im/dstack-chat/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [license]: https://github.com/dstack-js/dstack/blob/main/LICENSE
 [license-badge]: https://img.shields.io/github/license/dstack-js/dstack
