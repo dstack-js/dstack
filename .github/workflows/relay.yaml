@@ -63,7 +63,7 @@ jobs:
 
       - name: Build relay
         id: nx-build-relay
-        run: nx build relay
+        run: yarn install && nx build relay
 
       - name: Build and push Docker image
         id: build-and-push
