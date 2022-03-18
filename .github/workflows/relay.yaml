@@ -34,7 +34,10 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 'lts/*'
-      
+
+      - name: Install nx
+        run: yarn global add nx
+
       - name: Install cosign
         if: github.event_name != 'pull_request'
         uses: sigstore/cosign-installer@1e95c1de343b5b0c23352d6417ee3e48d5bcd422
@@ -60,7 +63,7 @@ jobs:
 
       - name: Build relay
         id: nx-build-relay
-        run: yarn nx build relay
+        run: nx build relay
 
       - name: Build and push Docker image
         id: build-and-push
