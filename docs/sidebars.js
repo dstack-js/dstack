@@ -19,8 +19,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Relay',
-      items: ['relay'],
+      items: ['relay', 'deploy-relay'],
     },
+
     {
       type: 'category',
       label: 'Core Library',

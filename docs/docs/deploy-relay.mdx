@@ -1,0 +1,127 @@
+---
+title: Deploy Relay
+sidebar_position: 1
+---
+
+Relay provides DStack peer with [`libp2p-webrtc-star`](https://github.com/libp2p/js-libp2p-webrtc-star) compatible signaling server written with multi-tenancy support using redis
+
+Docker is only maintained way to run relay
+
+## Pulling image
+
+You can check for fresh tag [here](https://github.com/dstack-js/dstack/pkgs/container/dstack%2Frelay).
+
+```console
+docker pull ghcr.io/dstack-js/dstack/relay:main
+```
+
+### Verify signature _(optional)_
+
+Install [cosign](https://github.com/sigstore/cosign)
+
+```console
+curl -O https://dstack.dev/cosign.pub
+cosign verify --key cosign.pub ghcr.io/dstack-js/dstack/relay:main
+```
+
+## Configuration
+
+### `HOST`
+
+You can specify a host to listen on using `HOST` environment key
+
+It defaults to 0.0.0.0
+
+### `PORT`
+
+You can specify a port to listen on using `PORT` environment key
+
+It defaults to 13579
+
+### `REDIS_URL`
+
+Relay depends on redis, you can specify an url using `REDIS_URL` environment key
+
+### `NAMESPACE`
+
+If you want a DStack peer to work you need to specify a `NAMESPACE` environment key
+
+## Using docker-compose
+
+Here is an sample [compose file](https://docs.docker.com/compose/compose-file/):
+
+```yaml
+version: '3.8'
+
+services:
+  relay:
+    image: ghcr.io/dstack-js/dstack/relay:main
+    ports:
+      - 13579:13579
+    depends_on:
+      - redis
+    environment:
+      REDIS_URL: "redis://redis:6379"
+      NAMESPACE: "dstack"
+
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+```
+
+Here is an example setup:
+
+```console
+cd
+mkdir relay && cd relay
+curl -o docker-compose.yaml https://dstack.dev/docker-compose.relay.yaml
+docker-compose up -d
+```
+
+## Using Heroku
+
+You will need an redis addon, and you will need to set environment values like specified in configuration
+
+1. Clone repo:
+```console
+git clone https://github.com/dstack-js/dstack.git && cd dstack
+```
+
+2. Build relay:
+```console
+yarn build
+```
+
+3. Deploy using [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli):
+```console
+cd dist/packages/relay
+```
+
+```console
+heroku create
+```
+
+```console
+heroku addons:create heroku-redis:hobby-dev -a <application-name>
+```
+
+```console
+heroku config:set NAMESPACE=dstack -a <application-name>
+```
+
+```console
+heroku container:login
+```
+
+```console
+heroku container:push web -a <application-name>
+```
+
+```console
+heroku container:release web -a <application-name>
+```
+
+```console
+heroku open -a <application-name>
+```
