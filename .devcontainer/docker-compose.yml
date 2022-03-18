@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VARIANT: 16-bullseye
+
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    network_mode: service:redis
+
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379

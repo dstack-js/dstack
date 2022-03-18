@@ -1,0 +1,12 @@
+{
+	"name": "DStack",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+	"settings": {
+    "terminal.integrated.env.linux": {
+      "REDIS_URL": "redis://redis:6379"
+    }
+  },
+	"remoteUser": "node"
+}
