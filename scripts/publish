@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for package in dist/packages/* ; do
+  echo "Publishing $package"
+  bash -c "cd $package && yarn publish --access public" > /dev/null 2>&1 &
+done
+
+wait
