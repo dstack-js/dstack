@@ -79,9 +79,8 @@
   "scripts": {
     "build": "nx run-many --all --target=build",
     "lint": "nx run-many --all --target=lint",
-    "prepare": "npm-run-all prepare:hooks prepare:services",
+    "prepare": "npm-run-all prepare:hooks",
     "prepare:hooks": "husky install",
-    "prepare:services": "docker-compose up -d; exit 0",
     "release": "standard-version --bumpFiles package.json packages/lib/package.json packages/ipfs/package.json packages/relay/package.json",
     "serve": "nx run-many --all --target=serve"
   },
