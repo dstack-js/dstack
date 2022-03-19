@@ -1,7 +1,7 @@
 import { IPFS } from 'ipfs-core-types'
 import type { libp2p as Libp2p } from 'ipfs-core/src/components/network'
 import all from 'it-all'
-import { CID } from 'multiformats/cid'
+import type { CID } from 'ipfs-core'
 import { PeerUnreachableError, Store } from '.'
 import { PubSub } from './pubsub'
 import { Storage } from './storage'

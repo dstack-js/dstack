@@ -1,5 +1,5 @@
 /* eslint-disable no-dupe-class-members */
-import { CID } from 'multiformats/cid'
+import { CID } from 'ipfs-core'
 import { Buffer } from 'buffer'
 import { UnknownShardKindError } from './errors'
 import { EventEmitter } from 'events'
