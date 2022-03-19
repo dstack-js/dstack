@@ -2739,7 +2739,6 @@ __metadata:
     it-drain: 1.0.5
     it-last: 1.0.6
     lru-cache: 7.7.1
-    multiformats: 9.6.4
     tslib: 2.3.1
     uuid: 8.3.2
   languageName: unknown
@@ -20155,13 +20154,6 @@ __metadata:
   bin:
     multicast-dns: cli.js
   checksum: 45a78628a8f26479c4018122d689a8b22aff034699a1913dac0b9891e4111162b3222c85bba642d624270a90e51129607f1e41aa701e0108cc974246bc9fe828
-  languageName: node
-  linkType: hard
-
-"multiformats@npm:9.6.4":
-  version: 9.6.4
-  resolution: "multiformats@npm:9.6.4"
-  checksum: b3b8e481112379d6f3aace199a06e6974dfe3ed4e2100a0effe19fef936ba31704382356df6278a3922b5cb47fcfefe3e5bc54e5bebef35272e3503bad3c62ba
   languageName: node
   linkType: hard
 
