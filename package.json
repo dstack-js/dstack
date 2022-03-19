@@ -75,6 +75,7 @@
     ]
   },
   "name": "dstack-js",
+  "packageManager": "yarn@3.2.0",
   "private": true,
   "scripts": {
     "build": "nx run-many --all --target=build",

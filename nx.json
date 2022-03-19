@@ -5,7 +5,7 @@
   "cli": {
     "defaultCollection": "@nrwl/react"
   },
-  "defaultProject": "explorer",
+  "defaultProject": "lib",
   "extends": "@nrwl/workspace/presets/core.json",
   "generators": {
     "@nrwl/react": {
@@ -28,13 +28,7 @@
     "default": {
       "options": {
         "accessToken": "MjBiYTU3ODktZDVlZC00MmNkLWI2YmQtNmNlNDIwOWY3ZDU1fHJlYWQtd3JpdGU=",
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e",
-          "serve"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e", "serve"]
       },
       "runner": "@nrwl/nx-cloud"
     }
