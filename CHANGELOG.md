@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.41](https://github.com/dstack-js/dstack/compare/v0.2.40...v0.2.41) (2022-03-19)
+
+### Features
+
+- **ci:** add npm workflow ([4f42ed4](https://github.com/dstack-js/dstack/commits/4f42ed47243269e153b7c2e5c333e17bb46950a8))
+- **ci:** add relay workflow ([7fcf995](https://github.com/dstack-js/dstack/commits/7fcf995559f2166ffc7fb9235dbcfa5babcafeb1))
+- **devcontainer:** add configuration ([1f1f722](https://github.com/dstack-js/dstack/commits/1f1f722107bf8a9637b892487090770fcc2497eb))
+- **docs:** add demo gif ([c87ddb5](https://github.com/dstack-js/dstack/commits/c87ddb5cbe3a4216c01735176c4495ac3fd49a5c))
+- **docs:** add support ukraine announcement ([f806264](https://github.com/dstack-js/dstack/commits/f80626429a93c9e375bd564b4cdbe36531a377cf))
+- **docs:** deploy relay ([72dc07e](https://github.com/dstack-js/dstack/commits/72dc07e0492c3983f24f3036a76a2f1a9af87eb7))
+- **worspace:** upgrade yarn to berry ([4dcb6f5](https://github.com/dstack-js/dstack/commits/4dcb6f5775f8f41cc406840f80467843e77403bb))
+
+### Bug Fixes
+
+- **ci:** relay workflow missing deps ([b9f6465](https://github.com/dstack-js/dstack/commits/b9f6465babeb4f977cea4a1a7f3988ab3d8b0f29))
+- **ci:** relay workflow missing nx ([129b741](https://github.com/dstack-js/dstack/commits/129b7412dd29013bbde4d41ba43a421ece20d8fb))
+- **deps:** pin dependency socket.io to 4.4.1 ([#42](https://github.com/dstack-js/dstack/issues/42)) ([3b04f20](https://github.com/dstack-js/dstack/commits/3b04f201f8db32d29ecb3ad9b422e61ea95503fb))
+- **docs:** remove nx-plus plugin ([ae48e77](https://github.com/dstack-js/dstack/commits/ae48e770dc9d18b084128671692ea6506262a395))
+- **workspace:** remove prepare:services ([8fba20e](https://github.com/dstack-js/dstack/commits/8fba20e3101b559a0c3c0795f671d619a8be81f5))
+- **worspace:** upgrade yarn to berry ([3c2f9fa](https://github.com/dstack-js/dstack/commits/3c2f9fa5dedf803c711fa2f77f16f9bf66e4c2f2))
+
 ### [0.2.40](https://github.com/dstack-js/dstack/compare/v0.2.39...v0.2.40) (2022-02-14)
 
 ### Bug Fixes
