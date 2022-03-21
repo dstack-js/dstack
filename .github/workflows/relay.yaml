@@ -4,15 +4,13 @@ on:
   schedule:
     - cron: '34 19 * * *'
   push:
-    branches: [ main ]
-    tags: [ 'v*.*.*' ]
+    branches: [main]
+    tags: ['v*.*.*']
     paths:
-      - ".github/workflows/relay.yaml"
-      - "packages/lib"
-      - "packages/ipfs"
-      - "packages/relay"
+      - '.github/workflows/relay.yaml'
+      - 'packages/relay/**'
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 env:
   REGISTRY: ghcr.io
@@ -27,9 +25,6 @@ jobs:
       id-token: write
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
@@ -61,6 +56,9 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Build relay
         id: nx-build-relay
         run: yarn install && nx build relay
@@ -77,5 +75,5 @@ jobs:
       - name: Sign the published Docker image
         if: ${{ github.event_name != 'pull_request' }}
         env:
-          COSIGN_EXPERIMENTAL: "true"
+          COSIGN_EXPERIMENTAL: 'true'
         run: cosign sign ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
