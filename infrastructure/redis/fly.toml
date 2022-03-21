@@ -1,21 +1,27 @@
-app = "dstack-relay"
+# fly.toml file generated for dstack-redis on 2022-03-21T22:18:20+01:00
+
+app = "dstack-redis"
 
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
 
 [build]
-  dockerfile = "dist/packages/relay/Dockerfile"
+  image = "flyio/redis:6.2.6"
 
 [env]
+
+[metrics]
+  port = 9091
+  path = "/metrics"
 
 [experimental]
   allowed_public_ports = []
   auto_rollback = true
 
 [[services]]
-  http_checks = ['/']
-  internal_port = 13579
+  http_checks = []
+  internal_port = 8080
   processes = ["app"]
   protocol = "tcp"
   script_checks = []
@@ -28,10 +34,6 @@ processes = []
   [[services.ports]]
     handlers = ["http"]
     port = 80
-
-  [[services.ports]]
-    handlers = ["tls", "http"]
-    port = 443
 
   [[services.tcp_checks]]
     grace_period = "1s"
