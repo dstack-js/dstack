@@ -2755,7 +2755,6 @@ __metadata:
     graphql: 16.3.0
     graphql-playground-html: 1.6.30
     mercurius: 9.3.5
-    nats: 2.6.1
     nexus: 1.3.0
     redis: 4.0.4
     socket.io: 4.4.1
@@ -6850,13 +6849,6 @@ __metadata:
   version: 17.0.17
   resolution: "@types/node@npm:17.0.17"
   checksum: 8ddba2829acdf1684fbd8fd248ec13f033efb70ecd1085677b547c40ef8e936a006b95eac3bdc28c47939c62526f3f027afeb4a930e30e4394923bbae4626476
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^14.0.26":
-  version: 14.18.11
-  resolution: "@types/node@npm:14.18.11"
-  checksum: 58f75d05406004b83f1fd4c72115d2c180f22812bd48187b89b27dd9ea09f90774b2261f068e94bf6a6792a1f33a585b624135be3c4b6e2acd766043148754a7
   languageName: node
   linkType: hard
 
@@ -20276,15 +20268,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nats@npm:2.6.1":
-  version: 2.6.1
-  resolution: "nats@npm:2.6.1"
-  dependencies:
-    nkeys.js: ^1.0.0-9
-  checksum: 554b0b1e9b4cf3638da06a08549fd76759f317c9cb13caadb10caa5028273f970d8917dc913b26ffaf17b6a043320ce75885ed04ed7f1362ffcff002507caf87
-  languageName: node
-  linkType: hard
-
 "natural-compare@npm:^1.4.0":
   version: 1.4.0
   resolution: "natural-compare@npm:1.4.0"
@@ -20356,16 +20339,6 @@ __metadata:
   version: 1.0.5
   resolution: "nice-try@npm:1.0.5"
   checksum: 0b4af3b5bb5d86c289f7a026303d192a7eb4417231fe47245c460baeabae7277bcd8fd9c728fb6bd62c30b3e15cd6620373e2cf33353b095d8b403d3e8a15aff
-  languageName: node
-  linkType: hard
-
-"nkeys.js@npm:^1.0.0-9":
-  version: 1.0.0-9
-  resolution: "nkeys.js@npm:1.0.0-9"
-  dependencies:
-    "@types/node": ^14.0.26
-    tweetnacl: ^1.0.3
-  checksum: fed901db93dea03075f5a6eb5bc19983c99342a16b7e4589cabd8f0974a535bb0520e63ca3da1b3d7e613bad5a68208a09a4208bde3970fd34fbca1b47e4ae82
   languageName: node
   linkType: hard
 
@@ -26876,13 +26849,6 @@ __metadata:
   version: 0.14.5
   resolution: "tweetnacl@npm:0.14.5"
   checksum: 6061daba1724f59473d99a7bb82e13f211cdf6e31315510ae9656fefd4779851cb927adad90f3b488c8ed77c106adc0421ea8055f6f976ff21b27c5c4e918487
-  languageName: node
-  linkType: hard
-
-"tweetnacl@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "tweetnacl@npm:1.0.3"
-  checksum: e4a57cac188f0c53f24c7a33279e223618a2bfb5fea426231991652a13247bea06b081fd745d71291fcae0f4428d29beba1b984b1f1ce6f66b06a6d1ab90645c
   languageName: node
   linkType: hard
 

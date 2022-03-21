@@ -9,6 +9,7 @@ on:
     paths:
       - '.github/workflows/relay.yaml'
       - 'packages/relay/**'
+      - 'yarn.lock'
   pull_request:
     branches: [main]
 
