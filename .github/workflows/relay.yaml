@@ -80,8 +80,7 @@ jobs:
         run: cosign sign ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
 
       - uses: superfly/flyctl-actions@1.3
-        working-directory: dist/packages/relay
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         with:
-          args: 'deploy --remote-only'
+          args: 'deploy --remote-only --strategy bluegreen --detach dist/packages/relay'
