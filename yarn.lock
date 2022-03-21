@@ -2713,7 +2713,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dstack-js/ipfs@^0.2.32, @dstack-js/ipfs@workspace:packages/ipfs":
+"@dstack-js/ipfs@workspace:packages/ipfs":
   version: 0.0.0-use.local
   resolution: "@dstack-js/ipfs@workspace:packages/ipfs"
   dependencies:
@@ -2725,7 +2725,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@dstack-js/lib@^0.2.32, @dstack-js/lib@workspace:packages/lib":
+"@dstack-js/lib@workspace:packages/lib":
   version: 0.0.0-use.local
   resolution: "@dstack-js/lib@workspace:packages/lib"
   dependencies:
@@ -2748,16 +2748,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dstack-js/relay@workspace:packages/relay"
   dependencies:
-    "@dstack-js/ipfs": ^0.2.32
-    "@dstack-js/lib": ^0.2.32
     "@libp2p/webrtc-star-protocol": 1.0.1
     fastify: 3.27.4
     fastify-cors: 6.0.3
     fastify-socket.io: 3.0.0
     graphql: 16.3.0
     graphql-playground-html: 1.6.30
-    libp2p-webrtc-star: 0.25.0
-    libp2p-websockets: 0.16.2
     mercurius: 9.3.5
     nats: 2.6.1
     nexus: 1.3.0
@@ -2765,7 +2761,6 @@ __metadata:
     socket.io: 4.4.1
     ts-node: 10.7.0
     tsconfig-paths: 3.14.0
-    wrtc: 0.4.7
   bin:
     dstack-relay: src/index.js
   languageName: unknown
@@ -4640,6 +4635,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mdx-js/react@npm:1.6.22, @mdx-js/react@npm:^1.6.22":
+  version: 1.6.22
+  resolution: "@mdx-js/react@npm:1.6.22"
+  peerDependencies:
+    react: ^16.13.1 || ^17.0.0
+  checksum: bc84bd514bc127f898819a0c6f1a6915d9541011bd8aefa1fcc1c9bea8939f31051409e546bdec92babfa5b56092a16d05ef6d318304ac029299df5181dc94c8
+  languageName: node
+  linkType: hard
+
 "@mdx-js/react@npm:2.1.0":
   version: 2.1.0
   resolution: "@mdx-js/react@npm:2.1.0"
@@ -4649,15 +4653,6 @@ __metadata:
   peerDependencies:
     react: ">=16"
   checksum: c62212851eef291c5687aada6db22583354a744149ff193773ce345244b978455ba98bbd91f8c431c49982176aef83f092fcdfae9cf94db36f33be7cf0b04154
-  languageName: node
-  linkType: hard
-
-"@mdx-js/react@npm:^1.6.22":
-  version: 1.6.22
-  resolution: "@mdx-js/react@npm:1.6.22"
-  peerDependencies:
-    react: ^16.13.1 || ^17.0.0
-  checksum: bc84bd514bc127f898819a0c6f1a6915d9541011bd8aefa1fcc1c9bea8939f31051409e546bdec92babfa5b56092a16d05ef6d318304ac029299df5181dc94c8
   languageName: node
   linkType: hard
 
@@ -11551,7 +11546,7 @@ __metadata:
     "@docusaurus/core": 2.0.0-beta.17
     "@docusaurus/module-type-aliases": 2.0.0-beta.17
     "@docusaurus/preset-classic": 2.0.0-beta.17
-    "@mdx-js/react": 2.1.0
+    "@mdx-js/react": 1.6.22
     "@tsconfig/docusaurus": 1.0.5
     clsx: 1.1.1
     prism-react-renderer: 1.3.1
@@ -28265,7 +28260,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wrtc@npm:0.4.7, wrtc@npm:^0.4.6":
+"wrtc@npm:^0.4.6":
   version: 0.4.7
   resolution: "wrtc@npm:0.4.7"
   dependencies:

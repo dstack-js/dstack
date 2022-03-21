@@ -6,7 +6,7 @@ sidebar_position: 1
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Relay provides [Stack instance](./stack.md) with [`libp2p-webrtc-star`](https://github.com/libp2p/js-libp2p-webrtc-star) compatible scalable signaling server and GraphQL API
+Relay provides [`libp2p-webrtc-star`](https://github.com/libp2p/js-libp2p-webrtc-star) compatible scalable signaling server and GraphQL API
 
 ## Getting Bootstrap data
 
@@ -19,7 +19,6 @@ Relay provides necessary GraphQL resolvers for initializing the [Stack instance]
 query Bootstrap {
   listen(protocol: https, hostname: "relay.dstack.dev", port: 443)
   peers(randomize: true)
-  namespace
 }
 ```
 
@@ -36,8 +35,7 @@ query Bootstrap {
       "/dns4/relay.dstack.dev/tcp/443/wss/p2p-webrtc-star/p2p/12D3KooWRNzGrUc9nHEquTwJJvKr7gVZRW2xaFwzWoHbHKUZf6WQ",
       "/dns4/relay.dstack.dev/tcp/443/wss/p2p-webrtc-star/p2p/12D3KooWNqcWa4vXqNBUxyz9LKiKQMY62hZUUvmYpDSYBXSwkeiT",
       "/dns4/relay.dstack.dev/tcp/443/wss/p2p-webrtc-star/p2p/12D3KooWJN1Uvd3QzcNEmcTdybsYqdGgSsSnFH39RerEGodQr8E9"
-    ],
-    "namespace": "dstack"
+    ]
   }
 }
 ```
@@ -58,11 +56,10 @@ export const createStack = async () => {
     query Bootstrap($protocol: Protocol!, $hostname: String!, $port: Int!) {
       listen(protocol: $protocol, hostname: $hostname, port: $port)
       peers(randomize: true)
-      namespace
     }
   `;
 
-  const {listen, peers, namespace} = await request<{ listen: string[]; peers: string[]; namespace: string }>(
+  const {listen, peers} = await request<{ listen: string[]; peers: string[] }>(
     endpoint,
     query,
     {
@@ -81,7 +78,7 @@ export const createStack = async () => {
     }
   });
 
-  const stack = await Stack.create(namespace, ipfs);
+  const stack = await Stack.create('namespace', ipfs);
 };
 ```
 

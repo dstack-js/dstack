@@ -3,22 +3,16 @@
     "dstack-relay": "src/index.js"
   },
   "dependencies": {
-    "@dstack-js/ipfs": "^0.2.32",
-    "@dstack-js/lib": "^0.2.32",
     "@libp2p/webrtc-star-protocol": "1.0.1",
     "fastify": "3.27.4",
     "fastify-cors": "6.0.3",
     "fastify-socket.io": "3.0.0",
     "graphql": "16.3.0",
     "graphql-playground-html": "1.6.30",
-    "libp2p-webrtc-star": "0.25.0",
-    "libp2p-websockets": "0.16.2",
     "mercurius": "9.3.5",
-    "nats": "2.6.1",
     "nexus": "1.3.0",
     "redis": "4.0.4",
-    "socket.io": "4.4.1",
-    "wrtc": "0.4.7"
+    "socket.io": "4.4.1"
   },
   "devDependencies": {
     "ts-node": "10.7.0",

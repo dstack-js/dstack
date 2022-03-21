@@ -42,10 +42,6 @@ It defaults to 13579
 
 Relay depends on redis, you can specify an url using `REDIS_URL` environment key
 
-### `NAMESPACE`
-
-If you want a DStack peer to work you need to specify a `NAMESPACE` environment key
-
 ## Using docker-compose
 
 Here is an sample [compose file](https://docs.docker.com/compose/compose-file/):
@@ -62,7 +58,6 @@ services:
       - redis
     environment:
       REDIS_URL: "redis://redis:6379"
-      NAMESPACE: "dstack"
 
   redis:
     image: redis:latest
@@ -104,10 +99,6 @@ heroku create
 
 ```console
 heroku addons:create heroku-redis:hobby-dev -a <application-name>
-```
-
-```console
-heroku config:set NAMESPACE=dstack -a <application-name>
 ```
 
 ```console
