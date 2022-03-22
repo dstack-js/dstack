@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.42](https://github.com/dstack-js/dstack/compare/v0.2.41...v0.2.42) (2022-03-22)
+
+### Features
+
+- **relay:** remove stack and ipfs ([4d34dea](https://github.com/dstack-js/dstack/commits/4d34dea2b3ffc4a28380c8529e4913af8ecb609f))
+
+### Bug Fixes
+
+- **relay:** fix socket.io path ([16aa327](https://github.com/dstack-js/dstack/commits/16aa327aa86c13a48a091e9b319b14f458c4bf07))
+
 ### [0.2.41](https://github.com/dstack-js/dstack/compare/v0.2.40...v0.2.41) (2022-03-19)
 
 ### Features
