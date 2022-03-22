@@ -13,7 +13,7 @@
     "@types/events": "3.0.0",
     "@types/lru-cache": "7.5.0",
     "@types/uuid": "8.3.4",
-    "ipfs-core": "^0.14.1"
+    "ipfs-core": "0.14.1"
   },
   "homepage": "https://dstack.dev",
   "license": "GPL-3.0",
