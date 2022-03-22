@@ -80,7 +80,12 @@ const handle = (socket: WebRTCStarSocket) => {
 }
 
 export const setSocket = async (server: FastifyInstance) => {
-  server.register(fastifyIO, { allowEIO3: true })
+  server.register(fastifyIO, {
+    allowEIO3: true,
+    transports: ['websocket'],
+    cors: { origin: '*' },
+    path: '/socket.io-next/'
+  })
 
   await server.ready()
   // @ts-expect-error: incompatible types
