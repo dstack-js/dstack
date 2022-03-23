@@ -1,11 +1,10 @@
+# fly.toml file generated for dstack-relay on 2022-03-21T22:14:25+01:00
+
 app = "dstack-relay"
 
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
-
-[build]
-  dockerfile = "dist/packages/relay/Dockerfile"
 
 [env]
 
@@ -13,16 +12,20 @@ processes = []
   allowed_public_ports = []
   auto_rollback = true
 
+[metrics]
+  port = 13579
+  path = "/metrics"
+
 [[services]]
-  http_checks = ['/']
+  http_checks = []
   internal_port = 13579
   processes = ["app"]
   protocol = "tcp"
   script_checks = []
 
   [services.concurrency]
-    hard_limit = 25
-    soft_limit = 20
+    hard_limit = 100
+    soft_limit = 75
     type = "connections"
 
   [[services.ports]]
@@ -36,5 +39,5 @@ processes = []
   [[services.tcp_checks]]
     grace_period = "1s"
     interval = "15s"
-    restart_limit = 0
+    restart_limit = 2
     timeout = "2s"

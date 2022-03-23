@@ -20,7 +20,7 @@ export const listen = async ({
   port = process.env['PORT'] || 13579,
   host = process.env['HOST'] || '0.0.0.0'
 }: ListenOptions = {}) => {
-  const server = fastify()
+  const server = fastify({ logger: true })
   const schema = makeSchema({
     types,
     outputs: {

@@ -85,7 +85,7 @@
     "release": "standard-version --bumpFiles package.json packages/lib/package.json packages/ipfs/package.json packages/relay/package.json",
     "serve": "nx run-many --all --target=serve"
   },
-  "version": "0.2.41",
+  "version": "0.2.42",
   "workspaces": [
     "packages/*",
     "docs"

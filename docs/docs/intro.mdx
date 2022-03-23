@@ -98,7 +98,7 @@ import { Stack } from '@dstack-js/lib';
 // Browser:
 const ipfs = await create();
 // In Node.js environment you need to provide WebRTC implementation
-// const wrtc = require('wrtc');
+// const wrtc = require('@dstack-js/wrtc');
 // const ipfs = await create({}, wrtc);
 
 const stack = await Stack.create('namespace', ipfs);
