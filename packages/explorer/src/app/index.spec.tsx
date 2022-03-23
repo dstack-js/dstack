@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 
 import { BrowserRouter } from 'react-router-dom'
 
-import App from './app'
+import { App } from '.'
 
 describe('App', () => {
   it('should render successfully', () => {
@@ -13,15 +13,5 @@ describe('App', () => {
     )
 
     expect(baseElement).toBeTruthy()
-  })
-
-  it('should have a greeting as the title', () => {
-    const { getByText } = render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    )
-
-    expect(getByText(/Welcome explorer/gi)).toBeTruthy()
   })
 })

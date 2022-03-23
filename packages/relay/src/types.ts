@@ -41,8 +41,8 @@ const peers = queryField('peers', {
   args: {
     randomize: booleanArg()
   },
-  async resolve(_, { randomize }) {
-    const peers = await getPeers()
+  async resolve(_, { randomize }, { namespace }) {
+    const peers = await getPeers(namespace)
 
     if (randomize) {
       return peers

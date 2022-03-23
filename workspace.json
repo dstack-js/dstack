@@ -4,7 +4,8 @@
     "explorer-e2e": "packages/explorer-e2e",
     "ipfs": "packages/ipfs",
     "lib": "packages/lib",
-    "relay": "packages/relay"
+    "relay": "packages/relay",
+    "transport": "packages/transport"
   },
   "version": 2
 }

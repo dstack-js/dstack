@@ -1,12 +1,16 @@
-// @ts-expect-error: no types
-import WebRTCStar from 'libp2p-webrtc-star'
+import { WebRTCStar } from '@dstack-js/transport'
 // @ts-expect-error: no types
 import WebSocket from 'libp2p-websockets'
 import { create as IPFSCreate, PeerId, CID } from 'ipfs'
 import type { IPFS, Options as IPFSOptions } from 'ipfs-core'
-import { listen } from './addresses'
+import { bootstrap } from './bootstrap'
 
-const create = (options?: IPFSOptions, wrtc?: any): Promise<IPFS> => {
+const create = async (
+  options: Partial<IPFSOptions> & { namespace: string; relay?: string },
+  wrtc?: any
+): Promise<IPFS> => {
+  const { listen, peers } = await bootstrap(options.namespace, options.relay)
+
   return IPFSCreate({
     config: {
       Discovery: {
@@ -15,9 +19,7 @@ const create = (options?: IPFSOptions, wrtc?: any): Promise<IPFS> => {
       Addresses: {
         Swarm: listen
       },
-      Bootstrap: [
-        '/dns4/relay.dstack.dev/tcp/443/wss/p2p-webrtc-star/p2p/QmV2uXBKbii29iJKHKVy8sx5m49qdDTBYNybVoa5uLJtrf'
-      ],
+      Bootstrap: peers,
       ...options?.config
     },
     ...options,
@@ -40,7 +42,8 @@ const create = (options?: IPFSOptions, wrtc?: any): Promise<IPFS> => {
         },
         transport: {
           WebRTCStar: {
-            wrtc
+            wrtc,
+            namespace: options.namespace
           }
         }
       },

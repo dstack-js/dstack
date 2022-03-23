@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "graphql-request": "^4.2.0",
     "ipfs": "0.62.1",
     "ipfs-core": "0.14.1",
     "libp2p-webrtc-star": "0.25.0",
