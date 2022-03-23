@@ -66,7 +66,7 @@ jobs:
 
       - name: Build and push Docker image
         id: build-and-push
-        uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
+        uses: docker/build-push-action@b5730d24715e542a67be9991a420842b8b072900
         with:
           context: dist/packages/relay
           push: ${{ github.event_name != 'pull_request' }}
