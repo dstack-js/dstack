@@ -6,7 +6,7 @@
     "@emotion/styled": "11.8.1",
     "@mdx-js/react": "2.1.0",
     "@mui/icons-material": "5.5.1",
-    "@mui/material": "5.5.1",
+    "@mui/material": "5.5.2",
     "clsx": "1.1.1",
     "core-js": "3.21.1",
     "react": "17.0.2",
