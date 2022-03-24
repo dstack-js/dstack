@@ -1,7 +1,5 @@
 {
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.17",
-    "@docusaurus/preset-classic": "2.0.0-beta.17",
     "@emotion/react": "11.8.2",
     "@emotion/styled": "11.8.1",
     "@mdx-js/react": "2.1.0",
