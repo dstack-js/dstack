@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.45](https://github.com/dstack-js/dstack/compare/v0.2.44...v0.2.45) (2022-03-24)
+
+### Bug Fixes
+
+- **transport:** add license ([c4c804a](https://github.com/dstack-js/dstack/commits/c4c804a881baf8ed48088018b7d973ffc251693b))
+
 ### [0.2.44](https://github.com/dstack-js/dstack/compare/v0.2.43...v0.2.44) (2022-03-24)
 
 ### Bug Fixes
