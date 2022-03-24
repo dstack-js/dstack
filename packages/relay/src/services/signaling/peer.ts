@@ -33,7 +33,9 @@ export const onPeerConnect = async (
 
 export const getPeers = async (cachePrefix: string) => {
   return redis.keys(`${cachePrefix}${PEER_PREFIX}*`).then((keys) => {
-    return keys.map((multiaddr) => multiaddr.replace(PEER_PREFIX, ''))
+    return keys.map((multiaddr) =>
+      multiaddr.replace(`${cachePrefix}${PEER_PREFIX}`, '')
+    )
   })
 }
 
