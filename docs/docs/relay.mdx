@@ -6,7 +6,7 @@ sidebar_position: 1
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Relay provides [`libp2p-webrtc-star`](https://github.com/libp2p/js-libp2p-webrtc-star) compatible scalable signaling server and GraphQL API
+Relay provides `@dstack-js/transport` compatible scalable signaling server and GraphQL API
 
 ## Public Relay
 
@@ -19,6 +19,23 @@ You can check status and uptime here: https://status.dstack.dev
 [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/d3wq.svg)](https://betteruptime.com/?utm_source=status_badge)
 
 ## Getting Bootstrap data
+
+As of version v0.2.46 no need to bootstrap
+
+you can provide an GraphQL endpoint to your relay directly in `@dstack-js/lib`
+
+```javascript
+import { Stack } from '@dstack-js/lib';
+
+const stack = await Stack.create({
+  namespace: 'namespace',
+  relay: 'https://relay.dstack.dev:443/graphql'
+});
+```
+
+<details>
+
+<summary> How to get bootstrap data </summary>
 
 Relay provides necessary GraphQL resolvers for initializing the [Stack instance](./stack.md)
 
@@ -87,8 +104,6 @@ export const createStack = async () => {
       Bootstrap: peers
     }
   });
-
-  const stack = await Stack.create('namespace', ipfs);
 };
 ```
 
@@ -96,7 +111,7 @@ export const createStack = async () => {
 </Tabs>
 
 
-
+</details>
 
 ## Endpoints
 
