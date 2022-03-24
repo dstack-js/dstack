@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.46](https://github.com/dstack-js/dstack/compare/v0.2.45...v0.2.46) (2022-03-24)
+
+### Bug Fixes
+
+- **ipfs:** fix workspace dependency ([c381e54](https://github.com/dstack-js/dstack/commits/c381e54c2104e7749d96e4a363ba40e500ec05b9))
+
 ### [0.2.45](https://github.com/dstack-js/dstack/compare/v0.2.44...v0.2.45) (2022-03-24)
 
 ### Bug Fixes
