@@ -1,10 +1,11 @@
-import { IPFS } from 'ipfs-core-types'
+import type { IPFS } from 'ipfs-core-types'
 import type { libp2p as Libp2p } from 'ipfs-core/src/components/network'
 import all from 'it-all'
 import type { CID } from 'ipfs-core'
 import { PeerUnreachableError, Store } from '.'
 import { PubSub } from './pubsub'
 import { Storage } from './storage'
+import { create } from '@dstack-js/ipfs'
 
 export interface Peer {
   id: string;
@@ -17,6 +18,35 @@ export interface PeerAnnouncement {
 }
 
 export type StackPubSubMessage = PeerAnnouncement;
+
+export interface StackOptions {
+  namespace: string;
+  /**
+   * IPFS Instance
+   *
+   * No need to provide it unless you want custom IPFS instance to be used
+   * `@dstack-js/ipfs` will be used by default
+   */
+  ipfs?: IPFS;
+  /**
+   * WebRTC implementation
+   *
+   * No need to provide it unless you want to use DStack in non browser environment
+   */
+  wrtc?: any;
+  /**
+   * Relay GraphQL Endpoint
+   *
+   * Defaults to DStack Cloud
+   */
+  relay?: string;
+  /**
+   * Storage implementation
+   *
+   * No need to provide it unless you want custom storage implementation to be used
+   */
+  storage?: Storage;
+}
 
 export class Stack {
   public pubsub: PubSub<StackPubSubMessage>
@@ -67,11 +97,19 @@ export class Stack {
   /**
    * Create stack
    *
-   * @param namespace needed to scope different stacks data/events
-   * @param ipfs IPFS instance / see `@dstack-js/ipfs` package
    * @returns Stack instance
    */
-  public static async create(namespace: string, ipfs: IPFS, storage?: Storage) {
+  public static async create({
+    namespace,
+    ipfs,
+    storage,
+    relay,
+    wrtc
+  }: StackOptions) {
+    if (!ipfs) {
+      ipfs = await create({ namespace, relay, wrtc })
+    }
+
     const cid = await ipfs.dag.put({ namespace })
     storage = storage || new Storage(namespace)
 

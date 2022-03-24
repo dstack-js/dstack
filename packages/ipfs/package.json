@@ -1,15 +1,13 @@
 {
   "dependencies": {
-    "ipfs": "0.62.1",
+    "graphql-request": "^4.2.0",
     "ipfs-core": "0.14.1",
-    "libp2p-webrtc-star": "0.25.0",
-    "libp2p-websockets": "0.16.2",
     "tslib": "2.3.1"
   },
-  "repository": "https://github.com/dstack-js/dstack.git",
   "homepage": "https://dstack.dev",
   "license": "GPL-3.0",
   "name": "@dstack-js/ipfs",
-  "type": "commonjs",
+  "repository": "https://github.com/dstack-js/dstack.git",
+  "type": "module",
   "version": "0.2.42"
 }

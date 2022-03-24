@@ -1,73 +1,67 @@
 {
+  "projectType": "application",
   "root": "packages/explorer",
   "sourceRoot": "packages/explorer/src",
-  "projectType": "application",
+  "tags": [],
   "targets": {
     "build": {
-      "executor": "@nrwl/web:webpack",
-      "outputs": ["{options.outputPath}"],
+      "configurations": {
+        "production": {
+          "extractLicenses": true,
+          "namedChunks": false,
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "vendorChunk": false
+        }
+      },
       "defaultConfiguration": "production",
+      "executor": "@nrwl/web:webpack",
       "options": {
-        "compiler": "babel",
-        "outputPath": "dist/packages/explorer",
-        "index": "packages/explorer/src/index.html",
-        "baseHref": "/",
-        "main": "packages/explorer/src/main.tsx",
-        "polyfills": "packages/explorer/src/polyfills.ts",
-        "tsConfig": "packages/explorer/tsconfig.app.json",
         "assets": [
           "packages/explorer/src/favicon.ico",
           "packages/explorer/src/assets"
         ],
-        "styles": [],
+        "baseHref": "/",
+        "compiler": "babel",
+        "index": "packages/explorer/src/index.html",
+        "main": "packages/explorer/src/main.tsx",
+        "outputPath": "dist/packages/explorer",
+        "polyfills": "packages/explorer/src/polyfills.ts",
         "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "styles": [],
+        "tsConfig": "packages/explorer/tsconfig.app.json",
+        "webpackConfig": "webpack.config.js"
       },
-      "configurations": {
-        "production": {
-          "fileReplacements": [
-            {
-              "replace": "packages/explorer/src/environments/environment.ts",
-              "with": "packages/explorer/src/environments/environment.prod.ts"
-            }
-          ],
-          "optimization": true,
-          "outputHashing": "all",
-          "sourceMap": false,
-          "namedChunks": false,
-          "extractLicenses": true,
-          "vendorChunk": false
-        }
-      }
+      "outputs": ["{options.outputPath}"]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/explorer/**/*.{ts,tsx,js,jsx}"]
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "serve": {
-      "executor": "@nrwl/web:dev-server",
-      "options": {
-        "buildTarget": "explorer:build",
-        "hmr": true
-      },
       "configurations": {
         "production": {
           "buildTarget": "explorer:build:production",
           "hmr": false
         }
-      }
-    },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      },
+      "executor": "@nrwl/web:dev-server",
       "options": {
-        "lintFilePatterns": ["packages/explorer/**/*.{ts,tsx,js,jsx}"]
+        "buildTarget": "explorer:build",
+        "hmr": true
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/explorer"],
       "options": {
         "jestConfig": "packages/explorer/jest.config.js",
         "passWithNoTests": true
-      }
+      },
+      "outputs": ["coverage/packages/explorer"]
     }
-  },
-  "tags": []
+  }
 }

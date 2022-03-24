@@ -16,7 +16,7 @@ import {
   joinsTotal
 } from '../metrics'
 
-const handle = (socket: WebRTCStarSocket) => {
+const handle = (socket: WebRTCStarSocket, cachePrefix: string) => {
   console.log('signaling', 'handle', socket.id)
   const closeFunctions: (() => Promise<void>)[] = []
   const close = () => {
@@ -32,9 +32,9 @@ const handle = (socket: WebRTCStarSocket) => {
     if (!ma) return joinsFailureTotal.inc()
 
     multiaddr = ma
-    closeFunctions.push(await addPeer(multiaddr))
-    closeFunctions.push(await setPeerSocket(multiaddr, socket))
-    closeFunctions.push(await onPeerConnect(socket))
+    closeFunctions.push(await addPeer(multiaddr, cachePrefix))
+    closeFunctions.push(await setPeerSocket(cachePrefix, multiaddr, socket))
+    closeFunctions.push(await onPeerConnect(socket, cachePrefix))
     console.log('signaling', 'ss-join', socket.id, multiaddr)
   })
 
@@ -55,17 +55,32 @@ const handle = (socket: WebRTCStarSocket) => {
       return
     }
 
-    const peers = await getPeers()
+    const peers = await getPeers(cachePrefix)
 
     if (offer.answer === true) {
       dialsSuccessTotal.inc()
-      await emitPeerSocket(offer.srcMultiaddr, 'ws-handshake', offer)
+      await emitPeerSocket(
+        cachePrefix,
+        offer.srcMultiaddr,
+        'ws-handshake',
+        offer
+      )
     } else if (peers.includes(offer.dstMultiaddr)) {
-      await emitPeerSocket(offer.dstMultiaddr, 'ws-handshake', offer)
+      await emitPeerSocket(
+        cachePrefix,
+        offer.dstMultiaddr,
+        'ws-handshake',
+        offer
+      )
     } else if (peers.includes(offer.srcMultiaddr)) {
       dialsFailureTotal.inc()
       offer.err = 'peer is not available'
-      await emitPeerSocket(offer.srcMultiaddr, 'ws-handshake', offer)
+      await emitPeerSocket(
+        cachePrefix,
+        offer.srcMultiaddr,
+        'ws-handshake',
+        offer
+      )
     }
 
     console.log(
@@ -84,10 +99,16 @@ export const setSocket = async (server: FastifyInstance) => {
     allowEIO3: true,
     transports: ['websocket'],
     cors: { origin: '*' },
-    path: '/socket.io-next/'
+    path: '/socket.io/'
   })
 
   await server.ready()
-  // @ts-expect-error: incompatible types
-  server.io.on('connection', (socket) => handle(socket))
+  server.io.on('connection', (socket) => {
+    const cachePrefix = socket.handshake.auth['namespace']
+      ? socket.handshake.auth['namespace']
+      : ''
+
+    // @ts-expect-error: incompatible types
+    return handle(socket, cachePrefix)
+  })
 }

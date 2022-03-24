@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@dstack-js/ipfs": "workspace:^",
     "buffer": "6.0.3",
     "events": "3.3.0",
     "it-all": "1.0.6",

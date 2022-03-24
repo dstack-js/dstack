@@ -1,13 +1,28 @@
-// @ts-expect-error: no types
-import WebRTCStar from 'libp2p-webrtc-star'
-// @ts-expect-error: no types
-import WebSocket from 'libp2p-websockets'
-import { create as IPFSCreate, PeerId, CID } from 'ipfs'
-import type { IPFS, Options as IPFSOptions } from 'ipfs-core'
-import { listen } from './addresses'
+import { IPFS, create as IPFSCreate, PeerId, CID } from 'ipfs-core'
+import { bootstrap } from './bootstrap'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import WebRTCStar from '@dstack-js/transport'
 
-const create = (options?: IPFSOptions, wrtc?: any): Promise<IPFS> => {
+export interface Options {
+  namespace: string;
+  relay?: string;
+  wrtc?: any;
+  privateKey?: string;
+}
+
+export { CID, PeerId }
+
+export const create = async ({
+  namespace,
+  relay,
+  wrtc,
+  privateKey
+}: Options): Promise<IPFS> => {
+  const { listen, peers } = await bootstrap(namespace, relay)
+
   return IPFSCreate({
+    init: { privateKey },
     config: {
       Discovery: {
         webRTCStar: { Enabled: true }
@@ -15,24 +30,17 @@ const create = (options?: IPFSOptions, wrtc?: any): Promise<IPFS> => {
       Addresses: {
         Swarm: listen
       },
-      Bootstrap: [
-        '/dns4/relay.dstack.dev/tcp/443/wss/p2p-webrtc-star/p2p/QmV2uXBKbii29iJKHKVy8sx5m49qdDTBYNybVoa5uLJtrf'
-      ],
-      ...options?.config
-    },
-    ...options,
-    relay: {
-      enabled: true,
-      hop: {
-        enabled: true
-      }
+      Bootstrap: peers
     },
     libp2p: {
-      ...options?.libp2p,
+      // @ts-expect-error: incorrect type
       modules: {
-        transport: [WebRTCStar, WebSocket]
+        transport: [WebRTCStar]
       },
       config: {
+        dht: {
+          enabled: true
+        },
         peerDiscovery: {
           webRTCStar: {
             enabled: true
@@ -40,16 +48,17 @@ const create = (options?: IPFSOptions, wrtc?: any): Promise<IPFS> => {
         },
         transport: {
           WebRTCStar: {
-            wrtc
+            wrtc,
+            namespace
           }
         }
-      },
-      dht: {
-        enabled: true,
-        kBucketSize: 20
+      }
+    },
+    relay: {
+      enabled: true,
+      hop: {
+        enabled: true
       }
     }
   })
 }
-
-export { PeerId, CID, create }
