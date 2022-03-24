@@ -43,7 +43,7 @@ module.exports = {
       algolia: {
         appId: 'N3GRA9WRYT',
         apiKey: 'bb094d16c9b7d8137519d3495c0348cf',
-        indexName: 'dstack'
+        indexName: 'dstack',
       },
       announcementBar: {
         id: 'announcement',
@@ -140,10 +140,6 @@ module.exports = {
               {
                 label: 'Blog',
                 to: '/blog',
-              },
-              {
-                label: 'Changelog',
-                to: '/changelog',
               },
               {
                 label: 'GitHub',
