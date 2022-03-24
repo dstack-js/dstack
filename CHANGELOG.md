@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.43](https://github.com/dstack-js/dstack/compare/v0.2.42...v0.2.43) (2022-03-24)
+
+### Features
+
+- **lib, ipfs, transport, relay, explorer:** namespacing ([#70](https://github.com/dstack-js/dstack/issues/70)) ([bedd869](https://github.com/dstack-js/dstack/commits/bedd869ce87e8d8d3bca391329f81f4174df2974)), closes [#65](https://github.com/dstack-js/dstack/issues/65)
+
+### Bug Fixes
+
+- **deps:** pin dependencies ([#75](https://github.com/dstack-js/dstack/issues/75)) ([ca594d5](https://github.com/dstack-js/dstack/commits/ca594d5fd82b79ef95f0e41576b5d09f2d875822))
+- **deps:** update dependency @mui/material to v5.5.2 ([#62](https://github.com/dstack-js/dstack/issues/62)) ([6e2b478](https://github.com/dstack-js/dstack/commits/6e2b47869cdf6eeaa994e7d0481d63f8a023e297))
+- **deps:** update dependency debug to v4.3.4 ([#76](https://github.com/dstack-js/dstack/issues/76)) ([e4f51bb](https://github.com/dstack-js/dstack/commits/e4f51bb285f4330ef9ed6135639f8362b8cb6deb))
+- **deps:** update dependency mercurius to v9.3.6 ([#74](https://github.com/dstack-js/dstack/issues/74)) ([e46ed32](https://github.com/dstack-js/dstack/commits/e46ed3298db227c58b113067a326af262d5838b7))
+- **deps:** update dependency react-flow-renderer to v10 ([#57](https://github.com/dstack-js/dstack/issues/57)) ([5358ad7](https://github.com/dstack-js/dstack/commits/5358ad7f8fee93c10040ecfedfa580e5f565e549))
+
 ### [0.2.42](https://github.com/dstack-js/dstack/compare/v0.2.41...v0.2.42) (2022-03-22)
 
 ### Features
