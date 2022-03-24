@@ -99,13 +99,13 @@ export const setSocket = async (server: FastifyInstance) => {
     allowEIO3: true,
     transports: ['websocket'],
     cors: { origin: '*' },
-    path: '/socket.io-next/'
+    path: '/socket.io/'
   })
 
   await server.ready()
   server.io.on('connection', (socket) => {
-    const cachePrefix = socket.handshake.headers['X-DStack-Namespace']
-      ? `!${socket.handshake.headers['X-DStack-Namespace']}`
+    const cachePrefix = socket.handshake.auth['namespace']
+      ? socket.handshake.auth['namespace']
       : ''
 
     // @ts-expect-error: incompatible types

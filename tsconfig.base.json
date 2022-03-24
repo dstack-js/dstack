@@ -18,7 +18,7 @@
     "paths": {
       "@dstack-js/ipfs": ["packages/ipfs/src/index.ts"],
       "@dstack-js/lib": ["packages/lib/src/index.ts"],
-      "@dstack-js/transport": ["packages/transport/src/index.ts"]
+      "@dstack-js/transport": ["packages/transport/src/index.js"]
     }
   },
   "exclude": ["node_modules", "tmp"]

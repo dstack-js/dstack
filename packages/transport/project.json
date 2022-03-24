@@ -7,7 +7,7 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/transport",
-        "main": "packages/transport/src/index.ts",
+        "main": "packages/transport/src/index.js",
         "tsConfig": "packages/transport/tsconfig.lib.json",
         "assets": ["packages/transport/*.md"]
       }
@@ -16,7 +16,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/transport/**/*.ts"]
+        "lintFilePatterns": ["packages/transport/**/*.js"]
       }
     },
     "test": {

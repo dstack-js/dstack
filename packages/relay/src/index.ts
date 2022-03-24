@@ -28,7 +28,7 @@ export const listen = async ({
     schema: getSchema() as unknown as GraphQLSchema,
     context: (req): RelayContext => {
       return {
-        namespace: req.headers['X-DStack-Namespace'] as string | undefined
+        namespace: req.headers['x-dstack-namespace'] as string | undefined
       }
     },
     path: '/graphql'

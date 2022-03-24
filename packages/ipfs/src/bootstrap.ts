@@ -25,7 +25,7 @@ export const bootstrap = async (
       hostname: url.hostname,
       port: Number(url.port || '443')
     },
-    { 'X-DStack-Namespace': namespace }
+    { 'x-dstack-namespace': namespace }
   )
 
   return { listen, peers }

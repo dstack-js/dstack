@@ -1,15 +1,21 @@
-import { WebRTCStar } from '@dstack-js/transport'
-// @ts-expect-error: no types
-import WebSocket from 'libp2p-websockets'
-import { create as IPFSCreate, PeerId, CID } from 'ipfs'
-import type { IPFS, Options as IPFSOptions } from 'ipfs-core'
+import { IPFS, create as IPFSCreate, PeerId, CID } from 'ipfs-core'
 import { bootstrap } from './bootstrap'
+import { libp2pBundle } from './libp2p'
 
-const create = async (
-  options: Partial<IPFSOptions> & { namespace: string; relay?: string },
-  wrtc?: any
-): Promise<IPFS> => {
-  const { listen, peers } = await bootstrap(options.namespace, options.relay)
+export interface Options {
+  namespace: string;
+  relay?: string;
+  wrtc?: any;
+}
+
+export { CID, PeerId }
+
+export const create = async ({
+  namespace,
+  relay,
+  wrtc
+}: Options): Promise<IPFS> => {
+  const { listen, peers } = await bootstrap(namespace, relay)
 
   return IPFSCreate({
     config: {
@@ -19,40 +25,14 @@ const create = async (
       Addresses: {
         Swarm: listen
       },
-      Bootstrap: peers,
-      ...options?.config
+      Bootstrap: peers
     },
-    ...options,
+    libp2p: libp2pBundle(namespace, wrtc),
     relay: {
       enabled: true,
       hop: {
         enabled: true
       }
-    },
-    libp2p: {
-      ...options?.libp2p,
-      modules: {
-        transport: [WebRTCStar, WebSocket]
-      },
-      config: {
-        peerDiscovery: {
-          webRTCStar: {
-            enabled: true
-          }
-        },
-        transport: {
-          WebRTCStar: {
-            wrtc,
-            namespace: options.namespace
-          }
-        }
-      },
-      dht: {
-        enabled: true,
-        kBucketSize: 20
-      }
     }
   })
 }
-
-export { PeerId, CID, create }

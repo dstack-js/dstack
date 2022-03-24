@@ -9,6 +9,7 @@ module.exports = (config, context) => {
     resolve: {
       fallback: {
         util: require.resolve('util'),
+        process: 'process/browser',
         '@dstack-js/lib': join(__dirname, 'dist', 'packages', 'lib'),
         '@dstack-js/ipfs': join(__dirname, 'dist', 'packages', 'ipfs'),
         '@dstack-js/transport': join(

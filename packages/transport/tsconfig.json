@@ -2,6 +2,8 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "module": "commonjs",
+    "allowJs": true,
+    "checkJs": false,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
