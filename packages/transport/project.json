@@ -1,32 +1,32 @@
 {
   "root": "packages/transport",
   "sourceRoot": "packages/transport/src",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
-      "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/transport",
+        "assets": ["packages/transport/*.md", "packages/transport/LICENSE"],
         "main": "packages/transport/src/index.js",
-        "tsConfig": "packages/transport/tsconfig.lib.json",
-        "assets": ["packages/transport/*.md"]
-      }
+        "outputPath": "dist/packages/transport",
+        "tsConfig": "packages/transport/tsconfig.lib.json"
+      },
+      "outputs": ["{options.outputPath}"]
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["packages/transport/**/*.js"]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/transport"],
       "options": {
         "jestConfig": "packages/transport/jest.config.js",
         "passWithNoTests": true
-      }
+      },
+      "outputs": ["coverage/packages/transport"]
     }
-  },
-  "tags": []
+  }
 }

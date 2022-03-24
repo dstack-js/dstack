@@ -24,6 +24,7 @@
     "streaming-iterables": "^4.1.0",
     "webrtcsupport": "github:ipfs/webrtcsupport"
   },
+  "license": "MIT",
   "name": "@dstack-js/transport",
   "type": "commonjs",
   "version": "0.2.44"
