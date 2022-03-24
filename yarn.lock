@@ -2713,7 +2713,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dstack-js/ipfs@workspace:^, @dstack-js/ipfs@workspace:packages/ipfs":
+"@dstack-js/ipfs@^0.2.45, @dstack-js/ipfs@workspace:packages/ipfs":
   version: 0.0.0-use.local
   resolution: "@dstack-js/ipfs@workspace:packages/ipfs"
   dependencies:
@@ -2728,7 +2728,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dstack-js/lib@workspace:packages/lib"
   dependencies:
-    "@dstack-js/ipfs": "workspace:^"
+    "@dstack-js/ipfs": ^0.2.45
     "@types/events": 3.0.0
     "@types/lru-cache": 7.5.0
     "@types/uuid": 8.3.4
