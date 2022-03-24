@@ -86,7 +86,7 @@
     "lint": "nx run-many --all --target=lint",
     "prepare": "npm-run-all prepare:hooks",
     "prepare:hooks": "husky install",
-    "release": "standard-version --bumpFiles package.json packages/lib/package.json packages/ipfs/package.json packages/relay/package.json packages/transport/package.json",
+    "release": "standard-version --bumpFiles package.json packages/lib/package.json packages/ipfs/package.json packages/relay/package.json packages/transport/package.json && scripts/publish",
     "serve": "nx run-many --all --target=serve"
   },
   "version": "0.2.43",

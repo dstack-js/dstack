@@ -1,8 +1,10 @@
 #!/bin/bash
 
+yarn build
+
 for package in dist/packages/* ; do
   echo "Publishing $package"
-  bash -c "cd $package && yarn publish --access public" > /dev/null 2>&1 &
+  bash -c "cd $package && npm publish --access public" &
 done
 
 wait
