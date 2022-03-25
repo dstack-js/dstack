@@ -3,6 +3,8 @@ const { join } = require('path');
 
 const nrwlConfig = require('@nrwl/react/plugins/webpack.js');
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = (config) => {
   nrwlConfig(config);
@@ -16,7 +18,15 @@ module.exports = (config) => {
         Buffer: ['buffer', 'Buffer'],
         process: 'process/browser',
       }),
+      new CompressionPlugin(),
+      // new BundleAnalyzerPlugin({ analyzerMode: 'static' })
     ],
+    optimization: {
+      mergeDuplicateChunks: true,
+      minimize: true,
+      moduleIds: 'size',
+      nodeEnv: 'production',
+    },
     resolve: {
       fallback: {
         util: require.resolve('util'),

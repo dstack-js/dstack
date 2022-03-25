@@ -53,7 +53,7 @@ export class Stack {
   public store: Store
 
   private announceInterval?: ReturnType<typeof setTimeout>
-  public announce = false
+  public announce = true
 
   constructor(public namespace: CID, public ipfs: IPFS, storage: Storage) {
     this.pubsub = new PubSub(ipfs, namespace.toString())
@@ -92,13 +92,9 @@ export class Stack {
     if (this.announceInterval) clearInterval(this.announceInterval)
     await this.store.stop()
     await this.pubsub.stop()
+    await this.ipfs.stop()
   }
 
-  /**
-   * Create stack
-   *
-   * @returns Stack instance
-   */
   public static async create({
     namespace,
     ipfs,
@@ -119,11 +115,6 @@ export class Stack {
     return stack
   }
 
-  /**
-   * Get connected peers
-   *
-   * @returns connected peers list
-   */
   public async peers(): Promise<Peer[]> {
     const peers = await this.ipfs.swarm.peers()
 
@@ -133,13 +124,6 @@ export class Stack {
     }))
   }
 
-  /**
-   * Connect to peer
-   *
-   * By default IPFS will connect to some peers automatically, no need to use it without a reason
-   *
-   * @param address MultiAddr to connect
-   */
   public async connect(address: string): Promise<void> {
     await this.ipfs.swarm.connect(address)
   }
@@ -150,8 +134,6 @@ export class Stack {
    * @param listener Will be called with peer info
    */
   public onPeerConnect(listener: (peer: Peer) => void): void {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     this.libp2p.addressManager.on('peer:connect', (event) => {
       listener({
         id: event.remotePeer.toB58String(),
@@ -166,8 +148,6 @@ export class Stack {
    * @param listener Will be called with peer info
    */
   public onPeerDisconnected(listener: (peer: Peer) => void): void {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     this.libp2p.addressManager.on('peer:disconnect', (event) => {
       listener({
         id: event.remotePeer.toB58String(),

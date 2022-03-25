@@ -10,8 +10,7 @@
         "assets": [
           "packages/relay/*.md",
           "packages/relay/Dockerfile",
-          "packages/relay/fly.toml",
-          "yarn.lock"
+          "packages/relay/fly.toml"
         ],
         "main": "packages/relay/src/index.ts",
         "outputPath": "dist/packages/relay",

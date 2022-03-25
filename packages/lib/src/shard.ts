@@ -95,8 +95,7 @@ export class Shard<TData extends Data = Data> {
     stack: Stack,
     path: string
   ): Promise<Shard<TData>> {
-    // eslint-disable-next-line no-unused-vars
-    const [_, shard, cid, kind] = path.split('/')
+    const [shard, cid, kind] = path.split('/').slice(-3)
 
     if (shard !== 'shard') {
       throw new InvalidShardPathError()
