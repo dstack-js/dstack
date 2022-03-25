@@ -1,5 +1,3 @@
 # @dstack-js/lib
 
-DStack is under heavy development, no documentation currently available
-
-See more here: https://github.com/dstack-js/dstack
+[See tutorial to get started working with DStack](https://dstack.dev/docs/intro)

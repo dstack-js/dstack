@@ -6,8 +6,17 @@
   Technology stack as a library for developing semi-decentralized web applications
 </p>
 
-[![npm-badge]][npm] [![Changelog][changelog-badge]][changelog] [![issues-badge]][issues] [![license-badge]][license]
-[![FOSSA Status][fossa-badge]][fossa] [![Discord][discord-badge]][discord] [![Known Vulnerabilities](https://snyk.io/test/github/dstack-js/dstack/badge.svg)](https://snyk.io/test/github/dstack-js/dstack) [![Open Collective backers and sponsors](https://img.shields.io/opencollective/all/dstack)](https://opencollective.com/dstack) ![Maintenance](https://img.shields.io/maintenance/yes/2022)
+[![npm-badge]][npm] ![](https://badgen.net/npm/types/@dstack-js/lib)
+
+[![license-badge]][license] [![FOSSA Status][fossa-badge]][fossa]
+
+[![Discord][discord-badge]][discord] [![Gitter](https://badges.gitter.im/dstack-chat/community.svg)](https://gitter.im/dstack-chat/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
+
+[![Known Vulnerabilities](https://snyk.io/test/github/dstack-js/dstack/badge.svg)](https://snyk.io/test/github/dstack-js/dstack)
+
+[![Open Collective backers and sponsors](https://img.shields.io/opencollective/all/dstack)](https://opencollective.com/dstack)
+
+![Maintenance](https://img.shields.io/maintenance/yes/2022) [![CodeClimate](https://api.codeclimate.com/v1/badges/79ea2d56c8d646635e7e/maintainability)](https://codeclimate.com/github/dstack-js/dstack/maintainability) [![issues-badge]][issues]
 
 Checkout [Peerchat](https://dstack.dev/blog/peerchat) demo
 
@@ -41,6 +50,7 @@ DStack provides:
 - [Shard](./apps/docs/shard.md)
 - [PubSub](./apps/docs/pubsub.md)
 - [Relay](./packages/relay)
+- [Transport](./packages/transport)
 
 ### Tell others that you use DStack
 
@@ -60,8 +70,9 @@ DStack workspace is managed by [nx.dev](https://nx.dev)
 
 - [lib](./packages/lib) - Core library
 - [relay](./packages/relay) - Relay
+- [transport](./packages/transport) - `libp2p-webrtc-star` fork for relay
 - [ipfs](./packages/ipfs) - IPFS
-- [docs](./apps/docs) - Docs
+- [docs](./docs) - Docs
 
 ### Commands
 
@@ -95,7 +106,7 @@ yarn release
 
 ## License
 
-All packages licensed under GPL-3.0
+All packages are licensed under GPL-3.0, except [transport is licensed under MIT](./packages/transport/LICENSE).
 
 See [LICENSE](../LICENSE)
 

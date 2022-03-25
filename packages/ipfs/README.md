@@ -1,22 +1,22 @@
 # @dstack-js/ipfs
 
-This package was created to provide zero configuration ipfs for [`@dstack-js/lib`](https://www.npmjs.com/package/@dstack-js/lib) package
+This package was created specifically to use in [`@dstack-js/lib`](https://www.npmjs.com/package/@dstack-js/lib) package
 
-Instead you can use [ipfs-core](https://www.npmjs.com/package/ipfs-core) directly with DHT enabled
+[See tutorial to get started working with DStack](https://dstack.dev/docs/intro)
 
 ## Example
 
 ```javascript
 import { create } from '@dstack-js/ipfs';
 
-const ipfs = await create();
+const ipfs = await create({ namespace: 'namespace' });
 ```
 
 Node.js:
 
 ```javascript
 import { create } from '@dstack-js/ipfs';
-import wrtc from 'wrtc'; // or 'electron-webrtc'
+import wrtc from '@dstack-js/wrtc';
 
-const ipfs = await create({}, wrtc);
+const ipfs = await create({ namespace: 'namespace', wrtc });
 ```

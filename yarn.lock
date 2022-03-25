@@ -4736,7 +4736,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/icons-material@npm:5.5.1":
+"@mui/icons-material@npm:^5.5.1":
   version: 5.5.1
   resolution: "@mui/icons-material@npm:5.5.1"
   dependencies:
@@ -4752,7 +4752,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/material@npm:5.5.2":
+"@mui/material@npm:^5.5.2":
   version: 5.5.2
   resolution: "@mui/material@npm:5.5.2"
   dependencies:
@@ -11703,6 +11703,7 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     typescript: ^4.6.2
+    usehooks-ts: ^2.4.2
   languageName: unknown
   linkType: soft
 
@@ -11916,8 +11917,8 @@ __metadata:
     "@emotion/react": 11.8.2
     "@emotion/styled": 11.8.1
     "@mdx-js/react": 2.1.0
-    "@mui/icons-material": 5.5.1
-    "@mui/material": 5.5.2
+    "@mui/icons-material": ^5.5.1
+    "@mui/material": ^5.5.2
     "@nrwl/cli": 13.9.4
     "@nrwl/cypress": 13.9.4
     "@nrwl/eslint-plugin-nx": 13.9.4
@@ -27306,6 +27307,15 @@ __metadata:
     "@types/react":
       optional: true
   checksum: f0cb3a49119e14ed46db8a946b1aa17b838b8834c8a652bde314877ede6057c55b50654a97ee802597a5839c070180195e58ea3a756b7c33db7f540642f0ddea
+  languageName: node
+  linkType: hard
+
+"usehooks-ts@npm:^2.4.2":
+  version: 2.4.2
+  resolution: "usehooks-ts@npm:2.4.2"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 6dd14bb5301f80061443c5ab00b07779e0186c8c3b022138fb23431e05cb5067a266f82b39585dce262d66e5fc4a174032d4e47c7f5428bfd90f601ec624800e
   languageName: node
   linkType: hard
 
