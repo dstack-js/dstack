@@ -2,7 +2,7 @@
   "dependencies": {
     "@hapi/hapi": "^18.4.0",
     "@hapi/inert": "^5.2.2",
-    "abortable-iterator": "^3.0.0",
+    "abortable-iterator": "4.0.2",
     "buffer": "^5.6.0",
     "class-is": "^1.1.0",
     "debug": "4.3.4",
