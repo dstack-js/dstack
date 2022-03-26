@@ -31,6 +31,7 @@ export const listen = async ({
         namespace: req.headers['x-dstack-namespace'] as string | undefined
       }
     },
+    queryDepth: 15,
     path: '/graphql'
   })
 
