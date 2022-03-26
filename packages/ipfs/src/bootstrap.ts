@@ -9,7 +9,12 @@ export const bootstrap = async (
   const query = gql`
     query Bootstrap($protocol: Protocol!, $hostname: String!, $port: Int!) {
       listen(protocol: $protocol, hostname: $hostname, port: $port)
-      peers(randomize: true)
+      peers(
+        randomize: true
+        protocol: $protocol
+        hostname: $hostname
+        port: $port
+      )
     }
   `
 

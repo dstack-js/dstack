@@ -1,4 +1,14 @@
-export class Storage<T = { value: string; date: Date }> {
+/* eslint-disable @typescript-eslint/no-misused-new */
+export interface Storage<T = { value: string; date: Date }> {
+  namespace: string;
+
+  keys(): Promise<string[]>;
+  get(key: string): Promise<T | null>;
+  set(key: string, value: T): Promise<void>;
+}
+
+export class InMemoryStorage<T = { value: string; date: Date }>
+implements Storage<T> {
   private data: { [key: string]: T } = {}
 
   constructor(public namespace: string) {}

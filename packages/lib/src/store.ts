@@ -18,11 +18,13 @@ export type StackMessage = ReplicateMessage | ReplicateRequestMessage;
 
 export class Store {
   private pubsub: PubSub<StackMessage>
-  private storage: Storage
 
-  constructor(private stack: Stack, storage: Storage) {
+  constructor(
+    private stack: Stack,
+    private storage: Storage,
+    private loadOnReplicate: boolean = false
+  ) {
     this.pubsub = stack.pubsub.create('$$store')
-    this.storage = storage
   }
 
   private async onReplicate(msg: Message<StackMessage>): Promise<void> {
@@ -37,10 +39,22 @@ export class Store {
       value: msg.data.value,
       date
     })
+
+    if (this.loadOnReplicate && msg.data.value.startsWith('/shard/')) {
+      Shard.from(this.stack, msg.data.value)
+        .then((shard) => {
+          console.debug('shard replicated', shard)
+        })
+        .catch((err) => {
+          console.warn('Failed to load on replicate', msg.data, err)
+        })
+    }
   }
 
   private watchShard(key: string, watch: Shard) {
     watch.on('update', async (shard): Promise<void> => {
+      console.log(shard.toString())
+
       this.storage.set(key, {
         value: shard.toString(),
         date: new Date()
@@ -93,7 +107,7 @@ export class Store {
     await this.pubsub.subscribe('replicateRequest', async (msg) => {
       if (msg.data.kind !== 'replicateRequest') return
       const keys = await this.storage.keys()
-      await Promise.all(keys.map(this.replicate))
+      await Promise.all(keys.map((key) => this.replicate(key)))
     })
 
     await this.pubsub.publish('replicateRequest', { kind: 'replicateRequest' })

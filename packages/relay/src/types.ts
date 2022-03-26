@@ -39,10 +39,21 @@ const peers = queryField('peers', {
   description:
     'Get addresses to bootstrap for IPFS, use `randomize` argument to get 3 random peers',
   args: {
-    randomize: booleanArg()
+    randomize: booleanArg(),
+    protocol: Protocol.asArg(),
+    hostname: stringArg(),
+    port: intArg()
   },
-  async resolve(_, { randomize }, { namespace }) {
-    const peers = await getPeers(namespace)
+  async resolve(_, { randomize, protocol, hostname, port }, { namespace }) {
+    let peers = await getPeers(namespace || '')
+
+    if (protocol && hostname && port) {
+      peers = peers.map((peer) => {
+        return getListenAddress(protocol, hostname, port).concat(
+          peer.split('/').slice(-2).join('/')
+        )
+      })
+    }
 
     if (randomize) {
       return peers
