@@ -2785,6 +2785,7 @@ __metadata:
     socket.io: 4.4.1
     ts-node: 10.7.0
     tsconfig-paths: 3.14.1
+    wrtc: ^0.4.7
   bin:
     dstack-relay: src/index.js
   languageName: unknown
@@ -28276,6 +28277,19 @@ __metadata:
     type-fest: ^0.4.1
     write-json-file: ^3.2.0
   checksum: 7864d44370f42a6761f6898d07ee2818c7a2faad45116580cf779f3adaf94e4bea5557612533a6c421c32323253ecb63b50615094960a637aeaef5df0fd2d6cd
+  languageName: node
+  linkType: hard
+
+"wrtc@npm:^0.4.7":
+  version: 0.4.7
+  resolution: "wrtc@npm:0.4.7"
+  dependencies:
+    domexception: ^1.0.1
+    node-pre-gyp: ^0.13.0
+  dependenciesMeta:
+    domexception:
+      optional: true
+  checksum: 2a2ce03ee15e8ee1737a9b8d0937ededc135f06c8e58bb8c3c0d7028e29ef0b75708616d2ce2a1792c08fab24b2f4c51a8f0d52fe3b296d5d7ac31a8d6eeab5c
   languageName: node
   linkType: hard
 

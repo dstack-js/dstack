@@ -1,5 +1,4 @@
 #!/bin/bash
-yarn build
+yarn nx build relay
 cd dist/packages/relay
-heroku container:push web -a dstack-relay
-heroku container:release web -a dstack-relay
+fly deploy --remote-only

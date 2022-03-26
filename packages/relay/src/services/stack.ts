@@ -1,10 +1,9 @@
 import { join } from 'path'
 import { Stack, Storage } from '@dstack-js/lib'
-// @ts-expect-error: no-types
-import wrtc from '@dstack-js/wrtc'
 import LRUCache from 'lru-cache'
 import { tmpdir } from 'os'
 import { redis } from './cache'
+import { getWRTC } from './wrtc'
 
 export class RedisStorage<T = { value: string; date: Date }>
 implements Storage<T> {
@@ -62,8 +61,10 @@ export const getStack = async (namespace: string) => {
       cache.set(namespace, 'allocating')
       stack = await Stack.create({
         namespace,
-        wrtc,
-        relay: `http://127.0.0.1:${process.env['PORT'] || 13579}/graphql`,
+        wrtc: getWRTC(),
+        relay:
+          process.env['RELAY_URL'] ||
+          `http://127.0.0.1:${process.env['PORT'] || 13579}/graphql`,
         repo: join(tmpdir(), '.dstack', namespace),
         storage: new RedisStorage(namespace)
       })
@@ -78,7 +79,8 @@ export const getStack = async (namespace: string) => {
         namespace,
         error
       )
-      throw error
+
+      return null
     }
   }
 
