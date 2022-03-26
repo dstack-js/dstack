@@ -10,5 +10,5 @@
   "name": "@dstack-js/ipfs",
   "repository": "https://github.com/dstack-js/dstack.git",
   "type": "module",
-  "version": "0.2.46"
+  "version": "0.2.47"
 }

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.47](https://github.com/dstack-js/dstack/compare/v0.2.46...v0.2.47) (2022-03-26)
+
+### Features
+
+- **explorer, lib:** some refactoring, add custom namespace in explorer ([8c0b8b9](https://github.com/dstack-js/dstack/commits/8c0b8b92965e8087a261255a72bf435b817ccfc2))
+
+### Bug Fixes
+
+- **relay:** remove generate step ([b7f3462](https://github.com/dstack-js/dstack/commits/b7f34625829ce0b78d581685ef51e7c7e098eb20))
+
 ### [0.2.46](https://github.com/dstack-js/dstack/compare/v0.2.45...v0.2.46) (2022-03-24)
 
 ### Bug Fixes
