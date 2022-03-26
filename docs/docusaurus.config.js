@@ -1,6 +1,4 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
@@ -46,24 +44,22 @@ module.exports = {
         indexName: 'dstack',
       },
       announcementBar: {
-        id: 'announcement',
+        id: '2022-q1',
         content:
-          '<a style="text-decoration: none; color: white" href="https://savelife.in.ua/">Support Ukraine <img width="14px" src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" /></a>',
+          '<a style="text-decoration: none; color: white" href="https://savelife.in.ua/">Support Ukraine <img width="14px" src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" /></a> | <a style="color: white" href="/blog/2022-Q1">What\'s new in DStack 2022-Q1</a>',
         backgroundColor: 'black',
         textColor: 'white',
         isCloseable: true,
       },
       colorMode: {
-        defaultMode: 'dark',
-        disableSwitch: true,
-        respectPrefersColorScheme: false,
+        respectPrefersColorScheme: true,
+      },
+      prism: {
+        theme: require('prism-react-renderer/themes/github'),
+        darkTheme: require('prism-react-renderer/themes/dracula'),
       },
       navbar: {
         title: 'DStack',
-        logo: {
-          alt: 'DStack Logo',
-          src: 'img/logo.svg',
-        },
         items: [
           {
             type: 'doc',
@@ -73,7 +69,7 @@ module.exports = {
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
-            href: '/changelog',
+            href: 'https://github.com/dstack-js/dstack/blob/main/CHANGELOG.md',
             label: 'Changelog',
             position: 'right',
           },
@@ -149,10 +145,6 @@ module.exports = {
           },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} <a href="https://github.com/dstack-js/dstack/graphs/contributors">DStack Contributors</a>`,
-      },
-      prism: {
-        theme: darkCodeTheme,
-        darkTheme: darkCodeTheme,
       },
     }),
 };

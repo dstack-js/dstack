@@ -19,7 +19,13 @@ or Shard API to share temporary/preview files or structured data between clients
 
 For example, you can create a collaborative real-time WYSIWYG editor with file preview support where all events and file previews are handled without your server infrastructure.
 
+<details>
+
+<summary> WYSIWYG Demo </summary>
+
 ![Demo](https://i.imgur.com/cKjBrge.gif)
+
+</details>
 
 ## Play with DStack in browser console
 
@@ -46,15 +52,50 @@ npm i -S @dstack-js/lib
 
 ### Initialize Stack
 
+<Tabs>
+  <TabItem value="public-relay" label="Public Relay">
+
 ```javascript
 import { Stack } from '@dstack-js/lib';
-// In non-browser environment you need to provide WebRTC implementation
-// import wrtc from '@dstack-js/wrtc';
-// const stack = await Stack.create({ namespace: 'namespace', wrtc });
-const stack = await Stack.create({ namespace: 'namespace' });
 
 console.log('My Peer ID is:', stack.id);
 ```
+
+  </TabItem>
+  <TabItem value="custom-relay" label="Custom Relay">
+
+```javascript
+import { Stack } from '@dstack-js/lib';
+
+const stack = await Stack.create({
+  namespace: 'namespace',
+  relay: 'https://relay.dstack.dev:443/graphql'
+});
+
+console.log('My Peer ID is:', stack.id);
+```
+
+  </TabItem>
+
+  <TabItem value="non-browser" label="Non-browser environment">
+
+```javascript
+import { Stack } from '@dstack-js/lib';
+import wrtc from '@dstack-js/wrtc';
+
+const stack = await Stack.create({
+  namespace: 'namespace',
+  wrtc
+});
+
+console.log('My Peer ID is:', stack.id);
+```
+
+  </TabItem>
+</Tabs>
+
+
+
 
 ### Interact with PubSub
 
@@ -79,10 +120,13 @@ const shard = await stack.store.get('hello');
 
 ## Tell others that you use DStack
 
-Badge:
+Here is an badge for you:
 
 [![dstack](https://dstack.dev/img/badge.svg)](https://dstack.dev)
 
 ```markdown
 [![dstack](https://dstack.dev/img/badge.svg)](https://dstack.dev)
 ```
+---
+
+We are searching for projects who are interested to use DStack in production to collect feedback, bug reports and feature requests, [you can apply here](https://6l3fibt6mac.typeform.com/to/NZL0qDN2)

@@ -4,55 +4,44 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
 :root {
-  --docusaurus-btt-color: black;
-  --ifm-color-primary: #fcf9e8;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
-  --ifm-code-font-size: 95%;
-  --ifm-navbar-link-color: black;
-  --ifm-link-color: #d8d2b5;
-  --ifm-color-primary: #fcf9e8;
-  --ifm-navbar-shadow: none;
-  --ifm-color-secondary: white;
-  --ifm-footer-background-color: black;
-  --ifm-hover-overlay: black;
-  --ifm-navbar-link-hover-color: gray;
-  --ifm-font-color-base-inverse: black;
-  --ifm-background-color: black;
-  --ifm-background-surface-color: black;
-  --ifm-navbar-link-hover-color: rgba(0, 0, 0, 0.9);
+  --ifm-color-primary: #201b21;
+  --ifm-color-primary-dark: #1d181e;
+  --ifm-color-primary-darker: #1b171c;
+  --ifm-color-primary-darkest: #161317;
+  --ifm-color-primary-light: #231e24;
+  --ifm-color-primary-lighter: #251f26;
+  --ifm-color-primary-lightest: #2a232b;
+  --ifm-background-color: #fffefa;
+  --ifm-footer-background-color: var(--ifm-background-color);
 }
 
-.docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.1);
-  display: block;
-  margin: 0 calc(-1 * var(--ifm-pre-padding));
-  padding: 0 var(--ifm-pre-padding);
-}
-
-html[data-theme='dark'] .docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.clean-btn > svg {
-  color: black;
-}
-
-.footer {
-  background-color: black;
-}
-
-nav.navbar {
+.hero {
   background-color: #fcf9e8;
   color: black;
 }
 
-.navbar-sidebar__brand > .navbar__brand {
-  color: white;
+[data-theme='dark'] {
+  --ifm-color-primary: #fcf9e8;
+  --ifm-color-primary-dark: #f6eebd;
+  --ifm-color-primary-darker: #f4e8a8;
+  --ifm-color-primary-darkest: #ebd768;
+  --ifm-color-primary-light: #ffffff;
+  --ifm-color-primary-lighter: #ffffff;
+  --ifm-color-primary-lightest: #ffffff;
+  --ifm-background-color: #201b21;
+  --ifm-footer-link-color: black;
+}
+
+.footer,
+.footer__copyright,
+.footer__title,
+.footer__link-item,
+.footer__copyright > a {
+  background-color: var(--ifm-font-color-base-inverse);
+  color: var(--ifm-font-color-base);
+}
+
+.clean-btn.close {
+  color: var(--ifm-font-color-base);
 }
