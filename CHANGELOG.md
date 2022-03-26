@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.48](https://github.com/dstack-js/dstack/compare/v0.2.47...v0.2.48) (2022-03-26)
+
+### Features
+
+- **relay, lib:** add stack to relay and store/shard improvements ([#86](https://github.com/dstack-js/dstack/issues/86)) ([a38c875](https://github.com/dstack-js/dstack/commits/a38c875ee45baa5362764e1d980b6978eee74d75)), closes [#26](https://github.com/dstack-js/dstack/issues/26) [#64](https://github.com/dstack-js/dstack/issues/64)
+
+### Bug Fixes
+
+- **relay:** add query depth limit (CWE-400) ([0271aa5](https://github.com/dstack-js/dstack/commits/0271aa58b24efdbe39c6a3c4332e4fea67ee0d68))
+
 ### [0.2.47](https://github.com/dstack-js/dstack/compare/v0.2.46...v0.2.47) (2022-03-26)
 
 ### Features

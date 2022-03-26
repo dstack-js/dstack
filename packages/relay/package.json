@@ -29,5 +29,5 @@
     "serve": "node -r tsconfig-paths/register -r ts-node/register src/start.ts"
   },
   "type": "commonjs",
-  "version": "0.2.47"
+  "version": "0.2.48"
 }
