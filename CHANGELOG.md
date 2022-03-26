@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.49](https://github.com/dstack-js/dstack/compare/v0.2.48...v0.2.49) (2022-03-26)
+
+### Bug Fixes
+
+- **relay, ipfs:** add fallback wrtc, get peers list with original multiaddr ([c5563a6](https://github.com/dstack-js/dstack/commits/c5563a66affccda7b312c4581ab8289748323b0e))
+
 ### [0.2.48](https://github.com/dstack-js/dstack/compare/v0.2.47...v0.2.48) (2022-03-26)
 
 ### Features
