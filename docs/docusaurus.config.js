@@ -3,8 +3,7 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'DStack',
-  tagline:
-    'Technology stack as a library for developing semi-decentralized web applications',
+  tagline: 'A library for developing semi-decentralized web applications',
   url: 'https://dstack.dev',
   baseUrl: '/',
   onBrokenLinks: 'throw',

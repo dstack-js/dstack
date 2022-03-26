@@ -3,7 +3,77 @@ title: Stack
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Stack is facade that provides provides IPFS and Relay communications for components such as Storage, PubSub and etc...
+
+## Create
+
+<Tabs>
+  <TabItem value="public-relay" label="Public Relay">
+
+```javascript
+import { Stack } from '@dstack-js/lib';
+
+const stack = await Stack.create({
+  namespace: 'namespace',
+});
+
+console.log('My Peer ID is:', stack.id);
+```
+
+  </TabItem>
+  <TabItem value="custom-relay" label="Custom Relay">
+
+```javascript
+import { Stack } from '@dstack-js/lib';
+
+const stack = await Stack.create({
+  namespace: 'namespace',
+  relay: 'https://relay.dstack.dev:443/graphql',
+});
+
+console.log('My Peer ID is:', stack.id);
+```
+
+  </TabItem>
+
+  <TabItem value="non-browser" label="Non-browser environment">
+
+```javascript
+import { Stack } from '@dstack-js/lib';
+import wrtc from '@dstack-js/wrtc';
+
+const stack = await Stack.create({
+  namespace: 'namespace',
+  wrtc,
+});
+
+console.log('My Peer ID is:', stack.id);
+```
+
+  </TabItem>
+</Tabs>
+
 ## Identity
+
+### Providing private key
+
+```javascript
+import { Stack } from '@dstack-js/lib';
+
+const privateKey = '...';
+
+const stack = await Stack.create({
+  namespace: 'namespace',
+  privateKey,
+});
+
+console.log('My Peer ID is:', stack.id);
+```
+
+You can generate a private key using [`peer-id`](https://www.npmjs.com/package/peer-id) module.
 
 ### Peer object
 
@@ -14,7 +84,7 @@ sidebar_position: 1
 }
 ```
 
-### Get my information
+### Get my identity
 
 ```javascript
 const peer = await stack.id();
@@ -84,13 +154,4 @@ console.log(ms, 'ms');
 
 ```javascript
 await stack.stop();
-```
-
-Will terminate pubsub events and store replication
-
-Also you can stop IPFS:
-
-```javascript
-await stack.stop();
-await stack.ipfs.stop();
 ```

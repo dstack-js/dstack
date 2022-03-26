@@ -14,6 +14,12 @@
   --ifm-color-primary-lightest: #2a232b;
   --ifm-background-color: #fffefa;
   --ifm-footer-background-color: var(--ifm-background-color);
+  --ifm-link-color: #93703a;
+  --ifm-button-background-color: #fff;
+}
+
+.button--secondary:not(.button--outline) {
+  background-color: #fff;
 }
 
 .hero {
@@ -31,6 +37,7 @@
   --ifm-color-primary-lightest: #ffffff;
   --ifm-background-color: #201b21;
   --ifm-footer-link-color: black;
+  --ifm-link-color: var(--ifm-color-primary-darker);
 }
 
 .footer,

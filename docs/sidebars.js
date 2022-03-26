@@ -18,14 +18,13 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Relay',
-      items: ['relay', 'deploy-relay'],
-    },
-
-    {
-      type: 'category',
       label: 'Core Library',
       items: ['stack', 'pubsub', 'shard', 'store'],
+    },
+    {
+      type: 'category',
+      label: 'Relay',
+      items: ['relay', 'deploy-relay'],
     },
   ],
 };
