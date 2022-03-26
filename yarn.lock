@@ -2725,6 +2725,25 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@dstack-js/lib@npm:latest":
+  version: 0.2.47
+  resolution: "@dstack-js/lib@npm:0.2.47"
+  dependencies:
+    "@dstack-js/ipfs": ^0.2.45
+    buffer: 6.0.3
+    events: 3.3.0
+    it-all: 1.0.6
+    it-drain: 1.0.5
+    it-last: 1.0.6
+    lru-cache: 7.7.1
+    tslib: 2.3.1
+    uuid: 8.3.2
+  peerDependencies:
+    "@dstack-js/transport": 0.2.47
+  checksum: 5ad4e01b6549f257d2372f4adb260b1520653f08e874386dde36d024ab4445fca6c022dccf295dadb6af3d957b515d46282f817217493f4f4c5929b4322381c3
+  languageName: node
+  linkType: hard
+
 "@dstack-js/lib@workspace:packages/lib":
   version: 0.0.0-use.local
   resolution: "@dstack-js/lib@workspace:packages/lib"
@@ -2749,12 +2768,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dstack-js/relay@workspace:packages/relay"
   dependencies:
+    "@dstack-js/lib": latest
+    "@dstack-js/wrtc": ^0.4.8
     "@libp2p/webrtc-star-protocol": 1.0.1
+    "@types/lru-cache": ^7.6.0
     fastify: 3.27.4
     fastify-cors: 6.0.3
     fastify-socket.io: 3.0.0
     graphql: 16.3.0
     graphql-playground-html: 1.6.30
+    lru-cache: ^7.7.1
     mercurius: 9.3.6
     nexus: 1.3.0
     prom-client: 14.0.1
@@ -2796,6 +2819,19 @@ __metadata:
     webrtcsupport: "github:ipfs/webrtcsupport"
   languageName: unknown
   linkType: soft
+
+"@dstack-js/wrtc@npm:^0.4.8":
+  version: 0.4.8
+  resolution: "@dstack-js/wrtc@npm:0.4.8"
+  dependencies:
+    domexception: ^1.0.1
+    node-pre-gyp: ^0.13.0
+  dependenciesMeta:
+    domexception:
+      optional: true
+  checksum: 2cfab7ec0793a26969a33f2c745ffd243de6c0e2a44ec68ab43f7d1a0a5ba67f1982f95c9a70d87f8a91e35c7961cb83b680fbd1caf7a9fe223b9bc28e8e204e
+  languageName: node
+  linkType: hard
 
 "@emotion/babel-plugin@npm:11.7.2, @emotion/babel-plugin@npm:^11.7.1":
   version: 11.7.2
@@ -6826,6 +6862,13 @@ __metadata:
   version: 7.5.0
   resolution: "@types/lru-cache@npm:7.5.0"
   checksum: d6f9337ee898ac070bdd6f36615bc2d9e328907f7f486420d1a43e159b947a03670af6418702ae87ff2dceab73e3de0f64016daca02386932daeb9396ad20b3c
+  languageName: node
+  linkType: hard
+
+"@types/lru-cache@npm:^7.6.0":
+  version: 7.6.0
+  resolution: "@types/lru-cache@npm:7.6.0"
+  checksum: 8a1985375d627409dae95945fce4c45001c47980a55d6adea0a212d993963e35fee2af6b06161f01cfdfaeb1fdd9e4385c8d0853a9d90c8bb3cf21d1f21a8ac7
   languageName: node
   linkType: hard
 
@@ -11312,7 +11355,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^3.1.0, debug@npm:^3.1.1, debug@npm:^3.2.7":
+"debug@npm:^3.1.0, debug@npm:^3.1.1, debug@npm:^3.2.6, debug@npm:^3.2.7":
   version: 3.2.7
   resolution: "debug@npm:3.2.7"
   dependencies:
@@ -11558,6 +11601,15 @@ __metadata:
   version: 6.1.0
   resolution: "detect-indent@npm:6.1.0"
   checksum: ab953a73c72dbd4e8fc68e4ed4bfd92c97eb6c43734af3900add963fd3a9316f3bc0578b018b24198d4c31a358571eff5f0656e81a1f3b9ad5c547d58b2d093d
+  languageName: node
+  linkType: hard
+
+"detect-libc@npm:^1.0.2":
+  version: 1.0.3
+  resolution: "detect-libc@npm:1.0.3"
+  bin:
+    detect-libc: ./bin/detect-libc.js
+  checksum: daaaed925ffa7889bd91d56e9624e6c8033911bb60f3a50a74a87500680652969dbaab9526d1e200a4c94acf80fc862a22131841145a0a8482d60a99c24f4a3e
   languageName: node
   linkType: hard
 
@@ -11827,6 +11879,15 @@ __metadata:
   version: 2.2.0
   resolution: "domelementtype@npm:2.2.0"
   checksum: 24cb386198640cd58aa36f8c987f2ea61859929106d06ffcc8f547e70cb2ed82a6dc56dcb8252b21fba1f1ea07df6e4356d60bfe57f77114ca1aed6828362629
+  languageName: node
+  linkType: hard
+
+"domexception@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "domexception@npm:1.0.1"
+  dependencies:
+    webidl-conversions: ^4.0.2
+  checksum: f564a9c0915dcb83ceefea49df14aaed106b1468fbe505119e8bcb0b77e242534f3aba861978537c0fc9dc6f35b176d0ffc77b3e342820fb27a8f215e7ae4d52
   languageName: node
   linkType: hard
 
@@ -15102,7 +15163,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iconv-lite@npm:0.4.24, iconv-lite@npm:^0.4.24":
+"iconv-lite@npm:0.4.24, iconv-lite@npm:^0.4.24, iconv-lite@npm:^0.4.4":
   version: 0.4.24
   resolution: "iconv-lite@npm:0.4.24"
   dependencies:
@@ -15152,7 +15213,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore-walk@npm:^3.0.3":
+"ignore-walk@npm:^3.0.1, ignore-walk@npm:^3.0.3":
   version: 3.0.4
   resolution: "ignore-walk@npm:3.0.4"
   dependencies:
@@ -19247,7 +19308,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:7.7.1, lru-cache@npm:^7.5.1":
+"lru-cache@npm:7.7.1, lru-cache@npm:^7.5.1, lru-cache@npm:^7.7.1":
   version: 7.7.1
   resolution: "lru-cache@npm:7.7.1"
   checksum: f362c5a2cfa8ad6fe557ec43dc1b7a9695cce84a5652a43ff813609f782f5da576631e7dfad41878bf19a7a69438f38375178635ee80de269aa314280ca2f59e
@@ -20317,6 +20378,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"needle@npm:^2.2.1":
+  version: 2.9.1
+  resolution: "needle@npm:2.9.1"
+  dependencies:
+    debug: ^3.2.6
+    iconv-lite: ^0.4.4
+    sax: ^1.2.4
+  bin:
+    needle: ./bin/needle
+  checksum: 746ae3a3782f0a057ff304a98843cc6f2009f978a0fad0c3e641a9d46d0b5702bb3e197ba08aecd48678067874a991c4f5fc320c7e51a4c041d9dd3441146cf0
+  languageName: node
+  linkType: hard
+
 "negotiator@npm:0.6.3, negotiator@npm:^0.6.2, negotiator@npm:^0.6.3":
   version: 0.6.3
   resolution: "negotiator@npm:0.6.3"
@@ -20560,6 +20634,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-pre-gyp@npm:^0.13.0":
+  version: 0.13.0
+  resolution: "node-pre-gyp@npm:0.13.0"
+  dependencies:
+    detect-libc: ^1.0.2
+    mkdirp: ^0.5.1
+    needle: ^2.2.1
+    nopt: ^4.0.1
+    npm-packlist: ^1.1.6
+    npmlog: ^4.0.2
+    rc: ^1.2.7
+    rimraf: ^2.6.1
+    semver: ^5.3.0
+    tar: ^4
+  bin:
+    node-pre-gyp: ./bin/node-pre-gyp
+  checksum: 118a8989c2edc5935906a59e9cf8bc508f8183f43da3ceb449bde122901b26bf25aa426481a3b1bed44cb739275e249a8ea85521caa15c33e8377ac0dd31bdbc
+  languageName: node
+  linkType: hard
+
 "node-releases@npm:^2.0.1":
   version: 2.0.1
   resolution: "node-releases@npm:2.0.1"
@@ -20649,7 +20743,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-bundled@npm:^1.1.1":
+"npm-bundled@npm:^1.0.1, npm-bundled@npm:^1.1.1":
   version: 1.1.2
   resolution: "npm-bundled@npm:1.1.2"
   dependencies:
@@ -20698,6 +20792,17 @@ __metadata:
     semver: ^7.3.4
     validate-npm-package-name: ^3.0.0
   checksum: ae76afbcebb4ea8d0b849b8b18ed1b0491030fb04a0af5d75f1b8390cc50bec186ced9fbe60f47d939eab630c7c0db0919d879ac56a87d3782267dfe8eec60d3
+  languageName: node
+  linkType: hard
+
+"npm-packlist@npm:^1.1.6":
+  version: 1.4.8
+  resolution: "npm-packlist@npm:1.4.8"
+  dependencies:
+    ignore-walk: ^3.0.1
+    npm-bundled: ^1.0.1
+    npm-normalize-package-bin: ^1.0.1
+  checksum: 85f764bd0fb516cff34afb4b60ea925ef218cfbdf02d05cda0c115ca30b932b9e0f78bdb186e09d26dd17f983ee1d5aee7ba44b5db84ff3c4c5e73524b537084
   languageName: node
   linkType: hard
 
@@ -20787,7 +20892,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npmlog@npm:^4.1.2":
+"npmlog@npm:^4.0.2, npmlog@npm:^4.1.2":
   version: 4.1.2
   resolution: "npmlog@npm:4.1.2"
   dependencies:
@@ -23346,7 +23451,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rc@npm:^1.2.8":
+"rc@npm:^1.2.7, rc@npm:^1.2.8":
   version: 1.2.8
   resolution: "rc@npm:1.2.8"
   dependencies:
@@ -24352,7 +24457,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^2.6.3":
+"rimraf@npm:^2.6.1, rimraf@npm:^2.6.3":
   version: 2.7.1
   resolution: "rimraf@npm:2.7.1"
   dependencies:
@@ -24787,7 +24892,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:2 || 3 || 4 || 5, semver@npm:^5.4.1, semver@npm:^5.5.0, semver@npm:^5.6.0, semver@npm:^5.7.1":
+"semver@npm:2 || 3 || 4 || 5, semver@npm:^5.3.0, semver@npm:^5.4.1, semver@npm:^5.5.0, semver@npm:^5.6.0, semver@npm:^5.7.1":
   version: 5.7.1
   resolution: "semver@npm:5.7.1"
   bin:
@@ -26130,7 +26235,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tar@npm:^4.4.12":
+"tar@npm:^4, tar@npm:^4.4.12":
   version: 4.4.19
   resolution: "tar@npm:4.4.19"
   dependencies:
@@ -27648,6 +27753,13 @@ __metadata:
   version: 3.0.1
   resolution: "webidl-conversions@npm:3.0.1"
   checksum: c92a0a6ab95314bde9c32e1d0a6dfac83b578f8fa5f21e675bc2706ed6981bc26b7eb7e6a1fab158e5ce4adf9caa4a0aee49a52505d4d13c7be545f15021b17c
+  languageName: node
+  linkType: hard
+
+"webidl-conversions@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "webidl-conversions@npm:4.0.2"
+  checksum: c93d8dfe908a0140a4ae9c0ebc87a33805b416a33ee638a605b551523eec94a9632165e54632f6d57a39c5f948c4bab10e0e066525e9a4b87a79f0d04fbca374
   languageName: node
   linkType: hard
 

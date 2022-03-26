@@ -15,6 +15,7 @@ import {
   joinsFailureTotal,
   joinsTotal
 } from '../metrics'
+import { getStack } from '../stack'
 
 const handle = (socket: WebRTCStarSocket, cachePrefix: string) => {
   console.log('signaling', 'handle', socket.id)
@@ -104,9 +105,13 @@ export const setSocket = async (server: FastifyInstance) => {
 
   await server.ready()
   server.io.on('connection', (socket) => {
-    const cachePrefix = socket.handshake.auth['namespace']
-      ? socket.handshake.auth['namespace']
-      : ''
+    let cachePrefix = ''
+
+    if (socket.handshake.auth['namespace']) {
+      cachePrefix = socket.handshake.auth['namespace']
+
+      getStack(socket.handshake.auth['namespace']).catch()
+    }
 
     // @ts-expect-error: incompatible types
     return handle(socket, cachePrefix)

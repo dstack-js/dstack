@@ -4,8 +4,8 @@ import all from 'it-all'
 import type { CID } from 'ipfs-core'
 import { PeerUnreachableError, Store } from '.'
 import { PubSub } from './pubsub'
-import { Storage } from './storage'
-import { create } from '@dstack-js/ipfs'
+import { InMemoryStorage, Storage } from './storage'
+import { create, Options } from '@dstack-js/ipfs'
 
 export interface Peer {
   id: string;
@@ -33,19 +33,29 @@ export interface StackOptions {
    *
    * No need to provide it unless you want to use DStack in non browser environment
    */
-  wrtc?: any;
+  wrtc?: Options['wrtc'];
   /**
    * Relay GraphQL Endpoint
    *
    * Defaults to DStack Cloud
    */
-  relay?: string;
+  relay?: Options['relay'];
   /**
    * Storage implementation
    *
    * No need to provide it unless you want custom storage implementation to be used
    */
   storage?: Storage;
+  /**
+   * A path to store IPFS repo
+   *
+   * No need to provide it unless you to create a more than one Stack instance
+   */
+  repo?: Options['repo'];
+  /**
+   * Preload shard on store replication
+   */
+  loadOnReplicate?: boolean;
 }
 
 export class Stack {
@@ -55,9 +65,14 @@ export class Stack {
   private announceInterval?: ReturnType<typeof setTimeout>
   public announce = true
 
-  constructor(public namespace: CID, public ipfs: IPFS, storage: Storage) {
+  private constructor(
+    public namespace: CID,
+    public ipfs: IPFS,
+    storage: Storage,
+    loadOnReplicate?: boolean
+  ) {
     this.pubsub = new PubSub(ipfs, namespace.toString())
-    this.store = new Store(this, storage)
+    this.store = new Store(this, storage, loadOnReplicate)
   }
 
   /**
@@ -100,16 +115,18 @@ export class Stack {
     ipfs,
     storage,
     relay,
-    wrtc
+    wrtc,
+    repo,
+    loadOnReplicate
   }: StackOptions) {
     if (!ipfs) {
-      ipfs = await create({ namespace, relay, wrtc })
+      ipfs = await create({ namespace, relay, wrtc, repo })
     }
 
     const cid = await ipfs.dag.put({ namespace })
-    storage = storage || new Storage(namespace)
+    storage = storage || new InMemoryStorage(namespace)
 
-    const stack = new Stack(cid, ipfs, storage)
+    const stack = new Stack(cid, ipfs, storage, loadOnReplicate)
     await stack.start()
 
     return stack

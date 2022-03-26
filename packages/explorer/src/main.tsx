@@ -20,7 +20,10 @@ export const App: React.FC = () => {
     let stop = () => {}
 
     const run = async () => {
-      const stack = await Stack.create({ namespace })
+      const stack = await Stack.create({
+        namespace,
+        relay: localStorage['relay']
+      })
       window.stack = stack
       window.Shard = Shard
       window.ShardKind = ShardKind
