@@ -1,0 +1,61 @@
+{
+  "author": "Mykhailo Marynenko <0x77dev@protonmail.com>",
+  "bugs": {
+    "url": "https://github.com/dstack-js/dstack/issues"
+  },
+  "dependencies": {
+    "@achingbrain/libp2p-gossipsub": "^0.13.5",
+    "@chainsafe/libp2p-noise": "6.0.1",
+    "@libp2p/floodsub": "^1.0.3",
+    "@libp2p/mplex": "1.0.2",
+    "@libp2p/webrtc-star": "1.0.6",
+    "@libp2p/websockets": "1.0.3",
+    "buffer": "^6.0.3",
+    "iso-random-stream": "^2.0.2",
+    "libp2p": "0.36.2-64bfcee",
+    "node-forge": "^1.3.1"
+  },
+  "description": "DStack is a library for developing semi-decentralized web applications",
+  "devDependencies": {
+    "@types/node-forge": "^1",
+    "microbundle": "^0.14.2"
+  },
+  "displayName": "DStack",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "exports": {
+    "default": "./dist/index.modern.js",
+    "require": "./dist/index.cjs"
+  },
+  "files": [
+    "dist/**",
+    "README.md",
+    "package.json"
+  ],
+  "homepage": "https://dstack.dev",
+  "keywords": [
+    "dstack",
+    "semi-decentralized",
+    "libp2p",
+    "network",
+    "p2p",
+    "peer",
+    "peer-to-peer"
+  ],
+  "license": "GPL-3.0",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.module.js",
+  "name": "@dstack-js/lib",
+  "packageManager": "yarn@3.2.0",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "prepack": "yarn build"
+  },
+  "source": "src/index.ts",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "unpkg": "./dist/index.umd.js",
+  "version": "3.0.0"
+}
