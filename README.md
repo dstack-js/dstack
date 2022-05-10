@@ -18,6 +18,8 @@
 
 ![Maintenance](https://img.shields.io/maintenance/yes/2022) [![CodeClimate](https://api.codeclimate.com/v1/badges/79ea2d56c8d646635e7e/maintainability)](https://codeclimate.com/github/dstack-js/dstack/maintainability) [![issues-badge]][issues]
 
+<a href="https://www.buymeacoffee.com/0x77dev"><img src="https://img.buymeacoffee.com/button-api/?text=Support Development&emoji=💸&slug=0x77dev&button_colour=000000&font_colour=ffffff&font_family=Lato&outline_colour=ffffff&coffee_colour=FFDD00" /></a>
+
 Checkout [Peerchat](https://dstack.dev/blog/peerchat) demo
 
 | [Explorer][explorer]                                   | [Docs][docs]                               | [CI][ci]                     |
