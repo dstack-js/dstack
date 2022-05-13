@@ -8,7 +8,7 @@
     "debug": "4.3.4",
     "err-code": "^2.0.0",
     "it-pipe": "^1.0.1",
-    "libp2p-utils": "^0.1.0",
+    "libp2p-utils": "0.4.1",
     "mafmt": "^7.0.1",
     "menoetius": "0.0.2",
     "minimist": "^1.2.0",
