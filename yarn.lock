@@ -1888,6 +1888,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.17.9":
+  version: 7.17.9
+  resolution: "@babel/runtime@npm:7.17.9"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: 4d56bdb82890f386d5a57c40ef985a0ed7f0a78f789377a2d0c3e8826819e0f7f16ba0fe906d9b2241c5f7ca56630ef0653f5bb99f03771f7b87ff8af4bf5fe3
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.12.7, @babel/template@npm:^7.16.7, @babel/template@npm:^7.3.3":
   version: 7.16.7
   resolution: "@babel/template@npm:7.16.7"
@@ -2758,7 +2767,7 @@ __metadata:
     it-all: 1.0.6
     it-drain: 1.0.5
     it-last: 1.0.6
-    lru-cache: 7.7.1
+    lru-cache: 7.8.1
     tslib: 2.3.1
     uuid: 8.3.2
   languageName: unknown
@@ -2781,7 +2790,7 @@ __metadata:
     mercurius: 9.3.6
     nexus: 1.3.0
     prom-client: 14.0.1
-    redis: 4.0.4
+    redis: 4.0.6
     socket.io: 4.4.1
     ts-node: 10.7.0
     tsconfig-paths: 3.14.1
@@ -4969,15 +4978,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@node-redis/client@npm:1.0.4":
-  version: 1.0.4
-  resolution: "@node-redis/client@npm:1.0.4"
+"@node-redis/client@npm:1.0.5":
+  version: 1.0.5
+  resolution: "@node-redis/client@npm:1.0.5"
   dependencies:
     cluster-key-slot: 1.1.0
     generic-pool: 3.8.2
     redis-parser: 3.0.0
     yallist: 4.0.0
-  checksum: 80c2665e86b24c704c502b673884551ad7e5f4a94d2337d1b2c24a3194841be12b4c493ae3d447eb4a0bc3fc7ec1449a591c7b792f053b185338b2000b20a84d
+  checksum: cea9c4e339605afe805b5fb762b35d614dffbc40d8290f7050ae4994604c9f74b57d71433f50d3aa090d04b1f5c593ff52170b5cbc13a00ae3222b4282f47b2a
   languageName: node
   linkType: hard
 
@@ -4999,12 +5008,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@node-redis/search@npm:1.0.3":
-  version: 1.0.3
-  resolution: "@node-redis/search@npm:1.0.3"
+"@node-redis/search@npm:1.0.5":
+  version: 1.0.5
+  resolution: "@node-redis/search@npm:1.0.5"
   peerDependencies:
     "@node-redis/client": ^1.0.0
-  checksum: 5ad7ff7849728aec4bda2af51a3f5fc263420c812b4af4f2ac6e47cbe18f245e4c440de7aacf18db40bd209e088f448f2801ccfb3b0e3475b77c9aea507686a0
+  checksum: 3ef636d2386c79df3567bd5d2540932f544da7e097c2c6c0953410a0d11f9f214e4d98e4f3a61aa66690b1c77de5501f754adcb0ae2c9ba03cf07d649fc57ac8
   languageName: node
   linkType: hard
 
@@ -7089,14 +7098,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:17.0.42":
-  version: 17.0.42
-  resolution: "@types/react@npm:17.0.42"
+"@types/react@npm:17.0.45":
+  version: 17.0.45
+  resolution: "@types/react@npm:17.0.45"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 9a84374da1173901b5eba6b2dda9e70220842c8e70274628e5c93684fca59786b7f6215c93f492e34f8834983de096b2544f280c60da9b8fd4c3f20ffe7cc51e
+  checksum: 3cc13a02824c13f6fa4807a83abd065ac1d9943359e76bd995cc7cd2b4148c1176ebd54a30a9f4eb8a0f141ff359d712876f256c4fee707e4290607ef8410b3e
   languageName: node
   linkType: hard
 
@@ -12023,7 +12032,7 @@ __metadata:
     "@testing-library/react-hooks": 7.0.2
     "@types/jest": 27.4.1
     "@types/node": 17.0.21
-    "@types/react": 17.0.42
+    "@types/react": 17.0.45
     "@types/react-dom": 17.0.14
     "@types/react-router-dom": 5.3.3
     "@typescript-eslint/eslint-plugin": 5.16.0
@@ -12051,11 +12060,11 @@ __metadata:
     npm-run-all: 4.1.5
     nx: ^13.9.4
     patch-package: 6.4.7
-    prettier: 2.6.0
+    prettier: 2.6.2
     process: ^0.11.10
     react: 17.0.2
     react-dom: 17.0.2
-    react-flow-renderer: 10.0.5
+    react-flow-renderer: 10.2.2
     react-router-dom: 5.3.0
     react-test-renderer: 17.0.2
     regenerator-runtime: 0.13.9
@@ -19260,6 +19269,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lru-cache@npm:7.8.1":
+  version: 7.8.1
+  resolution: "lru-cache@npm:7.8.1"
+  checksum: 31ea67388c9774300331d70f4affd5a433869bcf0fae5405f967d19d7b447930b713b0566a2e95362c9082034a8b496f3671ccf8f0c061d8e8048412663f9432
+  languageName: node
+  linkType: hard
+
 "lru-cache@npm:^6.0.0":
   version: 6.0.0
   resolution: "lru-cache@npm:6.0.0"
@@ -22819,12 +22835,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.6.0":
-  version: 2.6.0
-  resolution: "prettier@npm:2.6.0"
+"prettier@npm:2.6.2":
+  version: 2.6.2
+  resolution: "prettier@npm:2.6.2"
   bin:
     prettier: bin-prettier.js
-  checksum: 3e527ad62279676778a8404d18174d7ca2365ada4caba6eebbcdd9907d1187afd3bc6ade5b4e5f5d4549bb9fb71e45ca8930d71500017635524f8fc05bc52e93
+  checksum: 48d08dde8e9fb1f5bccdd205baa7f192e9fc8bc98f86e1b97d919de804e28c806b0e6cc685e4a88211aa7987fa9668f30baae19580d87ced3ed0f2ec6572106f
   languageName: node
   linkType: hard
 
@@ -23021,7 +23037,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -23458,16 +23474,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-draggable@npm:^4.4.4":
-  version: 4.4.4
-  resolution: "react-draggable@npm:4.4.4"
+"react-draggable@npm:^4.4.5":
+  version: 4.4.5
+  resolution: "react-draggable@npm:4.4.5"
   dependencies:
     clsx: ^1.1.1
-    prop-types: ^15.6.0
+    prop-types: ^15.8.1
   peerDependencies:
     react: ">= 16.3.0"
     react-dom: ">= 16.3.0"
-  checksum: b8258a58938c261a79f1b9ffd67774283c1ac732423c1c9c9f5fe4d17a06886edd659891e445ba089828ca59f1885e5b909262e24cf60640b8ed05c8499c88bb
+  checksum: 21c3775db086e13020967627c20acd41d1ddbc7c7d7fca51491a5bbb54a0aa7e1730a4bc9af17141eb50a4954e547a5e25b2368f5f54b70db6f2686a897bacf2
   languageName: node
   linkType: hard
 
@@ -23496,20 +23512,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-flow-renderer@npm:10.0.5":
-  version: 10.0.5
-  resolution: "react-flow-renderer@npm:10.0.5"
+"react-flow-renderer@npm:10.2.2":
+  version: 10.2.2
+  resolution: "react-flow-renderer@npm:10.2.2"
   dependencies:
-    "@babel/runtime": ^7.17.8
+    "@babel/runtime": ^7.17.9
     classcat: ^5.0.3
     d3-selection: ^3.0.0
     d3-zoom: ^3.0.0
-    react-draggable: ^4.4.4
-    zustand: ^3.7.1
+    react-draggable: ^4.4.5
+    zustand: ^3.7.2
   peerDependencies:
-    react: 16 || 17
-    react-dom: 16 || 17
-  checksum: bdc12618ea3655bae8bc588f2d1189589073861757269f9d5c9d2caa10bb436b315a04625b47c1de870c1cd48f431711c1cbe2f293089acf379cc7a8d6d985ad
+    react: 16 || 17 || 18
+    react-dom: 16 || 17 || 18
+  checksum: 161dd702a6c4434877b2d31e16c134c764885a9a5626ea58ecfcfa67148d0090d2105d4dcd9a695adf7ac07347976dcedd7d551e1e63f903cd110211ae1318b8
   languageName: node
   linkType: hard
 
@@ -23939,17 +23955,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redis@npm:4.0.4":
-  version: 4.0.4
-  resolution: "redis@npm:4.0.4"
+"redis@npm:4.0.6":
+  version: 4.0.6
+  resolution: "redis@npm:4.0.6"
   dependencies:
     "@node-redis/bloom": 1.0.1
-    "@node-redis/client": 1.0.4
+    "@node-redis/client": 1.0.5
     "@node-redis/graph": 1.0.0
     "@node-redis/json": 1.0.2
-    "@node-redis/search": 1.0.3
+    "@node-redis/search": 1.0.5
     "@node-redis/time-series": 1.0.2
-  checksum: bed4ded396646d128843a97ff01202d802729c83234ba755701ef693e526e2d858b30c566e8830c7c70793ffbf3f91f6e316bfe61ddff3d1c11120ba292ce98a
+  checksum: 1b15d5703a1298e75125b2818ca5fc923f66f6e0d6463932a98890d6455db88f1bddb492172f5707f8273a124a5e9b807f4cd692e1c8edd6e3a63826401c2220
   languageName: node
   linkType: hard
 
@@ -28544,15 +28560,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zustand@npm:^3.7.1":
-  version: 3.7.1
-  resolution: "zustand@npm:3.7.1"
+"zustand@npm:^3.7.2":
+  version: 3.7.2
+  resolution: "zustand@npm:3.7.2"
   peerDependencies:
     react: ">=16.8"
   peerDependenciesMeta:
     react:
       optional: true
-  checksum: 987a2cee95e0fd085c3556d21289a34bb1e9727155837c480617dee839453858523d6321abf3b18de4867fb07d14f5ff7abf9a8404357baa7ec73dffec6dd4f7
+  checksum: 18f025b1b666a311121d3855303ff58e6a21fd107920ca474307e86984c13338d6c4cfa5cdf13382a9e0f76821f2554a12d4d200a98a66b58637e729f149797b
   languageName: node
   linkType: hard
 
