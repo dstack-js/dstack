@@ -2809,7 +2809,7 @@ __metadata:
     minimist: ^1.2.0
     multiaddr: ^7.1.0
     p-defer: ^3.0.0
-    peer-id: ~0.13.2
+    peer-id: 0.16.0
     peer-info: ~0.17.0
     prom-client: ^12.0.0
     simple-peer: ^9.6.0
@@ -21858,7 +21858,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"peer-id@npm:^0.16.0":
+"peer-id@npm:0.16.0, peer-id@npm:^0.16.0":
   version: 0.16.0
   resolution: "peer-id@npm:0.16.0"
   dependencies:
