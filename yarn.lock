@@ -2805,7 +2805,7 @@ __metadata:
     it-pipe: ^1.0.1
     libp2p-utils: 0.4.1
     mafmt: ^7.0.1
-    menoetius: 0.0.2
+    menoetius: 0.0.3
     minimist: ^1.2.0
     multiaddr: ^7.1.0
     p-defer: ^3.0.0
@@ -19544,12 +19544,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"menoetius@npm:0.0.2":
-  version: 0.0.2
-  resolution: "menoetius@npm:0.0.2"
+"menoetius@npm:0.0.3":
+  version: 0.0.3
+  resolution: "menoetius@npm:0.0.3"
   dependencies:
-    prom-client: ^11.5.3
-  checksum: b25b00f8777903866293bf93de9e0e9bb237848e74c24e73ffab2a217a58c8572df9d99317623ec8aefb8afeeec9d43efe31cc6f7a6e98cc2fe3e80f5f11a741
+    prom-client: ^14.0.1
+  checksum: c2bb3f35d9d83ca46b0745e668a5812583fc5f6a4809b13e83c7c6ae4dbd43e8c1d9e3678d4a1ed94ecf09e317d7b689fae41456143fab7d172622591a7bc417
   languageName: node
   linkType: hard
 
@@ -22930,21 +22930,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prom-client@npm:14.0.1":
+"prom-client@npm:14.0.1, prom-client@npm:^14.0.1":
   version: 14.0.1
   resolution: "prom-client@npm:14.0.1"
   dependencies:
     tdigest: ^0.1.1
   checksum: 864c19b7086eda8fae652385bc8b8aeb155f85922e58672d07a64918a603341e120e65e08f9d77ccab546518dc18930284da8743c2aac3c968f626d7063d6bba
-  languageName: node
-  linkType: hard
-
-"prom-client@npm:^11.5.3":
-  version: 11.5.3
-  resolution: "prom-client@npm:11.5.3"
-  dependencies:
-    tdigest: ^0.1.1
-  checksum: 9ed7ffc880a525aec05de940268cc50df9393a7c077fbf0e4a1607369821f65bcd439bd5b9e0adf9d7a2041a64c6aa98281492eea0e0aaf07b2f854627eee8f3
   languageName: node
   linkType: hard
 
