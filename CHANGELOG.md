@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.50](https://github.com/dstack-js/dstack/compare/v0.2.49...v0.2.50) (2022-05-13)
+
+### Bug Fixes
+
+- **deps:** update dependency libp2p-utils to v0.4.1 ([#79](https://github.com/dstack-js/dstack/issues/79)) ([3511261](https://github.com/dstack-js/dstack/commits/3511261acd0c2f1251ed28691843efe4faa1fb1a))
+- **deps:** update dependency menoetius to v0.0.3 ([#78](https://github.com/dstack-js/dstack/issues/78)) ([6d51cfe](https://github.com/dstack-js/dstack/commits/6d51cfe9fa8441f06e7a0ca311e18fa398dc2234))
+- **deps:** update dependency peer-id to v0.16.0 ([#83](https://github.com/dstack-js/dstack/issues/83)) ([e61aa66](https://github.com/dstack-js/dstack/commits/e61aa66672dcf467bf2de21b9552b1c82fd3cf08))
+- **deps:** update dependency react-flow-renderer to v10.2.2 ([#72](https://github.com/dstack-js/dstack/issues/72)) ([14999cd](https://github.com/dstack-js/dstack/commits/14999cd45ce8a73b4c97df8cf5f011482a1fe524))
+- upgrade lru-cache from 7.7.1 to 7.8.1 ([#95](https://github.com/dstack-js/dstack/issues/95)) ([f76d83b](https://github.com/dstack-js/dstack/commits/f76d83b26a90d54df67eb5bc3f0d303c3cef6fa5))
+- upgrade redis from 4.0.4 to 4.0.6 ([#92](https://github.com/dstack-js/dstack/issues/92)) ([3c94993](https://github.com/dstack-js/dstack/commits/3c949932793fba2c777ee1f6161eed3fa8ef30c8))
+
 ### [0.2.49](https://github.com/dstack-js/dstack/compare/v0.2.48...v0.2.49) (2022-03-26)
 
 ### Bug Fixes

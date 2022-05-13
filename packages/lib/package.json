@@ -21,5 +21,5 @@
   "name": "@dstack-js/lib",
   "repository": "https://github.com/dstack-js/dstack.git",
   "type": "commonjs",
-  "version": "0.2.49"
+  "version": "0.2.50"
 }

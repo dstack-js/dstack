@@ -90,7 +90,7 @@
     "release": "standard-version --bumpFiles package.json packages/lib/package.json packages/ipfs/package.json packages/relay/package.json packages/transport/package.json && scripts/publish",
     "serve": "nx run-many --all --verbose --target=serve"
   },
-  "version": "0.2.49",
+  "version": "0.2.50",
   "workspaces": [
     "packages/*",
     "docs"
