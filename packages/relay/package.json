@@ -5,7 +5,7 @@
   "dependencies": {
     "@dstack-js/lib": "latest",
     "@dstack-js/wrtc": "^0.4.8",
-    "@libp2p/webrtc-star-protocol": "1.0.1",
+    "@libp2p/webrtc-star-protocol": "1.0.2",
     "fastify": "3.27.4",
     "fastify-cors": "6.0.3",
     "fastify-socket.io": "3.0.0",
