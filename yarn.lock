@@ -2779,7 +2779,7 @@ __metadata:
   dependencies:
     "@dstack-js/lib": latest
     "@dstack-js/wrtc": ^0.4.8
-    "@libp2p/webrtc-star-protocol": 1.0.1
+    "@libp2p/webrtc-star-protocol": 1.0.2
     "@types/lru-cache": ^7.6.0
     fastify: 3.27.4
     fastify-cors: 6.0.3
@@ -4696,13 +4696,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@libp2p/webrtc-star-protocol@npm:1.0.1":
-  version: 1.0.1
-  resolution: "@libp2p/webrtc-star-protocol@npm:1.0.1"
+"@libp2p/webrtc-star-protocol@npm:1.0.2":
+  version: 1.0.2
+  resolution: "@libp2p/webrtc-star-protocol@npm:1.0.2"
   dependencies:
     "@multiformats/multiaddr": ^10.1.7
     socket.io-client: ^4.1.2
-  checksum: 4815a3faf9128348a88eb23a45385c85e1951cb05a2f11f2e8f5d02fbc970b7912b86860e66aa9cc437a42cb29a106d111a03ab2b09c62e5a6b1af959dff5cf2
+  checksum: 1e06d32e2b267c3b4fea57957de197f50b70f58d08545be8df1b5788f333419d42135ee5f9bd3512ebcec6f4af4709ded447eeb15f2565fad187ca2673a9260d
   languageName: node
   linkType: hard
 
