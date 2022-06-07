@@ -23,6 +23,21 @@ function HomepageHeader() {
             Get started ⚡️
           </Link>
         </div>
+        <br />
+        <details>
+          <summary className="button button--secondary button--m">
+            Watch Presentation 📽
+          </summary>
+
+          <iframe
+            src="https://pitch.com/embed/5143e1e5-b281-40fd-bddd-164abba626e0"
+            allow="fullscreen"
+            style={{ marginTop: '10px', borderRadius: '8px' }}
+            allowFullScreen={true}
+            width="100%"
+            height="768"
+          />
+        </details>
       </div>
     </header>
   );

@@ -30,7 +30,8 @@ Checkout [Peerchat](https://dstack.dev/blog/peerchat) demo
 
 See [Tutorial](https://dstack.dev/docs/intro) to get started using DStack in your dapp
 
-## Deprecaton Notice
+## Deprecation Notice
+
 Version 0.2.x will be deprecated soon, majority of the development is moved to `next` branch.
 
 This version will not receive any major upgrades or improvements, only minor security fixes and dependency upgrades.
