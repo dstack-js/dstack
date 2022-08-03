@@ -34,6 +34,7 @@ function HomepageHeader() {
             allow="fullscreen"
             style={{ marginTop: '10px', borderRadius: '8px' }}
             allowFullScreen={true}
+            sandbox="allow-same-origin allow-scripts"
             width="100%"
             height="768"
           />
