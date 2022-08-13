@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "latest",
-    "@tsconfig/docusaurus": "^1.0.4",
+    "@tsconfig/docusaurus": "1.0.6",
     "typescript": "4.6.4"
   },
   "name": "docs",
