@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@dstack-js/transport": "^0.2.43",
-    "graphql-request": "^4.2.0",
+    "graphql-request": "4.2.0",
     "ipfs-core": "0.14.1",
     "tslib": "2.3.1"
   },
