@@ -1,13 +1,15 @@
 {
   "dependencies": {
     "@dstack-js/lib": "portal:../lib",
-    "vue": "^3.2.25"
+    "vue": "^3.2.25",
+    "vuetify": "next"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.0",
     "rollup-plugin-polyfill-node": "^0.9.0",
     "typescript": "^4.5.4",
     "vite": "^2.9.0",
+    "vite-plugin-vuetify": "^1.0.0-alpha.14",
     "vue-tsc": "^0.29.8"
   },
   "name": "@dstack-js/explorer",

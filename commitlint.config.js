@@ -7,7 +7,7 @@ module.exports = {
     "scope-enum": [
       2,
       "always",
-      ["workspace", "workflows", "lib"]
+      ["workspace", "workflows", "lib", "explorer"]
     ]
   }
 }
