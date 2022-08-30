@@ -1,0 +1,29 @@
+{
+  "affected": {
+    "defaultBase": "main"
+  },
+  "extends": "nx/presets/npm.json",
+  "implicitDependencies": {
+    "nx.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*"
+  },
+  "npmScope": "dstack-js",
+  "targets": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/"]
+    }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "options": {
+        "cacheableOperations": ["build", "dev", "preview", "prepack"]
+      },
+      "runner": "nx/tasks-runners/default"
+    }
+  }
+}

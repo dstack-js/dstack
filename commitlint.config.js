@@ -1,13 +1,13 @@
 module.exports = {
   extends: [
-    '@commitlint/config-conventional',
-    '@commitlint/config-lerna-scopes'
+    "@commitlint/config-conventional",
+    "@commitlint/config-nx-scopes"
   ],
   rules: {
-    'scope-enum': [
+    "scope-enum": [
       2,
-      'always',
-      ['workspace', 'workflows', 'lib', 'explorer']
-    ],
+      "always",
+      ["workspace", "workflows", "lib"]
+    ]
   }
 }

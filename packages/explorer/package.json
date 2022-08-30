@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@dstack-js/lib": "portal:../lib",
     "vue": "^3.2.25"
   },
   "devDependencies": {
@@ -9,7 +10,7 @@
     "vite": "^2.9.0",
     "vue-tsc": "^0.29.8"
   },
-  "name": "@dsrack-js/explorer",
+  "name": "@dstack-js/explorer",
   "private": true,
   "scripts": {
     "build": "vue-tsc --noEmit && vite build",

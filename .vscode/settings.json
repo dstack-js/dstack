@@ -1,5 +1,19 @@
 {
   "editor.codeActionsOnSave": {
     "source.fixAll": true
-  }
+  },
+  "cSpell.words": [
+    "cborg",
+    "dstack",
+    "fastify",
+    "libp2p",
+    "mercurius",
+    "mplex",
+    "multiaddr",
+    "multiaddrs",
+    "muxer",
+    "muxers",
+    "webrtc",
+    "wrtc"
+  ]
 }

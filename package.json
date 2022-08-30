@@ -12,8 +12,8 @@
   "scripts": {
     "prepare": "husky install",
     "commit": "commit",
-    "build": "lerna run build",
-    "dev": "lerna run --parallel dev",
+    "build": "nx run-many --all --target=build",
+    "dev": "nx run-many --all --parallel=2 --target=dev",
     "lint": "eslint .",
     "postinstall": "husky install"
   },
@@ -22,6 +22,7 @@
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
     "@commitlint/config-lerna-scopes": "^16.2.2",
+    "@commitlint/config-nx-scopes": "^17.0.0",
     "@commitlint/prompt-cli": "^16.2.3",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "^5.18.0",
@@ -32,9 +33,9 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0",
     "husky": "^7.0.4",
-    "lerna": "^4.0.0",
     "lint-staged": ">=10",
     "microbundle": "^0.14.2",
+    "nx": "^14.5.10",
     "prettier": "^2.6.2",
     "typescript": "^4.6.3",
     "zx": "^6.0.7"

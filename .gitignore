@@ -3,5 +3,6 @@ dist/
 node_modules/
 .yarn/*
 !.yarn/releases
+!.yarn/plugins
 .*cache
 *.log

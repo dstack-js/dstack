@@ -2,13 +2,15 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "standard",
-    "prettier"
+    "prettier",
+    "standard"
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "rules": {
     "sort-imports": "error",
-    "no-useless-constructor": "off"
+    "no-useless-constructor": "off",
+    "quotes": ["error", "double"],
+    "dot-notation": "off"
   }
 }
