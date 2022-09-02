@@ -4,21 +4,24 @@
     "url": "https://github.com/dstack-js/dstack/issues"
   },
   "dependencies": {
-    "@chainsafe/libp2p-gossipsub": "^4.1.1",
     "@chainsafe/libp2p-noise": "^8.0.1",
+    "@libp2p/floodsub": "^3.0.5",
     "@libp2p/kad-dht": "^3.0.4",
     "@libp2p/mplex": "^5.0.0",
+    "@libp2p/peer-id": "^1.1.15",
+    "@libp2p/peer-id-factory": "^1.0.18",
     "@libp2p/webrtc-direct": "^2.0.2",
     "@libp2p/webrtc-star": "^3.0.1",
     "@libp2p/websockets": "^3.0.2",
+    "@multiformats/multiaddr": "^10.4.0",
+    "@types/events": "^3",
     "cborg": "^1.9.5",
+    "events": "^3.3.0",
+    "it-all": "^1.0.6",
     "libp2p": "^0.38.0"
   },
   "description": "DStack is a library for developing semi-decentralized web applications",
   "devDependencies": {
-    "@types/events": "^3",
-    "events": "^3.3.0",
-    "it-all": "^1.0.6",
     "microbundle": "^0.14.2"
   },
   "displayName": "DStack",
@@ -49,6 +52,9 @@
   "module": "./dist/index.module.js",
   "name": "@dstack-js/lib",
   "packageManager": "yarn@3.2.0",
+  "resolutions": {
+    "protobufjs": "6.11.3"
+  },
   "scripts": {
     "build": "microbundle",
     "dev": "yarn build watch",

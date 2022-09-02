@@ -1,8 +1,15 @@
-import { Libp2pOptions } from "libp2p"
-import { WebRTCStarInit } from "@libp2p/webrtc-star"
+import type { WebRTCStarInit } from "@libp2p/webrtc-star"
 
 export interface NetworkOptions {
-  peerId?: Libp2pOptions["peerId"]
+  /**
+   * Peer identity to use.
+   *
+   * If not provided, a new identity will be generated.
+   *
+   * Identity is a base64-encoded protobuf object, you can get one using `await Peer.getIdentity()`.
+   */
+  identity?: string
+
   /**
      Shared secret used to make handshakes between peers faster.
 
@@ -19,4 +26,9 @@ export interface NetworkOptions {
    * You can provide custom webrtc implementation for non-browser environments.
    */
   webrtc?: WebRTCStarInit["wrtc"]
+
+  /**
+   * autoconnect to peers when they being discovered
+   **/
+  autoConnect?: boolean
 }

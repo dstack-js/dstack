@@ -13,7 +13,7 @@
     "prepare": "husky install",
     "commit": "commit",
     "build": "nx run-many --all --target=build",
-    "dev": "nx run-many --all --parallel=2 --target=dev",
+    "dev": "webrtc-star & nx run-many --all --parallel=2 --target=dev",
     "lint": "eslint .",
     "postinstall": "husky install"
   },
@@ -24,6 +24,7 @@
     "@commitlint/config-lerna-scopes": "^16.2.2",
     "@commitlint/config-nx-scopes": "^17.0.0",
     "@commitlint/prompt-cli": "^16.2.3",
+    "@libp2p/webrtc-star-signalling-server": "^2.0.2",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "^5.18.0",
     "eslint": "^8.12.0",

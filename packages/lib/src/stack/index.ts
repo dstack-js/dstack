@@ -3,13 +3,13 @@ import { Network } from "../network"
 import { StackOptions } from "./interfaces"
 
 export class Stack {
-  private internalKV: KV
+  public kv: KV
 
-  constructor (
-    public options: StackOptions = {},
+  private constructor (
+    public options: StackOptions,
     public network: Network
   ) {
-    this.internalKV = KV.create(this)
+    this.kv = KV.create(this)
   }
 
   public static async start (options: StackOptions): Promise<Stack> {

@@ -3,9 +3,12 @@
     "source.fixAll": true
   },
   "cSpell.words": [
+    "autohide",
     "cborg",
+    "chainsafe",
     "dstack",
     "fastify",
+    "gossipsub",
     "libp2p",
     "mercurius",
     "mplex",
@@ -13,6 +16,7 @@
     "multiaddrs",
     "muxer",
     "muxers",
+    "protobuf",
     "vuetify",
     "webrtc",
     "wrtc"

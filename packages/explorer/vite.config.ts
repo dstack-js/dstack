@@ -1,10 +1,17 @@
 import { defineConfig } from "vite"
+import monacoEditorPlugin from "vite-plugin-monaco-editor"
 import nodePolyfills from "rollup-plugin-polyfill-node"
 import vue from "@vitejs/plugin-vue"
 import vuetify from "vite-plugin-vuetify"
 
 export default defineConfig({
-  plugins: [vue(), vuetify({ autoImport: true })],
+  plugins: [
+    vue(),
+    vuetify({ autoImport: true }),
+    monacoEditorPlugin({
+      languageWorkers: ["json"]
+    })
+  ],
   server: {
     proxy: {
       "/socket.io-next": {
