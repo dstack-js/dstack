@@ -2,6 +2,7 @@
 import MonacoEditor from 'monaco-editor-vue3'
 import { StackOptions } from '@dstack-js/lib'
 import { PropType, ref, watch } from 'vue'
+import { editor } from 'monaco-editor'
 
 const debugLogging = ref(localStorage.getItem('debug') === '*')
 
@@ -9,6 +10,12 @@ watch(debugLogging, (value) => {
   localStorage.setItem('debug', value ? '*' : '')
   location.reload()
 })
+
+const editorMounted = (editor: editor.IEditor) => {
+  window.addEventListener('resize', () => {
+    editor.layout()
+  })
+}
 
 const props = defineProps({
   modelValue: {
@@ -43,9 +50,13 @@ const create = () => {
         style="min-height: 50vh; min-width: 50vw"
         theme="vs-dark"
         :options="{ minimap: { autohide: true } }"
+        @editorDidMount="editorMounted"
         v-model:value="rawOptions"
       />
-      <v-switch color="white" v-model="debugLogging" label="Enable debug logging"
+      <v-switch
+        color="white"
+        v-model="debugLogging"
+        label="Enable debug logging"
         >Enable debug logging</v-switch
       >
     </v-card-text>

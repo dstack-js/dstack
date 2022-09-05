@@ -1,6 +1,6 @@
 import { Libp2p, createLibp2p } from "libp2p"
 import EventEmitter from "events"
-import { FloodSub } from "@libp2p/floodsub"
+import { GossipSub } from "@chainsafe/libp2p-gossipsub"
 import { KadDHT } from "@libp2p/kad-dht"
 import { Mplex } from "@libp2p/mplex"
 import { NetworkOptions } from "./interfaces"
@@ -25,7 +25,7 @@ export class Network extends EventEmitter {
     libp2p.addEventListener("peer:discovery", (event) => {
       this.emit("discovered", Peer.fromPeerId(event.detail.id, this))
 
-      if (options.autoConnect) {
+      if (options.discovery?.autoConnect) {
         this.connect(event.detail.multiaddrs[0].toString())
           .catch((err) => this.emit("error", err))
       }
@@ -54,7 +54,7 @@ export class Network extends EventEmitter {
 
   static async create (options: NetworkOptions): Promise<Network> {
     const mplex = new Mplex()
-    const pubsub = new FloodSub()
+    const pubsub = new GossipSub()
     const webrtcStar = new WebRTCStar()
     const dht = new KadDHT({
       protocolPrefix: "dstack"

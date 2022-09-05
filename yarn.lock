@@ -1404,6 +1404,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chainsafe/libp2p-gossipsub@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "@chainsafe/libp2p-gossipsub@npm:4.1.1"
+  dependencies:
+    "@libp2p/components": ^2.0.3
+    "@libp2p/crypto": ^1.0.3
+    "@libp2p/interface-connection": ^3.0.1
+    "@libp2p/interface-keys": ^1.0.3
+    "@libp2p/interface-peer-id": ^1.0.4
+    "@libp2p/interface-pubsub": ^2.0.1
+    "@libp2p/interface-registrar": ^2.0.3
+    "@libp2p/interfaces": ^3.0.3
+    "@libp2p/logger": ^2.0.0
+    "@libp2p/peer-id": ^1.1.15
+    "@libp2p/peer-record": ^4.0.1
+    "@libp2p/pubsub": ^3.1.2
+    "@libp2p/topology": ^3.0.0
+    abortable-iterator: ^4.0.2
+    denque: ^1.5.0
+    err-code: ^3.0.1
+    it-length-prefixed: ^8.0.2
+    it-pipe: ^2.0.4
+    it-pushable: ^3.1.0
+    multiformats: ^9.6.4
+    protobufjs: ^6.11.2
+    uint8arraylist: ^2.3.2
+    uint8arrays: ^3.0.0
+  checksum: 933ec9c38f81c623ac6540b087e5b8ce8a2670332ea000d76140b1d59497f15c876f1eeaad6f406d28ab935943c0d5407733b91a3c591385032a1b7fcafcc04a
+  languageName: node
+  linkType: hard
+
 "@chainsafe/libp2p-noise@npm:^8.0.1":
   version: 8.0.1
   resolution: "@chainsafe/libp2p-noise@npm:8.0.1"
@@ -1723,7 +1754,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dstack-js/lib@portal:../lib::locator=%40dstack-js%2Fexplorer%40workspace%3Apackages%2Fexplorer"
   dependencies:
+    "@chainsafe/libp2p-gossipsub": ^4.1.1
     "@chainsafe/libp2p-noise": ^8.0.1
+    "@libp2p/floodsub": ^3.0.5
     "@libp2p/kad-dht": ^3.0.4
     "@libp2p/mplex": ^5.0.0
     "@libp2p/peer-id": ^1.1.15
@@ -1744,6 +1777,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dstack-js/lib@workspace:packages/lib"
   dependencies:
+    "@chainsafe/libp2p-gossipsub": ^4.1.1
     "@chainsafe/libp2p-noise": ^8.0.1
     "@libp2p/floodsub": ^3.0.5
     "@libp2p/kad-dht": ^3.0.4
@@ -2323,7 +2357,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@libp2p/interface-keys@npm:^1.0.2":
+"@libp2p/interface-keys@npm:^1.0.2, @libp2p/interface-keys@npm:^1.0.3":
   version: 1.0.3
   resolution: "@libp2p/interface-keys@npm:1.0.3"
   checksum: 0fb22e9964505c9a81c6a68f6f3714a40a9e097c0eda8a80a85961d15743dc478a58b080fe5f0f1556f6ff45f39e062bb821e705e87cadd4057ecbc5a4e4fade
@@ -2684,7 +2718,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@libp2p/pubsub@npm:^3.1.1":
+"@libp2p/pubsub@npm:^3.1.1, @libp2p/pubsub@npm:^3.1.2":
   version: 3.1.2
   resolution: "@libp2p/pubsub@npm:3.1.2"
   dependencies:
@@ -3487,6 +3521,13 @@ __metadata:
   version: 0.0.29
   resolution: "@types/json5@npm:0.0.29"
   checksum: e60b153664572116dfea673c5bda7778dbff150498f44f998e34b5886d8afc47f16799280e4b6e241c0472aef1bc36add771c569c68fc5125fc2ae519a3eb9ac
+  languageName: node
+  linkType: hard
+
+"@types/long@npm:^4.0.1":
+  version: 4.0.2
+  resolution: "@types/long@npm:4.0.2"
+  checksum: d16cde7240d834cf44ba1eaec49e78ae3180e724cd667052b194a372f350d024cba8dd3f37b0864931683dab09ca935d52f0c4c1687178af5ada9fc85b0635f4
   languageName: node
   linkType: hard
 
@@ -5345,6 +5386,13 @@ __metadata:
   version: 1.0.0
   resolution: "delegates@npm:1.0.0"
   checksum: a51744d9b53c164ba9c0492471a1a2ffa0b6727451bdc89e31627fdf4adda9d51277cfcbfb20f0a6f08ccb3c436f341df3e92631a3440226d93a8971724771fd
+  languageName: node
+  linkType: hard
+
+"denque@npm:^1.5.0":
+  version: 1.5.1
+  resolution: "denque@npm:1.5.1"
+  checksum: 4375ad19d5cea99f90effa82a8cecdaa10f4eb261fbcd7e47cd753ff2737f037aac8f7f4e031cc77f3966314c491c86a0d3b20c128aeee57f791b4662c45108e
   languageName: node
   linkType: hard
 
@@ -7695,6 +7743,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"it-pipe@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "it-pipe@npm:2.0.4"
+  dependencies:
+    it-merge: ^1.0.4
+    it-pushable: ^3.1.0
+    it-stream-types: ^1.0.3
+  checksum: e8c153d1e04da345a31b6d419484b414027a78c57b964894f6ab513ec38efd592ce2d1e7eb75ccfc0a7132476525386012104b0b6ed957ac140ffc44cc8676e1
+  languageName: node
+  linkType: hard
+
 "it-pushable@npm:^1.4.0":
   version: 1.4.2
   resolution: "it-pushable@npm:1.4.2"
@@ -8200,10 +8259,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"long@npm:^5.0.0":
-  version: 5.2.0
-  resolution: "long@npm:5.2.0"
-  checksum: 37aa4e67b9c3eebc6d9d675adcc9d06f06059ca268922a71273de389746bf07f0ff282f9e604d17fdf84c4149099b44e936ea2b621a6c4759a216621afa97efd
+"long@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "long@npm:4.0.0"
+  checksum: 16afbe8f749c7c849db1f4de4e2e6a31ac6e617cead3bdc4f9605cb703cd20e1e9fc1a7baba674ffcca57d660a6e5b53a9e236d7b25a295d3855cca79cc06744
   languageName: node
   linkType: hard
 
@@ -8648,6 +8707,13 @@ __metadata:
   version: 9.6.4
   resolution: "multiformats@npm:9.6.4"
   checksum: b3b8e481112379d6f3aace199a06e6974dfe3ed4e2100a0effe19fef936ba31704382356df6278a3922b5cb47fcfefe3e5bc54e5bebef35272e3503bad3c62ba
+  languageName: node
+  linkType: hard
+
+"multiformats@npm:^9.6.4":
+  version: 9.7.1
+  resolution: "multiformats@npm:9.7.1"
+  checksum: 9193a4b55573dc88053a357e5f9562696d7cc47669e5ce5d7e147e3db1ec3f793567d7943c7e20271af9acd1e48c1679d0dfe932094333b16ed7f9f2ccf9197f
   languageName: node
   linkType: hard
 
@@ -9839,9 +9905,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"protobufjs@npm:^7.0.0":
-  version: 7.1.0
-  resolution: "protobufjs@npm:7.1.0"
+"protobufjs@npm:6.11.3":
+  version: 6.11.3
+  resolution: "protobufjs@npm:6.11.3"
   dependencies:
     "@protobufjs/aspromise": ^1.1.2
     "@protobufjs/base64": ^1.1.2
@@ -9853,9 +9919,13 @@ __metadata:
     "@protobufjs/path": ^1.1.2
     "@protobufjs/pool": ^1.1.0
     "@protobufjs/utf8": ^1.1.0
+    "@types/long": ^4.0.1
     "@types/node": ">=13.7.0"
-    long: ^5.0.0
-  checksum: 11946cef7002cd28837abdfe6294841763dfaad9d4176260c98ccee092ae1afed8a626910f1c2d28177b2e654a838a9cb71710fe52650dc5fc8543229693dbb6
+    long: ^4.0.0
+  bin:
+    pbjs: bin/pbjs
+    pbts: bin/pbts
+  checksum: 4a6ce1964167e4c45c53fd8a312d7646415c777dd31b4ba346719947b88e61654912326101f927da387d6b6473ab52a7ea4f54d6f15d63b31130ce28e2e15070
   languageName: node
   linkType: hard
 

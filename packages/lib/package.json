@@ -4,6 +4,7 @@
     "url": "https://github.com/dstack-js/dstack/issues"
   },
   "dependencies": {
+    "@chainsafe/libp2p-gossipsub": "^4.1.1",
     "@chainsafe/libp2p-noise": "^8.0.1",
     "@libp2p/floodsub": "^3.0.5",
     "@libp2p/kad-dht": "^3.0.4",

@@ -5,6 +5,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "resolutions": {
+    "protobufjs": "6.11.3"
+  },
   "repository": "https://github.com/dstack-js/dstack.git",
   "author": "Mykhailo Marynenko <0x77dev@protonmail.com>",
   "license": "GPL-3.0",

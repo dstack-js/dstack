@@ -1,5 +1,12 @@
 import type { WebRTCStarInit } from "@libp2p/webrtc-star"
 
+export interface DiscoveryOptions {
+  /**
+   * auto connect to peers when they being discovered
+   **/
+   autoConnect?: boolean
+}
+
 export interface NetworkOptions {
   /**
    * Peer identity to use.
@@ -27,8 +34,5 @@ export interface NetworkOptions {
    */
   webrtc?: WebRTCStarInit["wrtc"]
 
-  /**
-   * autoconnect to peers when they being discovered
-   **/
-  autoConnect?: boolean
+  discovery?: DiscoveryOptions
 }

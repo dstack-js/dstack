@@ -21,7 +21,9 @@ const options = ref<StackOptions>({
     listen: [
       '/ip4/127.0.0.1/tcp/9090/ws/p2p-webrtc-star/'
     ],
-    autoConnect: true
+    discovery: {
+      autoConnect: true
+    }
   },
 })
 
