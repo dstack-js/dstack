@@ -4764,6 +4764,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mdx-js/react@npm:2.1.5":
+  version: 2.1.5
+  resolution: "@mdx-js/react@npm:2.1.5"
+  dependencies:
+    "@types/mdx": ^2.0.0
+    "@types/react": ">=16"
+  peerDependencies:
+    react: ">=16"
+  checksum: e47fb7086a4dd3e4d75d9ef0bf530009f72437a5ea91048e65d2e2f53955015a8c81b5058ac56fa00f401843305518e9f298183645d56c7e34336df4cc0b62bf
+  languageName: node
+  linkType: hard
+
 "@mdx-js/react@npm:^1.6.22":
   version: 1.6.22
   resolution: "@mdx-js/react@npm:1.6.22"
@@ -11804,7 +11816,7 @@ __metadata:
     "@docusaurus/core": latest
     "@docusaurus/module-type-aliases": latest
     "@docusaurus/preset-classic": latest
-    "@mdx-js/react": ^1.6.22
+    "@mdx-js/react": 2.1.5
     "@tsconfig/docusaurus": ^1.0.4
     clsx: ^1.1.1
     markdown-to-jsx: ^7.1.7
